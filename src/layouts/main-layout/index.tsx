@@ -12,16 +12,10 @@ const MainLayout = () => {
         component="main"
         sx={[
           {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-
-            flexGrow: 1,
-            flexShrink: 1,
-            p: 0,
             minHeight: '100vh',
             marginLeft: { sm: '240px' },
             bgcolor: '#f5f5f5',
+            paddingX: '1.625rem',
           },
         ]}
       >

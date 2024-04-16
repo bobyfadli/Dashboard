@@ -1,9 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import Factors from 'components/sections/dashboard/Factors';
 
 const Dashboard = () => {
   return (
     <Box>
-      <Typography variant="h1">Dashboard Content</Typography>
+      <Factors></Factors>
     </Box>
   );
 };

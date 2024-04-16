@@ -1,47 +1,52 @@
-const typography = {
+import { TypographyOptions } from '@mui/material/styles/createTypography';
+
+const typography: TypographyOptions = {
   fontFamily: ['DM Sans', 'Inter'].join(','),
+  // login, sign up
   h1: {
     fontWeight: 700,
     fontSize: '1.875rem', // 30px
     lineHeight: 2.441, // 39.06px
   },
+  // logo, card box
   h2: {
     fontWeight: 700,
     fontSize: '1.5rem', // 24px
     lineHeight: 1.953, // 31.25px
   },
+  //statistics, car brand
   h3: {
     fontWeight: 700,
     fontSize: '1.25rem', // 20px
     lineHeight: 1.628, //26.04px
   },
-  // h4: {
-  //   fontWeight: 700,
-  //   fontSize: '1.75rem', // 28px
-  //   lineHeight: 1.15,
-  // },
+  h4: {
+    fontWeight: 400,
+    fontSize: '1.125rem', // 18px
+    lineHeight: 1.465, // 23.44px
+  },
   // h5: {
   //   fontWeight: 700,
-  //   fontSize: '1.5rem', // 24px
-  //   lineHeight: 1.15,
+  //   fontSize: '1.125rem', // 18px
+  //   lineHeight: 1.465, // 23.44px
   // },
-  // h6: {
-  //   fontWeight: 700,
-  //   fontSize: '1.3125rem', // 21px
-  //   lineHeight: 1.2,
-  // },
+  h6: {
+    fontWeight: 700,
+    fontSize: '1rem', // 16px
+    lineHeight: 1.25, // 20.83px
+  },
   // subtitle1: {
   //   fontWeight: 400,
   //   fontSize: '1rem', // 16px
   //   lineHeight: 1.3,
   // },
-  // subtitle2: {
-  //   fontWeight: 500,
-  //   fontSize: '0.875rem', // 14px
-  //   lineHeight: 1.3,
-  // },
-  body1: {
+  subtitle2: {
     fontWeight: 700,
+    fontSize: '0.875rem', // 14px
+    lineHeight: 1.125, // 18px
+  },
+  body1: {
+    fontWeight: 500,
     fontSize: '1rem', // 16px
     lineHeight: 1.302, // 20.83px
   },
@@ -50,12 +55,12 @@ const typography = {
     fontSize: '0.875rem', // 14px
     lineHeight: 1.139, // 18.23px
   },
-  // button: {
-  //   fontWeight: 700,
-  //   fontSize: '0.875rem', // 14px
-  //   lineHeight: 1.286,
-  //   textTransform: 'capitalize',
-  // },
+  button: {
+    fontWeight: 500,
+    fontSize: '1.125rem', // 18px
+    lineHeight: 1.465, // 23.44px
+    textTransform: 'none',
+  },
   // caption: {
   //   fontWeight: 400,
   //   fontSize: '0.75rem', // 12px

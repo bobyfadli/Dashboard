@@ -2,11 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import SearchIcon from '@mui/icons-material/Search';
@@ -14,9 +14,10 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Toolbar from '@mui/material/Toolbar';
-import { AppBar, Badge, IconButton, InputBase, Menu, MenuItem } from '@mui/material';
+import { AppBar, Badge, IconButton, InputBase, Menu, MenuItem, Typography } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import { grey } from 'theme/colors';
+import IconifyIcon from './base/IconifyIcon';
 
 const drawerWidth = 240;
 
@@ -118,9 +119,26 @@ export default function ResponsiveDrawer() {
                   fontWeight: 500,
                   fontSize: '14px',
                   color: '#5F6165',
+                  marginLeft: 1,
                 }}
               >
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  {index % 2 === 0 ? (
+                    <IconifyIcon icon="mage:dashboard" height="1.25rem" width="1.25rem" mr={1} />
+                  ) : (
+                    <IconifyIcon
+                      icon="solar:settings-linear"
+                      height="1.25rem"
+                      width="1.25rem"
+                      mr={1}
+                    />
+                  )}
+                </Box>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -130,8 +148,32 @@ export default function ResponsiveDrawer() {
         <Box>
           {['Settings', 'Log out'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton sx={{ borderRadius: '0.375rem' }}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemButton
+                sx={{
+                  borderRadius: '0.375rem',
+                  fontWeight: 500,
+                  fontSize: '14px',
+                  color: '#5F6165',
+                  marginLeft: 1,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  {index % 2 === 0 ? (
+                    <IconifyIcon icon="mage:dashboard" height="1.25rem" width="1.25rem" mr={1} />
+                  ) : (
+                    <IconifyIcon
+                      icon="solar:settings-linear"
+                      height="1.25rem"
+                      width="1.25rem"
+                      mr={1}
+                    />
+                  )}
+                </Box>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -207,7 +249,7 @@ export default function ResponsiveDrawer() {
       </MenuItem>
       <MenuItem>
         <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
-          <Badge badgeContent={17} color="error">
+          <Badge badgeContent=" " color="error" variant="dot">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -270,7 +312,7 @@ export default function ResponsiveDrawer() {
               </Badge>
             </IconButton>
             <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent=" " color="error" variant="dot" overlap="circular">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -332,7 +374,24 @@ export default function ResponsiveDrawer() {
           open
         >
           <Toolbar>
-            <ListItem>Motiv.</ListItem>
+            <ListItem>
+              <svg
+                width="27"
+                height="27"
+                viewBox="0 0 27 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect y="0.0751953" width="26.914" height="26.85" rx="6" fill="#A162F7" />
+                <path
+                  d="M9.1273 19.7072L10.8492 17.9853C6.48698 15.345 7.21403 11.3367 8.12284 9.66258L13.5039 14.9002L18.885 9.66258C20.9513 14.1396 17.8805 17.0287 16.0868 17.9136L17.9523 19.7072C24.6248 14.6849 21.3961 7.94063 18.885 6.0752L13.5039 11.4563L7.97934 6.0752C2.09602 11.815 6.25741 18.2723 9.1273 19.7072Z"
+                  fill="white"
+                />
+              </svg>
+              <Typography variant="h2" ml="0.75rem">
+                Motiv.
+              </Typography>
+            </ListItem>
           </Toolbar>
           {drawer}
         </Drawer>
