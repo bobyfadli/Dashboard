@@ -7,6 +7,7 @@ import {
   FormGroup,
   FormLabel,
   Grid,
+  Link,
   Paper,
   Stack,
   TextField,
@@ -16,6 +17,7 @@ import { grey } from 'theme/colors';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import paths from 'routes/paths';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 interface LoginFormValues {
@@ -35,29 +37,32 @@ const Signup = () => {
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data);
 
   return (
-    <Box sx={{ width: '31.625rem', height: '40.625rem' }}>
+    <Box sx={{ width: '31.625rem' }}>
       <Typography variant="h1">Get's started.</Typography>
       <Box display="flex" mb={'3.375rem'}>
         <Typography variant="h4" color="gray">
           Don’t have an account?
         </Typography>
-        <Typography variant="button" color="secondary">
-          &nbsp;Sign in
-        </Typography>
+        <Link href={paths.login} underline="none">
+          <Typography variant="button" color="secondary">
+            &nbsp;Sign in
+          </Typography>
+        </Link>
       </Box>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ xs: 'center' }} spacing={2}>
         <Button
           variant="outlined"
-          sx={{
-            width: '15.375rem',
+          sx={(theme) => ({
+            width: { xs: '100%', sm: '15.375rem' },
             height: '3.75rem',
             borderRadius: 2,
             fontWeight: 500,
             fontSize: '1rem',
             lineHeight: '1.302rem',
-            color: grey[800],
-          }}
+            color: theme.palette.grey[800],
+            borderColor: theme.palette.grey[100],
+          })}
           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
         >
           Sign in with Google
@@ -65,7 +70,7 @@ const Signup = () => {
         <Button
           variant="contained"
           sx={{
-            width: '15.375rem',
+            width: { xs: '100%', sm: '15.375rem' },
             height: '3.75rem',
             borderRadius: 2,
             fontWeight: 500,
@@ -93,10 +98,9 @@ const Signup = () => {
         noValidate
         onSubmit={handleSubmit(onSubmit)}
         sx={{
-          bgcolor: 'white',
+          // bgcolor: 'white',
           borderRadius: '0.625rem',
-          paddingLeft: '1.25rem',
-          paddingRight: '2.5rem',
+          paddingX: '1.25rem',
           marginTop: 3,
         }}
       >
@@ -195,7 +199,7 @@ const Signup = () => {
           borderRadius: '0.5rem',
         }}
       >
-        Sign in
+        Sign up
       </Button>
     </Box>
   );

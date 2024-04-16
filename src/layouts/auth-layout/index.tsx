@@ -3,7 +3,15 @@ import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginY: 8,
+        padding: 2,
+      }}
+    >
       <Outlet />
     </Box>
   );

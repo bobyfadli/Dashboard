@@ -3,7 +3,7 @@ import Factors from 'components/sections/dashboard/Factors';
 
 const Dashboard = () => {
   return (
-    <Box>
+    <Box sx={{ pt: '5.7rem' }}>
       <Factors></Factors>
     </Box>
   );

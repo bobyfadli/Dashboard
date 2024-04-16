@@ -18,6 +18,7 @@ import { AppBar, Badge, IconButton, InputBase, Menu, MenuItem, Typography } from
 import { styled, alpha } from '@mui/material/styles';
 import { grey } from 'theme/colors';
 import IconifyIcon from './base/IconifyIcon';
+import logo from '../assets/logo.png';
 
 const drawerWidth = 240;
 
@@ -248,7 +249,7 @@ export default function ResponsiveDrawer() {
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
-        <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
+        <IconButton size="large" aria-label="new notifications" color="inherit">
           <Badge badgeContent=" " color="error" variant="dot">
             <NotificationsIcon />
           </Badge>
@@ -295,7 +296,7 @@ export default function ResponsiveDrawer() {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MailIcon></MailIcon>
+            <img src={logo} alt="Logo" />
           </IconButton>
 
           <Search>
@@ -375,7 +376,7 @@ export default function ResponsiveDrawer() {
         >
           <Toolbar>
             <ListItem>
-              <svg
+              {/* <svg
                 width="27"
                 height="27"
                 viewBox="0 0 27 27"
@@ -387,7 +388,8 @@ export default function ResponsiveDrawer() {
                   d="M9.1273 19.7072L10.8492 17.9853C6.48698 15.345 7.21403 11.3367 8.12284 9.66258L13.5039 14.9002L18.885 9.66258C20.9513 14.1396 17.8805 17.0287 16.0868 17.9136L17.9523 19.7072C24.6248 14.6849 21.3961 7.94063 18.885 6.0752L13.5039 11.4563L7.97934 6.0752C2.09602 11.815 6.25741 18.2723 9.1273 19.7072Z"
                   fill="white"
                 />
-              </svg>
+              </svg> */}
+              <img src={logo} alt="Logo" />
               <Typography variant="h2" ml="0.75rem">
                 Motiv.
               </Typography>

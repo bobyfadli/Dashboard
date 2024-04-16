@@ -10,11 +10,11 @@ import Dashboard from 'pages/dashboards/Dashboard';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: rootPaths.root,
     element: <MainLayout></MainLayout>,
     children: [
       {
-        path: '/',
+        path: rootPaths.root,
         element: <Dashboard></Dashboard>,
       },
     ],

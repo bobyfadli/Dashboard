@@ -2,32 +2,32 @@ interface Factor {
   id: number;
   icon: string;
   title: string;
-  percentage: string;
+  value: string;
 }
 
 export const factors: Factor[] = [
   {
     id: 1,
-    icon: 'material-symbols:attach-money-rounded',
+    icon: 'material-symbols:electric-bolt-rounded',
     title: 'Energy',
-    percentage: '45',
+    value: '45',
   },
   {
     id: 2,
     icon: 'material-symbols:attach-money-rounded',
     title: 'Range',
-    percentage: '157k',
+    value: '157k',
   },
   {
     id: 3,
     icon: 'material-symbols:attach-money-rounded',
     title: 'Break fluid',
-    percentage: '9',
+    value: '9',
   },
   {
     id: 4,
     icon: 'material-symbols:attach-money-rounded',
     title: 'Tire Wear',
-    percentage: '25',
+    value: '25',
   },
 ];
