@@ -7,17 +7,18 @@ import {
   FormGroup,
   FormLabel,
   Grid,
-  Link,
   Paper,
   Stack,
   TextField,
   Typography,
 } from '@mui/material';
-import { grey } from 'theme/colors';
+
 import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import paths from 'routes/paths';
+import { Link } from 'react-router-dom';
+import { theme } from 'theme/theme';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 interface LoginFormValues {
@@ -38,10 +39,10 @@ const Login = () => {
     <Box sx={{ width: '31.625rem' }}>
       <Typography variant="h1">Get's started.</Typography>
       <Box display="flex" mb={'3.375rem'}>
-        <Typography variant="h4" color="gray">
+        <Typography variant="h4" sx={{ color: theme.palette.neutral.main }}>
           Don’t have an account?
         </Typography>
-        <Link href={paths.signup} underline="none">
+        <Link to={paths.signup} style={{ textDecoration: 'none' }}>
           <Typography variant="button" color="secondary">
             &nbsp;Sign up
           </Typography>
@@ -86,7 +87,11 @@ const Login = () => {
       <Divider
         sx={{
           mt: 3,
-          '& .MuiDivider-wrapper': { fontFamily: 'Inter', fontWeight: 500, color: grey[500] },
+          '& .MuiDivider-wrapper': {
+            fontFamily: 'Inter',
+            fontWeight: 500,
+            color: theme.palette.neutral.main,
+          },
         }}
       >
         or
@@ -167,7 +172,7 @@ const Login = () => {
           <FormControlLabel
             control={<Checkbox {...label} size="small" />}
             label={
-              <Typography variant="body1" color={grey[200]}>
+              <Typography variant="body1" sx={{ color: theme.palette.text.secondary }}>
                 Remember me
               </Typography>
             }

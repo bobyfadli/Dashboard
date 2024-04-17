@@ -11,23 +11,37 @@ import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Toolbar from '@mui/material/Toolbar';
-import { AppBar, Badge, IconButton, InputBase, Menu, MenuItem, Typography } from '@mui/material';
+import {
+  AppBar,
+  Avatar,
+  Badge,
+  IconButton,
+  InputBase,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
-import { grey } from 'theme/colors';
 import IconifyIcon from './base/IconifyIcon';
-import logo from '../assets/logo.png';
+// import logo from '../assets/logo.png';
+import avatar from '../assets/avatar.png';
+
+import { sidebarOptions } from 'data/dashboard/sidebarOptions';
+import { theme } from 'theme/theme';
+import Logo from './icons/Logo';
 
 const drawerWidth = 240;
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.grey[400], 0.15),
+  backgroundColor: alpha(theme.palette.neutral.main, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.grey[500], 0.25),
+    backgroundColor: alpha(theme.palette.neutral.main, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -49,7 +63,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: grey[400],
+  color: theme.palette.text.secondary,
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -70,11 +84,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function ResponsiveDrawer() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -95,94 +104,48 @@ export default function ResponsiveDrawer() {
     <Toolbar sx={{ height: '100vh' }}>
       <List
         sx={{
-          color: grey[600],
+          color: theme.palette.text.primary,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
           height: '100%',
+          marginLeft: 1,
         }}
       >
-        <Box>
-          {[
-            'Dashboard',
-            'Assets',
-            'Booking',
-            'Sell Cars',
-            'Buy Cars',
-            'Services',
-            'Calender',
-            'Messages',
-          ].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton
-                sx={{
-                  borderRadius: '0.375rem',
-                  fontWeight: 500,
-                  fontSize: '14px',
-                  color: '#5F6165',
-                  marginLeft: 1,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? (
-                    <IconifyIcon icon="mage:dashboard" height="1.25rem" width="1.25rem" mr={1} />
-                  ) : (
-                    <IconifyIcon
-                      icon="solar:settings-linear"
-                      height="1.25rem"
-                      width="1.25rem"
-                      mr={1}
-                    />
-                  )}
-                </Box>
-                <ListItemText primary={text} />
+        <Stack spacing={1.25 * 1}>
+          {sidebarOptions.slice(0, 8).map((option) => (
+            <ListItem key={option?.id} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <IconifyIcon icon={option?.icon} height="1.25rem" width="1.25rem" />
+                </ListItemIcon>
+                <ListItemText primary={option?.title} />
               </ListItemButton>
             </ListItem>
           ))}
-        </Box>
+        </Stack>
 
-        <Box>
-          {['Settings', 'Log out'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton
-                sx={{
-                  borderRadius: '0.375rem',
-                  fontWeight: 500,
-                  fontSize: '14px',
-                  color: '#5F6165',
-                  marginLeft: 1,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? (
-                    <IconifyIcon icon="mage:dashboard" height="1.25rem" width="1.25rem" mr={1} />
-                  ) : (
-                    <IconifyIcon
-                      icon="solar:settings-linear"
-                      height="1.25rem"
-                      width="1.25rem"
-                      mr={1}
-                    />
-                  )}
-                </Box>
-                <ListItemText primary={text} />
+        <Stack spacing={1.25 * 1}>
+          {sidebarOptions.slice(-2).map((option) => (
+            <ListItem key={option?.id} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <IconifyIcon icon={option?.icon} height="1.25rem" width="1.25rem" />
+                </ListItemIcon>
+                <ListItemText primary={option?.title} />
               </ListItemButton>
             </ListItem>
           ))}
-        </Box>
+        </Stack>
       </List>
     </Toolbar>
   );
+
+  /// Menu Related Items
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -264,7 +227,7 @@ export default function ResponsiveDrawer() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <Avatar alt="avatar" src={avatar} />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -278,6 +241,8 @@ export default function ResponsiveDrawer() {
       }}
     >
       <CssBaseline />
+
+      {/* AppBar */}
       <AppBar
         position="fixed"
         sx={{
@@ -296,7 +261,7 @@ export default function ResponsiveDrawer() {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <img src={logo} alt="Logo" />
+            <IconifyIcon icon="solar:hamburger-menu-linear" />
           </IconButton>
 
           <Search>
@@ -326,7 +291,7 @@ export default function ResponsiveDrawer() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <Avatar alt="avatar" src={avatar} />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -345,10 +310,12 @@ export default function ResponsiveDrawer() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+
+      {/* Drawer */}
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
+        aria-label="drawer"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
@@ -376,20 +343,8 @@ export default function ResponsiveDrawer() {
         >
           <Toolbar>
             <ListItem>
-              {/* <svg
-                width="27"
-                height="27"
-                viewBox="0 0 27 27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect y="0.0751953" width="26.914" height="26.85" rx="6" fill="#A162F7" />
-                <path
-                  d="M9.1273 19.7072L10.8492 17.9853C6.48698 15.345 7.21403 11.3367 8.12284 9.66258L13.5039 14.9002L18.885 9.66258C20.9513 14.1396 17.8805 17.0287 16.0868 17.9136L17.9523 19.7072C24.6248 14.6849 21.3961 7.94063 18.885 6.0752L13.5039 11.4563L7.97934 6.0752C2.09602 11.815 6.25741 18.2723 9.1273 19.7072Z"
-                  fill="white"
-                />
-              </svg> */}
-              <img src={logo} alt="Logo" />
+              <Logo></Logo>
+              {/* <img src={logo} alt="Logo" /> */}
               <Typography variant="h2" ml="0.75rem">
                 Motiv.
               </Typography>
