@@ -35,7 +35,7 @@ const palette: PaletteOptions = {
   },
 
   neutral: {
-    lighter: gray[100],
+    lighter: gray[50],
     light: gray[300],
     main: gray[500],
     dark: gray[800],
@@ -53,6 +53,12 @@ const palette: PaletteOptions = {
     main: purple[500],
   },
 
+  grey: {
+    500: '#353945', // login-subtitle
+    600: gray[600], // nav-icon, car-icon, table-heading
+    700: gray[700],
+    900: '#000000', //  Reminder
+  },
   // error: {
   //   lighter: red[50],
   //   light: red[300],

@@ -5,6 +5,11 @@ import Button from './components/Button';
 import ListItemButton from './components/ListItemButton';
 import ListItemText from './components/ListItemText';
 import ListItemIcon from './components/ListItemIcon';
+import Paper from './components/Paper';
+import AppBar from './components/AppBar';
+import Link from './components/Link';
+import FilledInput from './components/FilledInput';
+import InputAdornment from './components/InputAdornment';
 
 export const theme = createTheme({
   palette,
@@ -14,17 +19,17 @@ export const theme = createTheme({
     MuiListItemButton: ListItemButton,
     MuiListItemText: ListItemText,
     MuiListItemIcon: ListItemIcon,
+    MuiPaper: Paper,
+    MuiAppBar: AppBar,
     // MuiButtonBase: ButtonBase,
-    // MuiAppBar: AppBar,
-    // MuiPaper: Paper,
     // MuiDivider: Divider,
 
     //! input fields
     // MuiTextField: TextField,
-    // MuiFilledInput: FilledInput,
+    MuiFilledInput: FilledInput,
     // MuiOutlinedInput: OutlinedInput,
     // MuiInputLabel: InputLabel,
-    // MuiInputAdornment: InputAdornment,
+    MuiInputAdornment: InputAdornment,
     // MuiFormHelperText: FormHelperText,
     // MuiInput: Input,
     // MuiFormControlLabel: FormControlLabel,
@@ -55,6 +60,6 @@ export const theme = createTheme({
     // MuiTableSortLabel: TableSortLabel,
     // MuiCssBaseline: CssBaseline,
     // MuiIconButton: IconButton,
-    // MuiLink: Link,
+    MuiLink: Link,
   },
 });

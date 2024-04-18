@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import ResponsiveDrawer from 'components/ResponsiveDrawer';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { theme } from 'theme/theme';
 
 const MainLayout = () => {
   return (
@@ -14,8 +15,9 @@ const MainLayout = () => {
           {
             minHeight: '100vh',
             marginLeft: { sm: '240px' },
-            bgcolor: '#f5f5f5',
+            bgcolor: theme.palette.grey[100],
             paddingX: '1.625rem',
+            paddingTop: 2,
           },
         ]}
       >

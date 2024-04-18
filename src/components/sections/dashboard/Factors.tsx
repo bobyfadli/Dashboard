@@ -72,10 +72,8 @@ const Factors = () => {
               sx={(theme) => ({
                 textAlign: 'center',
                 paddingY: 3,
-                borderRadius: '0.875rem',
                 bgcolor: `${factor.id === 1 && theme.palette.secondary.main}`,
               })}
-              elevation={0}
             >
               <Box>
                 <IconifyIcon

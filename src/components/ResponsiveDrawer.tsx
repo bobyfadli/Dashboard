@@ -6,80 +6,32 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
+
 import Toolbar from '@mui/material/Toolbar';
 import {
   AppBar,
   Avatar,
   Badge,
   IconButton,
-  InputBase,
+  Link,
   ListItemIcon,
   Menu,
   MenuItem,
   Stack,
   Typography,
 } from '@mui/material';
-import { styled, alpha } from '@mui/material/styles';
+
 import IconifyIcon from './base/IconifyIcon';
-// import logo from '../assets/logo.png';
 import avatar from '../assets/avatar.png';
 
 import { sidebarOptions } from 'data/dashboard/sidebarOptions';
 import { theme } from 'theme/theme';
 import Logo from './icons/Logo';
+import { rootPaths } from 'routes/paths';
+import InputWithSearchIcon from './InputWithSearchIcon';
 
 const drawerWidth = 240;
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.neutral.main, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.neutral.main, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    fontWeight: 500,
-    fontSize: '16px',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-  // '& .MuiInputBase-input:focus': {
-  //   color: 'orange',
-  // },
-}));
 
 export default function ResponsiveDrawer() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -204,17 +156,9 @@ export default function ResponsiveDrawer() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
         <IconButton size="large" aria-label="new notifications" color="inherit">
           <Badge badgeContent=" " color="error" variant="dot">
-            <NotificationsIcon />
+            <IconifyIcon icon="mdi:notifications-none" />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -246,14 +190,17 @@ export default function ResponsiveDrawer() {
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: `calc(100% - ${drawerWidth + 1}px)` },
+          height: '4.875rem',
           ml: { sm: `${drawerWidth}px` },
           color: 'gray',
-          backgroundColor: 'white',
-          boxShadow: 'none',
         }}
       >
         <Toolbar>
+          <IconButton sx={{ display: { sm: 'none' } }}>
+            <Logo />
+          </IconButton>
+
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -264,22 +211,12 @@ export default function ResponsiveDrawer() {
             <IconifyIcon icon="solar:hamburger-menu-linear" />
           </IconButton>
 
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase placeholder="Search or type" inputProps={{ 'aria-label': 'search' }} />
-          </Search>
+          <InputWithSearchIcon />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
+            <IconButton size="large" aria-label="new notifications" color="inherit">
               <Badge badgeContent=" " color="error" variant="dot" overlap="circular">
-                <NotificationsIcon />
+                <IconifyIcon icon="mdi:notifications-none" />
               </Badge>
             </IconButton>
             <IconButton
@@ -303,7 +240,7 @@ export default function ResponsiveDrawer() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <IconifyIcon icon="ci:more-vertical" />
             </IconButton>
           </Box>
         </Toolbar>
@@ -328,7 +265,7 @@ export default function ResponsiveDrawer() {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, borderRadius: 0 },
           }}
         >
           {drawer}
@@ -337,14 +274,20 @@ export default function ResponsiveDrawer() {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+              borderRight: 0,
+            },
           }}
           open
         >
           <Toolbar>
             <ListItem>
-              <Logo></Logo>
-              {/* <img src={logo} alt="Logo" /> */}
+              <Link href={rootPaths.root}>
+                <Logo></Logo>
+              </Link>
+
               <Typography variant="h2" ml="0.75rem">
                 Motiv.
               </Typography>

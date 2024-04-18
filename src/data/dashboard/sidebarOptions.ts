@@ -7,6 +7,7 @@ interface SidebarOption {
 export const sidebarOptions: SidebarOption[] = [
   {
     id: 1,
+    // icon: 'radix-icons:dashboard',
     icon: 'radix-icons:dashboard',
     title: 'Dashboard',
   },
