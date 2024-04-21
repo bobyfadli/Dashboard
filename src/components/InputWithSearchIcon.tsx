@@ -38,7 +38,15 @@ const InputWithSearchIcon = () => {
           type="text"
           variant="filled"
           placeholder="Search or type"
-          sx={{ width: '22.375rem' }}
+          sx={{
+            width: '22.375rem',
+
+            '& .MuiFilledInput-input::placeholder': {
+              color: theme.palette.neutral.main,
+              // color: red[500],
+              opacity: 1,
+            },
+          }}
         />
       )}
     </Box>

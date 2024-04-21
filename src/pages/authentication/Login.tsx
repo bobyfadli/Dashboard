@@ -42,7 +42,7 @@ const Login = () => {
         <Typography variant="h4" sx={{ color: theme.palette.neutral.main }}>
           Don’t have an account?
         </Typography>
-        <Link to={paths.signup} style={{ textDecoration: 'none' }}>
+        <Link to={paths.signup}>
           <Typography variant="button" color="secondary">
             &nbsp;Sign up
           </Typography>
