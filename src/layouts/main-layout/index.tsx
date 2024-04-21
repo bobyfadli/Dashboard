@@ -1,13 +1,13 @@
 import { Box } from '@mui/material';
-import ResponsiveDrawer from 'components/ResponsiveDrawer';
-import React from 'react';
+import ResponsiveDrawerWithAppBar from 'components/ResponsiveDrawerWithAppBar';
+
 import { Outlet } from 'react-router-dom';
 import { theme } from 'theme/theme';
 
 const MainLayout = () => {
   return (
-    <React.Fragment>
-      <ResponsiveDrawer />
+    <>
+      <ResponsiveDrawerWithAppBar />
 
       <Box
         component="main"
@@ -23,7 +23,7 @@ const MainLayout = () => {
       >
         <Outlet></Outlet>
       </Box>
-    </React.Fragment>
+    </>
   );
 };
 

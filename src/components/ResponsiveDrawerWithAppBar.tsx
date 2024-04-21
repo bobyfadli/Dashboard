@@ -1,41 +1,32 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Drawer from '@mui/material/Drawer';
-
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-
-import Toolbar from '@mui/material/Toolbar';
 import {
+  Box,
+  Drawer,
+  Toolbar,
   AppBar,
   Avatar,
   Badge,
   IconButton,
   Link,
-  ListItemIcon,
-  Menu,
-  MenuItem,
-  Stack,
+  ListItem,
   Typography,
 } from '@mui/material';
 
 import IconifyIcon from './base/IconifyIcon';
 import avatar from '../assets/avatar.png';
 
-import { sidebarOptions } from 'data/dashboard/sidebarOptions';
-import { theme } from 'theme/theme';
 import Logo from './icons/Logo';
 import { rootPaths } from 'routes/paths';
 import InputWithSearchIcon from './InputWithSearchIcon';
+import Sidebar from 'layouts/main-layout/Sidebar';
+import { useState } from 'react';
+import DesktopMenu from 'layouts/main-layout/DesktopMenu';
+import MobileMenu from 'layouts/main-layout/MobileMenu';
 
 const drawerWidth = 240;
 
-export default function ResponsiveDrawer() {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [isClosing, setIsClosing] = React.useState(false);
+export default function ResponsiveDrawerWithAppBar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -52,50 +43,9 @@ export default function ResponsiveDrawer() {
     }
   };
 
-  const drawer = (
-    <Toolbar sx={{ height: '100vh' }}>
-      <List
-        sx={{
-          color: theme.palette.text.primary,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-          marginLeft: 1,
-        }}
-      >
-        <Stack spacing={1.25 * 1}>
-          {sidebarOptions.slice(0, 8).map((option) => (
-            <ListItem key={option?.id} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <IconifyIcon icon={option?.icon} height="1.25rem" width="1.25rem" />
-                </ListItemIcon>
-                <ListItemText primary={option?.title} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </Stack>
-
-        <Stack spacing={1.25 * 1}>
-          {sidebarOptions.slice(-2).map((option) => (
-            <ListItem key={option?.id} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <IconifyIcon icon={option?.icon} height="1.25rem" width="1.25rem" />
-                </ListItemIcon>
-                <ListItemText primary={option?.title} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </Stack>
-      </List>
-    </Toolbar>
-  );
-
   /// Menu Related Items
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -117,66 +67,7 @@ export default function ResponsiveDrawer() {
   };
 
   const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
   const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="new notifications" color="inherit">
-          <Badge badgeContent=" " color="error" variant="dot">
-            <IconifyIcon icon="mdi:notifications-none" />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <Avatar alt="avatar" src={avatar} />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
 
   return (
     <Box
@@ -184,8 +75,6 @@ export default function ResponsiveDrawer() {
         display: 'flex',
       }}
     >
-      <CssBaseline />
-
       {/* AppBar */}
       <AppBar
         position="fixed"
@@ -197,10 +86,6 @@ export default function ResponsiveDrawer() {
         }}
       >
         <Toolbar>
-          <IconButton sx={{ display: { sm: 'none' } }}>
-            <Logo />
-          </IconButton>
-
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -212,6 +97,7 @@ export default function ResponsiveDrawer() {
           </IconButton>
 
           <InputWithSearchIcon />
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="new notifications" color="inherit">
@@ -245,8 +131,23 @@ export default function ResponsiveDrawer() {
           </Box>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+
+      <MobileMenu
+        anchorEl={mobileMoreAnchorEl}
+        menuId={mobileMenuId}
+        isMenuOpen={isMobileMenuOpen}
+        handleMenuClose={handleMobileMenuClose}
+        handleProfileMenuOpen={handleProfileMenuOpen}
+        open
+      ></MobileMenu>
+
+      <DesktopMenu
+        anchorEl={anchorEl}
+        menuId={menuId}
+        isMenuOpen={isMenuOpen}
+        handleMenuClose={handleMenuClose}
+        open
+      ></DesktopMenu>
 
       {/* Drawer */}
       <Box
@@ -254,7 +155,6 @@ export default function ResponsiveDrawer() {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="drawer"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -268,7 +168,16 @@ export default function ResponsiveDrawer() {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, borderRadius: 0 },
           }}
         >
-          {drawer}
+          <ListItem sx={{ pl: 2 }}>
+            <Link href={rootPaths.root}>
+              <Logo></Logo>
+            </Link>
+            <Typography variant="h2" ml="0.75rem">
+              Motiv.
+            </Typography>
+          </ListItem>
+
+          <Sidebar />
         </Drawer>
         <Drawer
           variant="permanent"
@@ -293,7 +202,7 @@ export default function ResponsiveDrawer() {
               </Typography>
             </ListItem>
           </Toolbar>
-          {drawer}
+          <Sidebar />
         </Drawer>
       </Box>
     </Box>

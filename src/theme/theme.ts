@@ -10,6 +10,7 @@ import AppBar from './components/AppBar';
 import Link from './components/Link';
 import FilledInput from './components/FilledInput';
 import InputAdornment from './components/InputAdornment';
+import TextField from './components/TextField';
 
 export const theme = createTheme({
   palette,
@@ -25,7 +26,7 @@ export const theme = createTheme({
     // MuiDivider: Divider,
 
     //! input fields
-    // MuiTextField: TextField,
+    MuiTextField: TextField,
     MuiFilledInput: FilledInput,
     // MuiOutlinedInput: OutlinedInput,
     // MuiInputLabel: InputLabel,

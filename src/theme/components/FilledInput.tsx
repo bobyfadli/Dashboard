@@ -8,7 +8,7 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       borderRadius: '0.5rem',
       '& .MuiFilledInput-input': {
         padding: 0,
-        width: '22.375rem',
+        // maxWidth: '22.375rem',
         height: '2.875rem',
       },
     },
