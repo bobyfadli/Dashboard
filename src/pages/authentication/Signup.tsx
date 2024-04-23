@@ -7,6 +7,7 @@ import {
   FormGroup,
   FormLabel,
   Grid,
+  Link,
   Paper,
   Stack,
   TextField,
@@ -17,8 +18,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import paths from 'routes/paths';
-import { Link } from 'react-router-dom';
-import { theme } from 'theme/theme';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 interface LoginFormValues {
@@ -41,11 +40,11 @@ const Signup = () => {
     <Box sx={{ width: '31.625rem' }}>
       <Typography variant="h1">Get's started.</Typography>
       <Box display="flex" mb={'3.375rem'}>
-        <Typography variant="h4" sx={{ color: theme.palette.neutral.main }}>
+        <Typography variant="h4" sx={(theme) => ({ color: theme.palette.neutral.main })}>
           Don’t have an account?
         </Typography>
-        <Link to={paths.login}>
-          <Typography variant="button" sx={{ color: theme.palette.primary.main }}>
+        <Link href={paths.login}>
+          <Typography variant="button" sx={(theme) => ({ color: theme.palette.primary.main })}>
             &nbsp;Sign in
           </Typography>
         </Link>
@@ -86,14 +85,14 @@ const Signup = () => {
       </Stack>
 
       <Divider
-        sx={{
+        sx={(theme) => ({
           mt: 3,
           '& .MuiDivider-wrapper': {
             fontFamily: 'Inter',
             fontWeight: 500,
             color: theme.palette.neutral.main,
           },
-        }}
+        })}
       >
         or
       </Divider>
@@ -181,7 +180,7 @@ const Signup = () => {
           <FormControlLabel
             control={<Checkbox {...label} size="small" />}
             label={
-              <Typography variant="body1" sx={{ color: theme.palette.text.secondary }}>
+              <Typography variant="body1" sx={(theme) => ({ color: theme.palette.text.secondary })}>
                 Remember me
               </Typography>
             }

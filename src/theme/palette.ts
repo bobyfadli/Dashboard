@@ -1,5 +1,5 @@
 import { PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
-import { gray, blue, purple } from './colors';
+import { gray, blue, purple, red, orange } from './colors';
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
@@ -59,21 +59,21 @@ const palette: PaletteOptions = {
     700: gray[700],
     900: '#000000', //  Reminder
   },
-  // error: {
-  //   lighter: red[50],
-  //   light: red[300],
-  //   main: red[500],
-  //   dark: red[600],
-  //   darker: red[900],
-  // },
-  // warning: {
-  //   lighter: orange[50],
-  //   light: orange[400],
-  //   main: orange[500],
-  //   dark: orange[700],
-  //   darker: orange[900],
-  //   contrastText: '#fff',
-  // },
+  error: {
+    lighter: red[50],
+    light: red[300],
+    main: red[500],
+    dark: red[600],
+    darker: red[900],
+  },
+  warning: {
+    lighter: orange[50],
+    light: orange[400],
+    main: orange[500],
+    dark: orange[700],
+    darker: orange[900],
+    contrastText: '#fff',
+  },
   // success: {
   //   lighter: green[50],
   //   light: green[400],

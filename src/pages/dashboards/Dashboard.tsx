@@ -1,11 +1,12 @@
-import { Box } from '@mui/material';
-import Factors from 'components/sections/dashboard/Factors';
+// import Factors from 'components/sections/dashboard/Factors';
+// import Statistcs from 'components/sections/dashboard/Statistcs';
 
 const Dashboard = () => {
   return (
-    <Box sx={{ pt: '5.7rem' }}>
-      <Factors></Factors>
-    </Box>
+    <>
+      {/* <Factors></Factors> */}
+      {/* <Statistcs></Statistcs> */}
+    </>
   );
 };
 

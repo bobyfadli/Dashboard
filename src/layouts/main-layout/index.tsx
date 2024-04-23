@@ -1,29 +1,55 @@
-import { Box } from '@mui/material';
-import ResponsiveDrawerWithAppBar from 'components/ResponsiveDrawerWithAppBar';
+import { PropsWithChildren, useState } from 'react';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import VerticalNavbar from './Drawer/VerticalNavbar';
+import TopBar from './TopBar/TopBar';
 
-import { Outlet } from 'react-router-dom';
-import { theme } from 'theme/theme';
+const drawerWidth = 248;
 
-const MainLayout = () => {
+const MainLayout = ({ children }: PropsWithChildren) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleDrawerClose = () => {
+    setIsClosing(true);
+    setMobileOpen(false);
+  };
+
+  const handleDrawerTransitionEnd = () => {
+    setIsClosing(false);
+  };
+
+  const handleDrawerToggle = () => {
+    if (!isClosing) {
+      setMobileOpen(!mobileOpen);
+    }
+  };
+
   return (
-    <>
-      <ResponsiveDrawerWithAppBar />
+    <Box sx={{ display: 'flex' }}>
+      <TopBar drawerWidth={drawerWidth} onHandleDrawerToggle={handleDrawerToggle} />
+
+      <VerticalNavbar
+        drawerWidth={drawerWidth}
+        mobileOpen={mobileOpen}
+        onTransitionEnd={handleDrawerTransitionEnd}
+        onHandleDrawerClose={handleDrawerClose}
+      />
 
       <Box
         component="main"
-        sx={[
-          {
-            minHeight: '100vh',
-            marginLeft: { sm: '240px' },
-            bgcolor: theme.palette.grey[100],
-            paddingX: '1.625rem',
-            paddingTop: 2,
-          },
-        ]}
+        sx={(theme) => ({
+          flexGrow: 1,
+          p: 3,
+          minHeight: '100vh',
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          bgcolor: theme.palette.grey[100],
+        })}
       >
-        <Outlet></Outlet>
+        <Toolbar />
+        <Box sx={{ flex: 1 }}>{children}</Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

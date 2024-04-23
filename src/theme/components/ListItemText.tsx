@@ -6,9 +6,10 @@ const ListItemText: Components<Omit<Theme, 'components'>>['MuiListItemText'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       color: theme.palette.grey[700],
+      margin: theme.spacing(0, 0),
       fontSize: '14px',
       fontWeight: 500,
-      lineHeight: '18.23px',
+      lineHeight: 1.3,
     }),
   },
 };

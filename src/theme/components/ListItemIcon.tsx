@@ -6,8 +6,8 @@ const ListItemIcon: Components<Omit<Theme, 'components'>>['MuiListItemIcon'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       color: theme.palette.grey[600],
-      minWidth: '20px',
-      marginRight: '8px',
+      minWidth: theme.spacing(2.5),
+      marginRight: theme.spacing(1),
     }),
   },
 };

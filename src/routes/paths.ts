@@ -6,8 +6,9 @@ export const rootPaths = {
 };
 
 export default {
-  starter: `/${rootPaths.pagesRoot}/starter`,
+  // starter: `/${rootPaths.pagesRoot}/starter`,
   login: `/${rootPaths.authRoot}/login`,
   signup: `/${rootPaths.authRoot}/sign-up`,
+  // comingSoon: `/coming-soon`,
   //   404: `/${rootPaths.errorRoot}/404`,
 };

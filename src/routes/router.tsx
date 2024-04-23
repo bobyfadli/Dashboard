@@ -1,42 +1,67 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
 import paths, { rootPaths } from './paths';
+import { Suspense, lazy } from 'react';
+import Progress from 'components/loading/Progress';
+import LinearLoader from 'components/loading/LinearLoader';
 
-import MainLayout from 'layouts/main-layout';
-import ErrorPage from 'pages/errors/ErrorPage';
-import AuthLayout from 'layouts/auth-layout';
-import Login from 'pages/authentication/Login';
-import Signup from 'pages/authentication/Signup';
-import Dashboard from 'pages/dashboards/Dashboard';
+const App = lazy(() => import('App'));
+const MainLayout = lazy(() => import('layouts/main-layout'));
+const AuthLayout = lazy(() => import('layouts/auth-layout'));
+const Dashboard = lazy(() => import('pages/dashboards/Dashboard'));
+const Login = lazy(() => import('pages/authentication/Login'));
+const Signup = lazy(() => import('pages/authentication/Signup'));
+const ErrorPage = lazy(() => import('pages/errors/ErrorPage'));
 
-const router = createBrowserRouter([
+export const routes = [
   {
-    path: rootPaths.root,
-    element: <MainLayout></MainLayout>,
+    element: (
+      <Suspense fallback={<Progress />}>
+        <App />
+      </Suspense>
+    ),
     children: [
       {
         path: rootPaths.root,
-        element: <Dashboard></Dashboard>,
+        element: (
+          <MainLayout>
+            <Suspense fallback={<LinearLoader />}>
+              <Outlet />
+            </Suspense>
+          </MainLayout>
+        ),
+        children: [
+          {
+            index: true,
+            element: <Dashboard />,
+          },
+          // {
+          //   path: paths.comingSoon,
+          //   element: <ComingSoon />,
+          // },
+        ],
+      },
+      {
+        path: rootPaths.authRoot,
+        element: <AuthLayout />,
+        children: [
+          {
+            path: paths.login,
+            element: <Login />,
+          },
+          {
+            path: paths.signup,
+            element: <Signup />,
+          },
+        ],
+      },
+      {
+        path: '*',
+        element: <ErrorPage />,
       },
     ],
   },
-  {
-    path: rootPaths.authRoot,
-    element: <AuthLayout />,
-    children: [
-      {
-        path: paths.login,
-        element: <Login />,
-      },
-      {
-        path: paths.signup,
-        element: <Signup />,
-      },
-    ],
-  },
-  {
-    path: '*',
-    element: <ErrorPage />,
-  },
-]);
+];
+
+const router = createBrowserRouter(routes);
 
 export default router;

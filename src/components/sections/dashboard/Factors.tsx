@@ -64,14 +64,14 @@ const Factors = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <>
       <Grid container spacing={3}>
         {factors.map((factor) => (
           <Grid item xs={12} sm={6} md={3} key={factor?.id}>
             <Paper
               sx={(theme) => ({
                 textAlign: 'center',
-                paddingY: 3,
+                // paddingY: 3,
                 bgcolor: `${factor.id === 1 && theme.palette.secondary.main}`,
               })}
             >
@@ -87,14 +87,14 @@ const Factors = () => {
                   }}
                 />
               </Box>
-              <Typography variant="h2">{factor?.title}</Typography>
+              <Typography variant="h1">{factor?.title}</Typography>
               <ReactECharts option={option} style={{ height: 112 }} />
               {/* <Typography variant="h2">{factor?.value}%</Typography> */}
             </Paper>
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </>
   );
 };
 
