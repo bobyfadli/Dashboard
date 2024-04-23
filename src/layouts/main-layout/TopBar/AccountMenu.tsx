@@ -8,9 +8,10 @@ import {
   MenuItem,
   Tooltip,
 } from '@mui/material';
-import SignOut from 'components/icons/SignOut';
+
 import { MouseEvent } from 'react';
 import avatar from '../../../assets/avatar.png';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 interface AccountMenuProps {
   open: boolean;
@@ -52,7 +53,7 @@ const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMe
 
         <MenuItem onClick={onHandleClose}>
           <ListItemIcon>
-            <SignOut />
+            <IconifyIcon icon="uiw:logout" fontSize="large" color="error.main" />
           </ListItemIcon>
           Logout
         </MenuItem>

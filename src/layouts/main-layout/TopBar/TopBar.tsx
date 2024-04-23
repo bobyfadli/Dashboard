@@ -31,7 +31,7 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
         ml: { sm: `${drawerWidth}px` },
       }}
     >
-      <Toolbar>
+      <Toolbar sx={(theme) => ({ px: theme.spacing(3.75) })}>
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -42,12 +42,11 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
           <IconifyIcon icon="solar:hamburger-menu-linear" />
         </IconButton>
 
-        <Box>
-          <SearchBox />
-        </Box>
+        <SearchBox />
+
         <Box sx={{ display: 'flex', flexGrow: 1 }} />
 
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', gap: 3 }}>
           <IconButton size="medium" aria-label="languages" color="inherit">
             <LanguagePopover />
           </IconButton>

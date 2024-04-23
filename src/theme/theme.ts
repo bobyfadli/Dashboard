@@ -23,7 +23,7 @@ export const theme = createTheme({
     // MuiAccordion: Accordion,
     // MuiAccordionSummary: AccordionSummary,
     // TODO MuiButton: Button,
-    // TODO MuiButtonBase: ButtonBase,
+    // MuiButtonBase: ButtonBase,
 
     // TODO MuiTextField: TextField,
     MuiFilledInput: FilledInput,

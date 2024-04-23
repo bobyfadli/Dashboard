@@ -40,7 +40,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         component="main"
         sx={(theme) => ({
           flexGrow: 1,
-          p: 3,
+          p: theme.spacing(3.375, 5.375, 3.75, 3.75),
           minHeight: '100vh',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           bgcolor: theme.palette.grey[100],
