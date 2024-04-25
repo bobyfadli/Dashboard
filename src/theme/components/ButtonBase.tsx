@@ -4,12 +4,7 @@
 // const ButtonBase: Components<Omit<Theme, 'components'>>['MuiButtonBase'] = {
 //   defaultProps: {},
 //   styleOverrides: {
-//     root: {
-//       marginLeft: 0,
-//       '& .MuiIconButton-root': {
-//         marginLeft: 0,
-//       },
-//     },
+//     root: {},
 //   },
 // };
 

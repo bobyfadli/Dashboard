@@ -47,7 +47,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         })}
       >
         <Toolbar />
-        <Box sx={{ flex: 1 }}>{children}</Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>{children}</Box>
       </Box>
     </Box>
   );

@@ -38,7 +38,7 @@ const LanguagePopover = () => {
 
   return (
     <>
-      <IconButton size="medium" onClick={handleClickItem}>
+      <IconButton onClick={handleClickItem}>
         <IconifyIcon icon={languages[selectedIndex].icon} />
       </IconButton>
 

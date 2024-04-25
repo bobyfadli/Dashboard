@@ -11,6 +11,11 @@ import Paper from './components/Paper';
 import Stack from './components/Stack';
 import FilledInput from './components/FilledInput';
 import InputAdornment from './components/InputAdornment';
+import Button from './components/Button';
+// import ButtonBase from './components/ButtonBase';
+// import IconButton from './components/IconButton';
+
+// import ButtonBase from './components/ButtonBase';
 
 export const theme = createTheme({
   palette,
@@ -22,8 +27,9 @@ export const theme = createTheme({
     // MuiDivider: Divider,
     // MuiAccordion: Accordion,
     // MuiAccordionSummary: AccordionSummary,
-    // TODO MuiButton: Button,
+    MuiButton: Button,
     // MuiButtonBase: ButtonBase,
+    // MuiIconButton: IconButton,
 
     // TODO MuiTextField: TextField,
     MuiFilledInput: FilledInput,
@@ -65,7 +71,7 @@ export const theme = createTheme({
     // MuiDataGrid: DataGrid,
     // MuiTableSortLabel: TableSortLabel,
     // MuiCssBaseline: CssBaseline,
-    // MuiIconButton: IconButton,
+
     MuiLink: Link,
   },
 });

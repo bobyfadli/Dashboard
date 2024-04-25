@@ -4,10 +4,9 @@ import { Components } from '@mui/material/styles/components';
 const InputAdornment: Components<Omit<Theme, 'components'>>['MuiInputAdornment'] = {
   defaultProps: {},
   styleOverrides: {
-    root: {
-      '&.MuiInputAdornment-filled': {
-        marginTop: '0!important',
-      },
+    root: {},
+    filled: {
+      marginTop: '0!important',
     },
   },
 };

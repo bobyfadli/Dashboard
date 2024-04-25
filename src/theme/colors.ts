@@ -17,8 +17,8 @@ export const purple = {
 
 export const blue = {
   400: '#E3ECF1', // car-background
-  500: '#4776D0', // facebook button  background
-  600: '#2884FF', // statistics-subtitle
+  500: '#2884FF', // statistics-subtitle
+  600: '#4776D0', // facebook button  background
 };
 
 export const red = {
@@ -38,7 +38,7 @@ export const orange = {
   100: '#FCDFC4',
   200: '#FBCB9D',
   300: '#F9B677',
-  400: '#F8A250',
+  400: '#E1DFA4',
   500: '#FF764C',
   600: '#D17824',
   700: '#AC631D',

@@ -3,7 +3,9 @@
 
 // const IconButton: Components<Omit<Theme, 'components'>>['MuiIconButton'] = {
 //   defaultProps: {},
-//   styleOverrides: {},
+//   styleOverrides: {
+//     root: {},
+//   },
 // };
 
 // export default IconButton;

@@ -6,10 +6,10 @@ const typography: TypographyOptions = {
   h1: {
     fontWeight: 700,
     fontSize: '1.5rem', // 24px
-    lineHeight: 1.3, // 31.25px  font-size/line-height
+    lineHeight: 1.302, // 31.25px  line-height/font-size
   },
 
-  // login, sign up
+  //login, sign up
   // h2: {
   //   fontWeight: 700,
   //   fontSize: '1.875rem', // 30px
@@ -17,11 +17,11 @@ const typography: TypographyOptions = {
   // },
 
   //statistics, car brand
-  // h3: {
-  //   fontWeight: 700,
-  //   fontSize: '1.25rem', // 20px
-  //   lineHeight: 1.628, //26.04px
-  // },
+  h3: {
+    fontWeight: 700,
+    fontSize: '1.25rem', // 20px
+    lineHeight: 1.302, //26.04px
+  },
   // h4: {
   //   fontWeight: 400,
   //   fontSize: '1.125rem', // 18px
@@ -47,15 +47,18 @@ const typography: TypographyOptions = {
   //   fontSize: '0.875rem', // 14px
   //   lineHeight: 1.125, // 18px
   // },
-  // body1: {
-  //   fontWeight: 500,
-  //   fontSize: '1rem', // 16px
-  //   lineHeight: 1.302, // 20.83px
-  // },
+
+  //car section - 64% recommended
+  body1: {
+    fontWeight: 700,
+    fontSize: '1rem', // 16px
+    lineHeight: 1.301, // 20.83px
+  },
+
   body2: {
     fontWeight: 500,
     fontSize: '0.875rem', // 14px
-    lineHeight: 0.76, // 18.23px
+    lineHeight: 1.302, // 18.23px
   },
   // button: {
   //   fontWeight: 500,

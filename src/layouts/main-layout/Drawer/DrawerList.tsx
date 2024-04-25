@@ -16,18 +16,14 @@ const DrawerList = () => {
   };
 
   return (
-    <>
+    <div>
       <Toolbar>
-        <Link href={rootPaths.root}>
-          <Logo />
+        <Link href={rootPaths.root} sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
+          <Logo width="1.68rem" height="1.68rem" />
+          <Typography variant="h1" sx={(theme) => ({ color: theme.palette.neutral.darker })}>
+            Motiv.
+          </Typography>
         </Link>
-
-        <Typography
-          variant="h1"
-          sx={(theme) => ({ ml: theme.spacing(1), color: theme.palette.neutral.darker })}
-        >
-          Motiv.
-        </Typography>
       </Toolbar>
 
       <List
@@ -49,7 +45,7 @@ const DrawerList = () => {
           ></DrawerListItems>
         </Stack>
       </List>
-    </>
+    </div>
   );
 };
 

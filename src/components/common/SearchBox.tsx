@@ -3,11 +3,11 @@ import Search from 'components/icons/Search';
 
 const SearchBox = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down(860)); // 600 sm:660
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // 600 sm:660 md:900
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       {isSmallScreen ? (
-        <IconButton color="inherit" size="medium" aria-label="search-icon">
+        <IconButton color="inherit" aria-label="search-icon">
           <Search fontSize="small" />
         </IconButton>
       ) : (

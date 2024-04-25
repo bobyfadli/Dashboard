@@ -7,7 +7,7 @@ import LinearLoader from 'components/loading/LinearLoader';
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
 const AuthLayout = lazy(() => import('layouts/auth-layout'));
-const Dashboard = lazy(() => import('pages/dashboards/Dashboard'));
+const Dashboard = lazy(() => import('pages/dashboard/Dashboard'));
 const Login = lazy(() => import('pages/authentication/Login'));
 const Signup = lazy(() => import('pages/authentication/Signup'));
 const ErrorPage = lazy(() => import('pages/errors/ErrorPage'));
