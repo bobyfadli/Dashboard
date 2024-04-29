@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import VerticalNavbar from './Drawer/VerticalNavbar';
 import TopBar from './TopBar/TopBar';
+import { Stack } from '@mui/material';
 
 const drawerWidth = 248;
 
@@ -47,7 +48,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         })}
       >
         <Toolbar />
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>{children}</Box>
+        <Stack rowGap={3}>{children}</Stack>
       </Box>
     </Box>
   );

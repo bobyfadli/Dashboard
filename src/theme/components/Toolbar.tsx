@@ -6,7 +6,7 @@ const Toolbar: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       padding: theme.spacing(1.875, 3.875),
-      height: theme.spacing(9.75),
+      height: 78,
     }),
   },
 };

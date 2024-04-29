@@ -1,44 +1,73 @@
 import {
+  Collapse,
+  List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Stack,
-  SvgIconProps,
 } from '@mui/material';
+import IconifyIcon from 'components/base/IconifyIcon';
 import { MouseEvent } from 'react';
+import { DrawerItem } from 'types';
 
 interface DrawerItemProps {
-  data: {
-    id: number;
-    icon: (props: SvgIconProps) => JSX.Element;
-    title: string;
-    href: string;
-  }[];
-
+  data: DrawerItem[];
+  open: boolean;
   selectedIndex: number;
-  onHandleListItemClick: (
+  onHandleClick: (
     event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
     index: number,
+    collapsible: boolean,
   ) => void;
 }
 
-const DrawerListItems = ({ data, selectedIndex, onHandleListItemClick }: DrawerItemProps) => {
+const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerItemProps) => {
   return (
     <Stack spacing={1.25}>
-      {data?.map(({ icon: Icon, ...option }) => (
-        <ListItem key={option?.title} disablePadding>
+      {data.map(({ icon: Icon, collapsible, ...option }) => (
+        <ListItem
+          key={option.title}
+          disablePadding
+          sx={{ flexDirection: 'column', alignItems: 'stretch' }}
+        >
           <ListItemButton
-            selected={selectedIndex === option?.id}
-            onClick={(event) => onHandleListItemClick(event, option?.id)}
+            selected={selectedIndex === option.id}
+            onClick={(event) => onHandleClick(event, option.id, collapsible)}
             component="a"
-            href={option?.href}
+            href={option.href}
           >
             <ListItemIcon>
               <Icon fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary={option?.title} />
+            <ListItemText primary={option.title} />
+            {collapsible && open == false ? (
+              <IconifyIcon icon="ep:arrow-down" />
+            ) : (
+              collapsible && open == true && <IconifyIcon icon="ep:arrow-up" />
+            )}
           </ListItemButton>
+          {collapsible && (
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {option.subList?.map(({ icon: Icon, ...op }) => (
+                  <ListItemButton
+                    key={op.id}
+                    sx={{ pl: 4 }}
+                    selected={selectedIndex === op.id}
+                    onClick={(event) => onHandleClick(event, op.id, false)}
+                    component="a"
+                    href={op.href}
+                  >
+                    <ListItemIcon>
+                      <Icon fontSize="small" />
+                    </ListItemIcon>
+                    <ListItemText primary={op?.title} />
+                  </ListItemButton>
+                ))}
+              </List>
+            </Collapse>
+          )}
         </ListItem>
       ))}
     </Stack>

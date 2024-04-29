@@ -28,10 +28,10 @@ const palette: PaletteOptions = {
   action: {
     active: gray[200],
     hover: gray[200],
-    // selected: gray[100],
+    selected: gray[200],
     // disabled: gray[400],
     // disabledBackground: gray[200],
-    // focus: gray[300],
+    // focus: gray[200],
   },
 
   neutral: {
@@ -54,6 +54,7 @@ const palette: PaletteOptions = {
   },
 
   grey: {
+    // 200: gray[200],
     500: '#353945', // login-subtitle
     600: gray[600], // nav-icon, car-icon, table-heading
     700: gray[700],

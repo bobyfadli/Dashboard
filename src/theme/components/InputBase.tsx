@@ -1,9 +1,9 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
-const TextField: Components<Omit<Theme, 'components'>>['MuiTextField'] = {
+const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
   defaultProps: {},
   styleOverrides: {},
 };
 
-export default TextField;
+export default InputBase;

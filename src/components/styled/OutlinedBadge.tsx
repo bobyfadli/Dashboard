@@ -6,7 +6,7 @@ const OutlinedBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     top: 7,
     width: 9,
     height: 9,
-    border: `1.5px solid ${theme.palette.background.default}`,
+    border: `${theme.shape.borderRadius * 0.375}px solid ${theme.palette.background.default}`,
   },
 }));
 

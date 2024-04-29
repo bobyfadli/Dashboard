@@ -12,10 +12,12 @@ import Stack from './components/Stack';
 import FilledInput from './components/FilledInput';
 import InputAdornment from './components/InputAdornment';
 import Button from './components/Button';
-// import ButtonBase from './components/ButtonBase';
-// import IconButton from './components/IconButton';
-
-// import ButtonBase from './components/ButtonBase';
+import Drawer from './components/Drawer';
+import InputBase from './components/InputBase';
+import Input from './components/Input';
+import ButtonBase from './components/ButtonBase';
+import IconButton from './components/IconButton';
+import TextField from './components/TextField';
 
 export const theme = createTheme({
   palette,
@@ -24,20 +26,21 @@ export const theme = createTheme({
   components: {
     MuiAppBar: AppBar,
     MuiPaper: Paper,
+    MuiDrawer: Drawer,
     // MuiDivider: Divider,
-    // MuiAccordion: Accordion,
-    // MuiAccordionSummary: AccordionSummary,
-    MuiButton: Button,
-    // MuiButtonBase: ButtonBase,
-    // MuiIconButton: IconButton,
 
-    // TODO MuiTextField: TextField,
+    MuiButtonBase: ButtonBase,
+    MuiButton: Button,
+    MuiIconButton: IconButton,
+    MuiInputAdornment: InputAdornment,
+
+    MuiTextField: TextField,
     MuiFilledInput: FilledInput,
     // MuiOutlinedInput: OutlinedInput,
     // MuiInputLabel: InputLabel,
-    MuiInputAdornment: InputAdornment,
     // MuiFormHelperText: FormHelperText,
-    // TODO MuiInput: Input,
+    MuiInputBase: InputBase,
+    MuiInput: Input,
 
     // MuiFormControlLabel: FormControlLabel,
 
@@ -60,11 +63,9 @@ export const theme = createTheme({
     // MuiTooltip: Tooltip,
     // MuiTabs: Tabs,
     // MuiTab: Tab,
-    // MuiCircularProgress: CircularProgress,
-    // MuiLinearProgress: LinearProgress,
+
     // MuiAvatar: Avatar,
-    // MuiAvatarGroup: AvatarGroup,
-    // MuiAccordionDetails: AccordionDetails,
+
     // MuiTableContainer: TableContainer,
     // MuiTable: Table,
     // MuiTableCell: TableCell,

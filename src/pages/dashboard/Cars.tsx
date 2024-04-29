@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material';
-
 import { cars } from 'data/dashboard/cars';
 import car1Image from '../../assets/car-1.png';
 import car2Image from '../../assets/car-2.png';

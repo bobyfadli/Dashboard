@@ -6,7 +6,7 @@ const Paper: Components<Omit<Theme, 'components'>>['MuiPaper'] = {
     elevation: 0,
   },
   styleOverrides: {
-    root: ({ theme }) => ({
+    elevation0: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 3.5,
     }),
   },

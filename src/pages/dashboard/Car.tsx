@@ -29,8 +29,10 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
         </Stack>
         <Box
           sx={{
-            width: '16rem',
-            height: '6.625rem',
+            // width: '16rem',
+            // height: '6.625rem',
+            width: 256,
+            height: 106,
           }}
         >
           <Image src={src} alt="car-image" sx={{ height: 1, width: 1 }} />

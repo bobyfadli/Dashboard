@@ -1,69 +1,107 @@
-import { Grid, Paper, Typography, Stack, Box } from '@mui/material';
-import { factors } from 'data/dashboard/factors';
-// import ReactECharts from 'echarts-for-react';
+import { Paper, Typography, Stack, Box } from '@mui/material';
+import Lightning from 'components/icons/Lightning';
+// import { factors } from 'data/dashboard/factors';
+import ReactECharts from 'echarts-for-react';
 
 const Factors = () => {
-  // const option = {
-  //   series: [
-  //     {
-  //       type: 'gauge',
+  const doughnutChartOption = {
+    series: [
+      {
+        //   name: 'factor',
+        type: 'gauge',
+        min: 0,
+        max: 210,
+        startAngle: 220,
+        endAngle: -35,
 
-  //       radius: '100%',
+        radius: '100%',
+        detail: {
+          formatter: function (value: number) {
+            if (value < 100) return `${value}%`;
+            else return `${value}k%`;
+          },
+          offsetCenter: [0, 0],
+          fontSize: 24,
+          fontFamily: 'DM Sans',
+          // fontWeight: 'bold',
+          color: 'white',
+        },
 
-  //       progress: {
-  //         roundCap: true,
-  //         show: true,
-  //         width: 12,
-  //       },
+        progress: {
+          roundCap: true,
+          show: true,
+          width: 10,
+        },
 
-  //       axisLine: {
-  //         roundCap: true,
-  //         lineStyle: {
-  //           width: 12,
-  //         },
-  //       },
+        axisLine: {
+          roundCap: true,
+          lineStyle: {
+            width: 10,
+          },
+        },
 
-  //       itemStyle: {
-  //         color: 'red',
-  //       },
+        itemStyle: {
+          color: 'red',
+        },
+        axisTick: {
+          show: false,
+        },
 
-  //       pointer: {
-  //         show: false,
-  //       },
+        splitLine: {
+          show: false,
+        },
 
-  //       axisTick: {
-  //         show: false,
-  //       },
+        axisLabel: {
+          show: false,
+        },
 
-  //       splitLine: {
-  //         show: false,
-  //       },
+        pointer: {
+          show: false,
+        },
 
-  //       axisLabel: {
-  //         show: false,
-  //       },
-
-  //       anchor: {
-  //         show: false,
-  //       },
-
-  //       detail: {
-  //         fontSize: 20,
-  //         offsetCenter: [0, 0],
-  //         formatter: '{value}%',
-  //       },
-  //       data: [
-  //         {
-  //           value: 45,
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // };
+        data: [
+          {
+            value: 157,
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
-      <Grid container spacing={3}>
+      <Paper
+        sx={(theme) => ({
+          bgcolor: theme.palette.secondary.main,
+          color: 'grey.100',
+          width: 232,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          p: theme.spacing(2.5, 7.5),
+        })}
+      >
+        <Stack alignItems="center" rowGap={3.75}>
+          <Stack alignItems="center" rowGap={1.25}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 38,
+                width: 38,
+                backgroundColor: '#A66FF0',
+                borderRadius: '50%',
+              }}
+            >
+              <Lightning />
+            </Box>
+            <Typography variant="h1">Energy</Typography>
+          </Stack>
+          <ReactECharts option={doughnutChartOption} style={{ height: 112, width: 112 }} />
+        </Stack>
+      </Paper>
+      {/* <Grid container spacing={3}>
         {factors.map(({ icon: Icon, ...factor }) => (
           <Grid item xs={12} md={6} lg={3} key={factor?.id}>
             <Paper
@@ -94,13 +132,15 @@ const Factors = () => {
                 </Box>
 
                 <Typography variant="h1">{factor?.title}</Typography>
-                {/* <ReactECharts option={option} /> */}
-                {/* <Typography variant="h2">{factor?.value}%</Typography> */}
               </Stack>
+              <ReactECharts
+                option={doughnutChartOption}
+                style={{ height: '100%', width: '100%' }}
+              />
             </Paper>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </>
   );
 };

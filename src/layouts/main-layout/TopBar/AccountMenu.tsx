@@ -7,6 +7,7 @@ import {
   Menu,
   MenuItem,
   Tooltip,
+  Typography,
 } from '@mui/material';
 
 import { MouseEvent } from 'react';
@@ -28,7 +29,6 @@ const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMe
           <IconButton
             onClick={onHandleClick}
             size="small"
-            // sx={{ ml: 5 }}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
@@ -46,8 +46,12 @@ const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMe
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={onHandleClose}>Profile</MenuItem>
-        <MenuItem onClick={onHandleClose}>My account</MenuItem>
+        <MenuItem onClick={onHandleClose}>
+          <Typography variant="body2">Profile</Typography>
+        </MenuItem>
+        <MenuItem onClick={onHandleClose}>
+          <Typography variant="body2">My account</Typography>
+        </MenuItem>
 
         <Divider />
 
@@ -55,7 +59,7 @@ const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMe
           <ListItemIcon>
             <IconifyIcon icon="uiw:logout" fontSize="large" color="error.main" />
           </ListItemIcon>
-          Logout
+          <Typography variant="body2">Logout</Typography>
         </MenuItem>
       </Menu>
     </>

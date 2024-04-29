@@ -1,11 +1,11 @@
-import { Box, IconButton, InputAdornment, TextField, useMediaQuery, useTheme } from '@mui/material';
+import { IconButton, InputAdornment, TextField, useMediaQuery, useTheme } from '@mui/material';
 import Search from 'components/icons/Search';
 
 const SearchBox = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // 600 sm:660 md:900
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <>
       {isSmallScreen ? (
         <IconButton color="inherit" aria-label="search-icon">
           <Search fontSize="small" />
@@ -20,7 +20,7 @@ const SearchBox = () => {
                 sx={(theme) => ({
                   borderRight: theme.shape.borderRadius * 0.5,
                   borderRightColor: theme.palette.warning.main,
-                  height: '100%',
+                  height: 1,
                   pr: theme.spacing(2),
                 })}
               >
@@ -31,17 +31,13 @@ const SearchBox = () => {
           type="text"
           variant="filled"
           placeholder="Search or type"
-          sx={(theme) => ({
-            // width: '22.375rem',
-            width: theme.spacing(44.75),
-            '& .MuiFilledInput-input::placeholder': {
-              color: theme.palette.neutral.main,
-              opacity: 1,
-            },
-          })}
+          sx={{
+            width: 358,
+            // bgcolor: theme.palette.primary.main,
+          }}
         />
       )}
-    </Box>
+    </>
   );
 };
 

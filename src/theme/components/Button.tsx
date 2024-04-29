@@ -19,11 +19,11 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     //   padding: '10px 22px',
     //   lineHeight: 1.375,
     // },
-    sizeSmall: {
-      padding: '10px 12px',
-      width: '43px',
-      height: '20px',
-    },
+    // sizeSmall: {
+    //   padding: '10px 12px',
+    //   width: '43px',
+    //   height: '20px',
+    // },
     // outlinedSizeLarge: {
     //   paddingTop: '9px',
     //   paddingBottom: '9px',

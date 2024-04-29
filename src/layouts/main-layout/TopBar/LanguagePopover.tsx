@@ -2,7 +2,7 @@ import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import { MouseEvent, useState } from 'react';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { ListItemIcon, Menu } from '@mui/material';
+import { ListItemIcon, Menu, Typography } from '@mui/material';
 
 const languages = [
   {
@@ -15,9 +15,10 @@ const languages = [
 
   { id: 2, value: 'fr', label: 'French', icon: 'twemoji:flag-france' },
 ];
+
 const LanguagePopover = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
 
   const handleClickItem = (event: React.MouseEvent<HTMLElement>) => {
@@ -59,7 +60,7 @@ const LanguagePopover = () => {
             <ListItemIcon>
               <IconifyIcon icon={option.icon} />
             </ListItemIcon>
-            {option.label}
+            <Typography variant="body2">{option.label}</Typography>
           </MenuItem>
         ))}
       </Menu>
