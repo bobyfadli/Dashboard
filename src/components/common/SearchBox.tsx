@@ -20,8 +20,9 @@ const SearchBox = () => {
                 sx={(theme) => ({
                   borderRight: theme.shape.borderRadius * 0.5,
                   borderRightColor: theme.palette.warning.main,
-                  height: 1,
+                  height: 22,
                   pr: theme.spacing(2),
+                  mr: theme.spacing(0.5),
                 })}
               >
                 <Search fontSize="small" />
@@ -33,7 +34,6 @@ const SearchBox = () => {
           placeholder="Search or type"
           sx={{
             width: 358,
-            // bgcolor: theme.palette.primary.main,
           }}
         />
       )}

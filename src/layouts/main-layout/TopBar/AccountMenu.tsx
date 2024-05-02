@@ -1,12 +1,10 @@
 import {
   Avatar,
-  Box,
   Divider,
   IconButton,
   ListItemIcon,
   Menu,
   MenuItem,
-  Tooltip,
   Typography,
 } from '@mui/material';
 
@@ -24,19 +22,17 @@ interface AccountMenuProps {
 const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMenuProps) => {
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Tooltip title="User Name">
-          <IconButton
-            onClick={onHandleClick}
-            size="small"
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
-            <Avatar sx={{ width: 48, height: 48 }} alt="avatar" src={avatar} />
-          </IconButton>
-        </Tooltip>
-      </Box>
+      <IconButton
+        onClick={onHandleClick}
+        color="inherit"
+        aria-controls={open ? 'account-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        sx={{ ml: 3 }}
+      >
+        <Avatar sx={{ width: 48, height: 48 }} alt="avatar" src={avatar} />
+      </IconButton>
+
       <Menu
         anchorEl={anchorEl}
         id="account-menu"

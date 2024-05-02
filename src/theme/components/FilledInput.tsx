@@ -22,7 +22,9 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       },
     }),
 
-    adornedStart: ({ theme }) => ({ backgroundColor: theme.palette.neutral.lighter }),
+    adornedStart: ({ theme }) => ({
+      backgroundColor: theme.palette.neutral.lighter,
+    }),
   },
 };
 

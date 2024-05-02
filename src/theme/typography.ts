@@ -42,11 +42,13 @@ const typography: TypographyOptions = {
   //   fontSize: '1rem', // 16px
   //   lineHeight: 1.3,
   // },
-  // subtitle2: {
-  //   fontWeight: 700,
-  //   fontSize: '0.875rem', // 14px
-  //   lineHeight: 1.125, // 18px
-  // },
+
+  //20 February 2022
+  subtitle2: {
+    fontWeight: 700,
+    fontSize: '0.875rem', // 14px
+    lineHeight: 1.302, // 18.23px
+  },
 
   //car section - 64% recommended
   body1: {

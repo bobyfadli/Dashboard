@@ -9,6 +9,7 @@ const AppBar: Components<Omit<Theme, 'components'>>['MuiAppBar'] = {
       backgroundColor: theme.palette.background.default,
       boxShadow: 'none',
       borderRadius: 0,
+      // padding: theme.spacing(0, 1),
     }),
   },
 };

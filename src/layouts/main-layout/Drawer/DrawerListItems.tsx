@@ -5,7 +5,6 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Stack,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { MouseEvent } from 'react';
@@ -24,12 +23,16 @@ interface DrawerItemProps {
 
 const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerItemProps) => {
   return (
-    <Stack spacing={1.25}>
+    <>
       {data.map(({ icon: Icon, collapsible, ...option }) => (
         <ListItem
           key={option.title}
           disablePadding
-          sx={{ flexDirection: 'column', alignItems: 'stretch' }}
+          sx={(theme) => ({
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            mb: theme.spacing(1.25),
+          })}
         >
           <ListItemButton
             selected={selectedIndex === option.id}
@@ -53,15 +56,15 @@ const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerIte
                 {option.subList?.map(({ icon: Icon, ...op }) => (
                   <ListItemButton
                     key={op.id}
-                    sx={{ pl: 4 }}
+                    sx={{ pl: 4, mt: 0.5 }}
                     selected={selectedIndex === op.id}
                     onClick={(event) => onHandleClick(event, op.id, false)}
                     component="a"
                     href={op.href}
                   >
-                    <ListItemIcon>
+                    {/* <ListItemIcon>
                       <Icon fontSize="small" />
-                    </ListItemIcon>
+                    </ListItemIcon> */}
                     <ListItemText primary={op?.title} />
                   </ListItemButton>
                 ))}
@@ -70,7 +73,7 @@ const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerIte
           )}
         </ListItem>
       ))}
-    </Stack>
+    </>
   );
 };
 

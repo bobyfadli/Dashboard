@@ -39,7 +39,7 @@ const LanguagePopover = () => {
 
   return (
     <>
-      <IconButton onClick={handleClickItem}>
+      <IconButton aria-label="language" color="inherit" onClick={handleClickItem}>
         <IconifyIcon icon={languages[selectedIndex].icon} />
       </IconButton>
 

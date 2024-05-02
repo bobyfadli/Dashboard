@@ -7,7 +7,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   styleOverrides: {
     root: {
       textTransform: 'none',
-      // padding: 0,
+      padding: 0,
       //   fontSize: '14px',
       //   borderRadius: '8px',
       //   padding: theme.spacing(1, 2),
@@ -19,11 +19,20 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     //   padding: '10px 22px',
     //   lineHeight: 1.375,
     // },
-    // sizeSmall: {
-    //   padding: '10px 12px',
-    //   width: '43px',
-    //   height: '20px',
-    // },
+    sizeSmall: ({ theme }) => ({
+      borderRadius: theme.shape.borderRadius * 6,
+      fontSize: theme.typography.fontSize * 0.714,
+      fontWeight: theme.typography.fontWeightBold,
+      lineHeight: 1.302,
+      minWidth: 43,
+      height: 20,
+      color: theme.palette.grey[700],
+    }),
+
+    containedPrimary: {
+      color: 'white !important',
+    },
+
     // outlinedSizeLarge: {
     //   paddingTop: '9px',
     //   paddingBottom: '9px',

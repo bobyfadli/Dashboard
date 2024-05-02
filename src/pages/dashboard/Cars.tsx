@@ -9,9 +9,9 @@ const Cars = () => {
   const carImages: Record<number, string> = { 1: car1Image, 2: car2Image, 3: car3Image };
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3.75}>
       {cars.map(({ id, percentage, title, price, speed, backgroundColor }) => (
-        <Grid item key={id} xs={12} md={6} lg={4}>
+        <Grid item key={id} xs={12} sm>
           <Car
             src={carImages[id]}
             percentage={percentage}
@@ -23,6 +23,20 @@ const Cars = () => {
         </Grid>
       ))}
     </Grid>
+    // <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={3.75}>
+    //   {cars.map(({ id, percentage, title, price, speed, backgroundColor }) => (
+    //     <Box gridColumn="span 4">
+    //       <Car
+    //         src={carImages[id]}
+    //         percentage={percentage}
+    //         title={title}
+    //         price={price}
+    //         speed={speed}
+    //         backgroundColor={backgroundColor}
+    //       />
+    //     </Box>
+    //   ))}
+    // </Box>
   );
 };
 

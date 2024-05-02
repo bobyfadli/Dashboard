@@ -1,13 +1,14 @@
-import { AppBar, Box, IconButton, Link, Stack, Toolbar } from '@mui/material';
+import { AppBar, IconButton, Link, Stack, Toolbar } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { MouseEvent, useState } from 'react';
 import AccountMenu from './AccountMenu';
 import LanguagePopover from './LanguagePopover';
 import Notification from 'components/icons/Notification';
-import OutlinedBadge from 'components/styled/OutlinedBadge';
+
 import SearchBox from 'components/common/SearchBox';
 import { rootPaths } from 'routes/paths';
 import Logo from 'components/icons/Logo';
+import OutlinedBadge from 'components/styled/OutlinedBadge';
 
 interface TopBarProps {
   drawerWidth: number;
@@ -35,15 +36,11 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
       }}
     >
       <Toolbar>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            flexGrow: 1,
-          }}
-        >
+        <Stack direction="row" flexGrow={1}>
           <Link href={rootPaths.root} sx={{ display: { md: 'none' } }}>
-            <Logo width={27} height={27} />
+            <IconButton color="inherit">
+              <Logo sx={{ fontSize: 27 }} />
+            </IconButton>
           </Link>
           <IconButton
             color="inherit"
@@ -51,29 +48,27 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
             onClick={onHandleDrawerToggle}
             sx={{ display: { md: 'none' } }}
           >
-            <IconifyIcon icon="quill:hamburger" width={27} height={27} />
+            <IconifyIcon icon="mdi:hamburger-menu" />
           </IconButton>
 
           <SearchBox />
-        </Box>
+        </Stack>
 
-        <Stack direction="row" columnGap={3.5}>
-          <IconButton aria-label="languages" color="inherit">
-            <LanguagePopover />
-          </IconButton>
+        <Stack direction="row" columnGap={3}>
+          <LanguagePopover />
           <IconButton aria-label="notifications" color="inherit">
             <OutlinedBadge badgeContent=" " color="error" variant="dot" overlap="circular">
-              <Notification fontSize="medium" />
+              <Notification />
             </OutlinedBadge>
           </IconButton>
-
-          <AccountMenu
-            open={open}
-            anchorEl={anchorEl}
-            onHandleClick={handleClick}
-            onHandleClose={handleClose}
-          />
         </Stack>
+
+        <AccountMenu
+          open={open}
+          anchorEl={anchorEl}
+          onHandleClick={handleClick}
+          onHandleClose={handleClose}
+        />
       </Toolbar>
     </AppBar>
   );

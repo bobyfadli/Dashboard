@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography } from '@mui/material';
+import { Paper, Stack, Typography } from '@mui/material';
 import Image from 'components/base/Image';
 import Icon1 from 'components/icons/Icon1';
 import Icon2 from 'components/icons/Icon2';
@@ -20,6 +20,8 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
       sx={(theme) => ({
         p: theme.spacing(1.875, 3.375),
         backgroundColor: { backgroundColor },
+        // height: 236,
+        // width: { lg: 318 },
       })}
     >
       <Stack rowGap={1.375}>
@@ -27,20 +29,13 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
           <Icon1 />
           <Typography variant="body1">{percentage}% Recommend</Typography>
         </Stack>
-        <Box
-          sx={{
-            // width: '16rem',
-            // height: '6.625rem',
-            width: 256,
-            height: 106,
-          }}
-        >
-          <Image src={src} alt="car-image" sx={{ height: 1, width: 1 }} />
-        </Box>
+
+        <Image src={src} alt="car-image" sx={{ height: 106, width: 1 }} />
+
         <Stack>
           <Typography variant="h3">{title}</Typography>
-          <Stack direction="row" justifyContent={'space-between'} mt={1} color="grey.600">
-            <Stack direction="row" spacing={2}>
+          <Stack direction="row" justifyContent="space-between" mt={1} color="grey.600">
+            <Stack direction="row" columnGap={2}>
               <Icon2 fontSize="small" />
               <Typography variant="body2">{price}K</Typography>
               <Icon3 fontSize="small" />

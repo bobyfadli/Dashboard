@@ -22,26 +22,29 @@ import TextField from './components/TextField';
 export const theme = createTheme({
   palette,
   typography,
-  // unstable_sxConfig: sxConfig,
+  mixins: {
+    toolbar: {
+      minHeight: 78,
+    },
+  },
   components: {
     MuiAppBar: AppBar,
+    MuiToolbar: Toolbar,
     MuiPaper: Paper,
     MuiDrawer: Drawer,
-    // MuiDivider: Divider,
 
     MuiButtonBase: ButtonBase,
     MuiButton: Button,
     MuiIconButton: IconButton,
-    MuiInputAdornment: InputAdornment,
 
-    MuiTextField: TextField,
-    MuiFilledInput: FilledInput,
-    // MuiOutlinedInput: OutlinedInput,
     // MuiInputLabel: InputLabel,
-    // MuiFormHelperText: FormHelperText,
-    MuiInputBase: InputBase,
     MuiInput: Input,
-
+    MuiInputBase: InputBase,
+    MuiFilledInput: FilledInput,
+    MuiInputAdornment: InputAdornment,
+    MuiTextField: TextField,
+    // MuiOutlinedInput: OutlinedInput,
+    // MuiFormHelperText: FormHelperText,
     // MuiFormControlLabel: FormControlLabel,
 
     // MuiSelect: Select,
@@ -53,13 +56,13 @@ export const theme = createTheme({
     // MuiTablePagination: TablePagination,
     // MuiChip: Chip,
     // MuiSwitch: Switch,
+    MuiLink: Link,
     // MuiList: List,
     MuiListItemButton: ListItemButton,
     MuiListItemIcon: ListItemIcon,
     MuiListItemText: ListItemText,
     // MuiMenu: Menu,
     // MuiMenuItem: MenuItem,
-    MuiToolbar: Toolbar,
     // MuiTooltip: Tooltip,
     // MuiTabs: Tabs,
     // MuiTab: Tab,
@@ -72,8 +75,6 @@ export const theme = createTheme({
     // MuiDataGrid: DataGrid,
     // MuiTableSortLabel: TableSortLabel,
     // MuiCssBaseline: CssBaseline,
-
-    MuiLink: Link,
   },
 });
 

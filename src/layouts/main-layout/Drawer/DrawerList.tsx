@@ -23,35 +23,54 @@ const DrawerList = () => {
   return (
     <div>
       <Toolbar>
-        <Link href={rootPaths.root} sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
+        <Stack
+          component={Link}
+          href={rootPaths.root}
+          direction="row"
+          alignItems="center"
+          columnGap={1.25}
+        >
+          <Logo sx={{ fontSize: 27 }} />
+          <Typography variant="h1" sx={(theme) => ({ color: theme.palette.neutral.darker })}>
+            Motiv.
+          </Typography>
+        </Stack>
+        {/* <Link href={rootPaths.root} sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
           <Logo width={27} height={27} />
           <Typography variant="h1" sx={(theme) => ({ color: theme.palette.neutral.darker })}>
             Motiv.
           </Typography>
-        </Link>
+        </Link> */}
       </Toolbar>
 
-      <List
+      <Stack
         sx={(theme) => ({
-          height: `calc(100vh - ${theme.spacing(9.75)})`,
-          p: theme.spacing(2, 6.25, 3.75, 3),
+          height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
+          p: theme.spacing(2, 3),
+          justifyContent: 'space-between',
         })}
       >
-        <Stack sx={{ height: 1, justifyContent: 'space-between' }}>
+        <List
+          sx={(theme) => ({
+            pt: theme.spacing(0),
+          })}
+        >
           <DrawerListItems
             data={drawerItems.slice(0, -2)}
             selectedIndex={selectedIndex}
             onHandleClick={handleClick}
             open={open}
           ></DrawerListItems>
+        </List>
+        <List>
           <DrawerListItems
             data={drawerItems.slice(-2)}
             selectedIndex={selectedIndex}
             onHandleClick={handleClick}
             open={open}
           ></DrawerListItems>
-        </Stack>
-      </List>
+        </List>
+      </Stack>
     </div>
   );
 };
