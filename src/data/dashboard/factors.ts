@@ -1,24 +1,16 @@
-import { SvgIconProps } from '@mui/material';
 import Blood from 'components/icons/Blood';
 import Lightning from 'components/icons/Lightning';
 import Range from 'components/icons/Range';
 import Tier from 'components/icons/Tier';
-import { DoughnutChartOption } from 'types';
-
-interface Factor {
-  id: number;
-  icon: (props: SvgIconProps) => JSX.Element;
-  title: string;
-  backgroundColor: string;
-  chartOption: DoughnutChartOption;
-}
+import { Factor } from 'types';
 
 export const factors: Factor[] = [
   {
     id: 1,
     icon: Lightning,
     title: 'Energy',
-    backgroundColor: '#A66FF0',
+    iconBackground: '#A66FF0',
+    color: '#FFFFFF',
     chartOption: {
       series: [
         {
@@ -53,7 +45,6 @@ export const factors: Factor[] = [
           },
           itemStyle: {
             color: '#FFFFFF',
-            // color: '#B37EFC',
           },
           axisTick: {
             show: false,
@@ -80,7 +71,8 @@ export const factors: Factor[] = [
     id: 2,
     icon: Range,
     title: 'Range',
-    backgroundColor: '#FF7E861A',
+    iconBackground: '#FF7E861A',
+    color: '#FF7E86',
     chartOption: {
       series: [
         {
@@ -140,7 +132,8 @@ export const factors: Factor[] = [
     id: 3,
     icon: Blood,
     title: 'Break fluid',
-    backgroundColor: '#A162F71A',
+    iconBackground: '#A162F71A',
+    color: '#A162F7',
     chartOption: {
       series: [
         {
@@ -200,7 +193,8 @@ export const factors: Factor[] = [
     id: 4,
     icon: Tier,
     title: 'Tire Wear',
-    backgroundColor: '#F6CC0D1A',
+    iconBackground: '#F6CC0D1A',
+    color: '#F6CC0D',
     chartOption: {
       series: [
         {

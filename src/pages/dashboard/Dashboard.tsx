@@ -1,15 +1,15 @@
-// import Factors from './Factors';
+import Factors from './Factors';
 import Statistcs from './Statistcs';
-// import Cars from './Cars';
-// import Reminder from './Reminder';
+import Cars from './Cars';
+import Reminder from './Reminder';
 
 const Dashboard = () => {
   return (
     <>
-      {/* <Factors /> */}
+      <Factors />
       <Statistcs />
-      {/* <Cars /> */}
-      {/* <Reminder />  */}
+      <Cars />
+      <Reminder />
     </>
   );
 };

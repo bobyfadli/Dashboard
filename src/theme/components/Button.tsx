@@ -26,24 +26,16 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       lineHeight: 1.302,
       minWidth: 43,
       height: 20,
-      color: theme.palette.grey[700],
     }),
 
-    containedPrimary: {
-      color: 'white !important',
-    },
+    text: ({ theme }) => ({
+      color: theme.palette.grey[700],
+      width: 54,
+    }),
 
     // outlinedSizeLarge: {
     //   paddingTop: '9px',
     //   paddingBottom: '9px',
-    // },
-    // outlinedSizeMedium: {
-    //   paddingTop: '7px',
-    //   paddingBottom: '7px',
-    // },
-    // outlinedSizeSmall: {
-    //   paddingTop: '5px',
-    //   paddingBottom: '5px',
     // },
 
     // startIcon: {

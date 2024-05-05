@@ -60,3 +60,12 @@ export interface DoughnutChartOption {
     }[];
   }[];
 }
+
+export interface Factor {
+  id: number;
+  icon: (props: SvgIconProps) => JSX.Element;
+  title: string;
+  iconBackground: string;
+  color: string;
+  chartOption: DoughnutChartOption;
+}

@@ -1,11 +1,22 @@
-import { Paper, Typography, Stack, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { factors } from 'data/dashboard/factors';
-import ReactECharts from 'echarts-for-react';
+import SingleFactor from './SingleFactor';
 
 const Factors = () => {
   return (
     <Grid container spacing={3.75}>
-      {factors.map(({ icon: Icon, backgroundColor, ...factor }) => (
+      {factors.map((factor) => (
+        <Grid item xs={12} sm={6} lg key={factor?.id}>
+          <SingleFactor factor={factor} />
+        </Grid>
+      ))}
+    </Grid>
+  );
+};
+
+export default Factors;
+{
+  /* {factors.map(({ icon: Icon, backgroundColor, ...factor }) => (
         <Grid item xs={12} sm={6} lg key={factor?.id}>
           <Paper
             sx={(theme) => ({
@@ -39,51 +50,5 @@ const Factors = () => {
             </Stack>
           </Paper>
         </Grid>
-      ))}
-    </Grid>
-  );
-};
-
-export default Factors;
-{
-  /* <Grid container spacing={3}>
-        {factors.map(({ icon: Icon, ...factor }) => (
-          <Grid item xs={12} md={6} lg={3} key={factor?.id}>
-            <Paper
-              sx={(theme) => ({
-                bgcolor: `${factor.id === 1 && theme.palette.secondary.main}`,
-                color: `${factor.id === 1 && 'grey.100'}`,
-              })}
-            >
-              <Stack
-                alignItems="center"
-                rowGap={1.25}
-                sx={(theme) => ({
-                  p: theme.spacing(2.5, 0),
-                })}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: 38,
-                    width: 38,
-                    backgroundColor: 'grey.300',
-                    borderRadius: '50%',
-                  }}
-                >
-                  <Icon height="1.25rem" width="1.25rem" fontSize="small" />
-                </Box>
-
-                <Typography variant="h1">{factor?.title}</Typography>
-              </Stack>
-              <ReactECharts
-                option={doughnutChartOption}
-                style={{ height: '100%', width: '100%' }}
-              />
-            </Paper>
-          </Grid>
-        ))}
-      </Grid> */
+      ))} */
 }

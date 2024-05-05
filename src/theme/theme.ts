@@ -18,6 +18,7 @@ import Input from './components/Input';
 import ButtonBase from './components/ButtonBase';
 import IconButton from './components/IconButton';
 import TextField from './components/TextField';
+import DataGrid from './components/DataGrid';
 
 export const theme = createTheme({
   palette,
@@ -72,7 +73,7 @@ export const theme = createTheme({
     // MuiTableContainer: TableContainer,
     // MuiTable: Table,
     // MuiTableCell: TableCell,
-    // MuiDataGrid: DataGrid,
+    MuiDataGrid: DataGrid,
     // MuiTableSortLabel: TableSortLabel,
     // MuiCssBaseline: CssBaseline,
   },

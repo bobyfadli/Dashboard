@@ -38,13 +38,13 @@ const MainLayout = ({ children }: PropsWithChildren) => {
 
       <Box
         component="main"
-        sx={(theme) => ({
+        sx={{
           flexGrow: 1,
-          p: theme.spacing(3),
+          p: 3,
           minHeight: '100vh',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          bgcolor: theme.palette.grey[100],
-        })}
+          bgcolor: 'grey.100',
+        }}
       >
         <Toolbar />
         <Stack rowGap={3}>{children}</Stack>

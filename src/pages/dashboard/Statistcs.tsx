@@ -1,7 +1,20 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { graphic } from 'echarts';
 import ReactECharts from 'echarts-for-react';
+import { useState } from 'react';
 
 const Statistcs = () => {
+  const [selectedButtonBar, setselectedButtonBar] = useState('Day');
+  const [selectedButtonArea, setselectedButtonArea] = useState('Day');
+
+  const handleClickBar = (buttonName: string) => {
+    setselectedButtonBar(buttonName);
+  };
+
+  const handleClickArea = (buttonName: string) => {
+    setselectedButtonArea(buttonName);
+  };
+
   const barChartOption = {
     color: ['#F4F5F9'],
     tooltip: {
@@ -17,10 +30,12 @@ const Statistcs = () => {
       },
     },
     grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true,
+      // left: '-20',
+      left: '0',
+      // right: '-20',
+      right: '1',
+      top: '0',
+      bottom: '12%',
     },
 
     xAxis: [
@@ -57,7 +72,7 @@ const Statistcs = () => {
     series: [
       {
         type: 'bar',
-        barWidth: '30%',
+        barWidth: '40%',
         data: [120, 80, 157, 60, 130, 40, 90],
         cursor: 'none',
         emphasis: {
@@ -70,59 +85,75 @@ const Statistcs = () => {
     ],
   };
 
-  // const areaChartOption = {
-  //   color: ['#FF764C'],
+  const areaChartOption = {
+    xAxis: {
+      type: 'category',
+      data: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm'],
+      axisTick: {
+        show: false,
+      },
+      boundaryGap: false,
+      splitLine: {
+        show: true,
+        lineStyle: { color: ['#F2F2F2'] },
+      },
+      splitArea: {
+        show: false,
+      },
 
-  //   xAxis: {
-  //     type: 'category',
-  //     data: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm'],
-  //     axisTick: {
-  //       show: false,
-  //     },
-  //     boundaryGap: false,
-  //     splitLine: {
-  //       show: true,
-  //       lineStyle: { color: ['#F2F2F2'] },
-  //     },
-  //     splitArea: {
-  //       show: false,
-  //     },
+      axisLine: {
+        show: false,
+      },
+      axisLabel: {
+        color: '#808191',
+        fontFamily: 'DM Sans',
+        fontSize: 14,
+        fontWeight: 400,
+      },
+    },
 
-  //     axisLine: {
-  //       show: false,
-  //     },
-  //     axisLabel: {
-  //       color: '#808191',
-  //       fontFamily: 'DM Sans',
-  //       fontSize: 14,
-  //       fontWeight: 400,
-  //     },
-  //   },
+    yAxis: {
+      splitLine: {
+        show: false,
+      },
+      axisLabel: {
+        show: false,
+      },
+    },
 
-  //   yAxis: {
-  //     splitLine: {
-  //       show: false,
-  //     },
-  //     axisLabel: {
-  //       show: false,
-  //     },
-  //   },
-
-  //   series: [
-  //     {
-  //       data: [620, 932, 801, 934, 1290, 1130, 1020, 1300],
-  //       type: 'line',
-  //       smooth: true,
-  //       symbol: 'none',
-  //       areaStyle: {},
-  //     },
-  //   ],
-  // };
+    grid: {
+      left: '-20',
+      right: '-20',
+      top: '0',
+      bottom: '12%',
+    },
+    series: [
+      {
+        data: [620, 932, 801, 934, 1290, 1130, 1020, 1300],
+        type: 'line',
+        smooth: true,
+        symbol: 'none',
+        lineStyle: { width: 1, color: '#FF764C' },
+        areaStyle: {
+          color: new graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgba(255, 118, 76, 0.24)',
+            },
+            {
+              offset: 1,
+              color: 'rgba(255, 126, 7, 0)',
+            },
+          ]),
+        },
+      },
+    ],
+  };
 
   return (
     <Grid container spacing={3.75}>
       <Grid item xs={12} md={6}>
-        <Paper sx={(theme) => ({ p: theme.spacing(2.75, 3) })}>
+        <Paper sx={(theme) => ({ height: 332, p: theme.spacing(2.75, 3) })}>
           <Stack rowGap={3} sx={{ mb: 1.75 }}>
             <Typography variant="h3">
               Miles{' '}
@@ -135,13 +166,25 @@ const Statistcs = () => {
             </Typography>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
               <Stack direction="row" columnGap={1.25} alignItems={'center'}>
-                <Button variant="contained" size="small">
+                <Button
+                  variant={selectedButtonBar === 'Day' ? 'contained' : 'text'}
+                  size="small"
+                  onClick={() => handleClickBar('Day')}
+                >
                   Day
                 </Button>
-                <Button variant="text" size="small">
+                <Button
+                  variant={selectedButtonBar === 'Week' ? 'contained' : 'text'}
+                  size="small"
+                  onClick={() => handleClickBar('Week')}
+                >
                   Week
                 </Button>
-                <Button variant="text" size="small">
+                <Button
+                  variant={selectedButtonBar === 'Month' ? 'contained' : 'text'}
+                  size="small"
+                  onClick={() => handleClickBar('Month')}
+                >
                   Month
                 </Button>
               </Stack>
@@ -151,13 +194,18 @@ const Statistcs = () => {
               </Typography>
             </Stack>
           </Stack>
-          <ReactECharts option={barChartOption} />
+          <ReactECharts
+            option={barChartOption}
+            // lazyUpdate={true}
+            style={{ width: '100%', height: 223 }}
+            // opts={{ renderer: 'svg' }}
+          />
         </Paper>
       </Grid>
 
-      {/* <Grid item xs={12} md={6}>
-        <Paper sx={{ width: 498, height: 332 }}>
-          <Stack rowGap={2.5} sx={(theme) => ({ px: theme.spacing(3), pt: theme.spacing(2.75) })}>
+      <Grid item xs={12} md={6}>
+        <Paper sx={(theme) => ({ height: 332, p: theme.spacing(2.75, 3) })}>
+          <Stack rowGap={3} sx={{ mb: 1.75 }}>
             <Typography variant="h3">
               Car{' '}
               <Box
@@ -167,21 +215,54 @@ const Statistcs = () => {
                 Statistics
               </Box>
             </Typography>
-            <Stack direction="row" justifyContent={'space-between'} alignItems={'center'}>
+            <Stack direction="row" justifyContent="space-between" alignItems="center">
               <Typography variant="subtitle2" sx={{ color: 'grey.700' }}>
                 20 February 2022
               </Typography>
-
-              <Box>
-                <Button>Day</Button>
-                <Button>Month</Button>
-                <Button>week</Button>
-              </Box>
+              <Stack
+                direction="row"
+                alignItems="center"
+                columnGap={1}
+                sx={(theme) => ({
+                  borderRadius: theme.shape.borderRadius * 6,
+                  backgroundColor: theme.palette.neutral.lighter,
+                })}
+              >
+                <Button
+                  variant={selectedButtonArea === 'Day' ? 'contained' : 'text'}
+                  size="small"
+                  color="warning"
+                  onClick={() => handleClickArea('Day')}
+                >
+                  Day
+                </Button>
+                <Button
+                  variant={selectedButtonArea === 'Week' ? 'contained' : 'text'}
+                  size="small"
+                  color="warning"
+                  onClick={() => handleClickArea('Week')}
+                >
+                  Week
+                </Button>
+                <Button
+                  variant={selectedButtonArea === 'Month' ? 'contained' : 'text'}
+                  size="small"
+                  color="warning"
+                  onClick={() => handleClickArea('Month')}
+                >
+                  Month
+                </Button>
+              </Stack>
             </Stack>
           </Stack>
-          <ReactECharts option={areaChartOption} />
+          <ReactECharts
+            option={areaChartOption}
+            // lazyUpdate={true}
+            style={{ width: '100%', height: 223 }}
+            // opts={{ renderer: 'svg' }}
+          />
         </Paper>
-      </Grid> */}
+      </Grid>
     </Grid>
   );
 };

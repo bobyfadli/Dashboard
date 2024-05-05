@@ -22,11 +22,11 @@ const typography: TypographyOptions = {
     fontSize: '1.25rem', // 20px
     lineHeight: 1.302, //26.04px
   },
-  // h4: {
-  //   fontWeight: 400,
-  //   fontSize: '1.125rem', // 18px
-  //   lineHeight: 1.465, // 23.44px
-  // },
+  h4: {
+    fontWeight: 500,
+    fontSize: '1.125rem', // 18px
+    lineHeight: 1.302, // 23.44px
+  },
   // h5: {
   //   fontWeight: 700,
   //   fontSize: '1.125rem', // 18px
