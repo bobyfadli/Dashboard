@@ -28,14 +28,22 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
           <Typography variant="body1">{percentage}% Recommend</Typography>
         </Stack>
 
-        <Image src={src} alt="car-image" sx={{ height: 106, width: 1 }} />
+        <Image
+          src={src}
+          alt="car-image"
+          sx={{ width: 1, height: { xs: 1, lg: 106 }, objectFit: 'contain' }}
+        />
 
         <Stack>
           <Typography variant="h3" component="h2">
             {title}
           </Typography>
           <Stack direction="row" justifyContent="space-between" mt={1} color="grey.600">
-            <Stack direction="row" columnGap={2}>
+            <Stack
+              direction="row"
+              columnGap={2}
+              // columnGap={{ xs: 1, sm: 2 }}
+            >
               <Icon2 fontSize="small" />
               <Typography variant="body2" component="span">
                 {price}K

@@ -1,9 +1,9 @@
-import { DoughnutChartOption } from 'types';
+import { EChartsOption } from 'echarts-for-react';
 
-export const getDoughnutChartOption = (chartOption: DoughnutChartOption, color: string) => {
+export const getDoughnutChartOption = (chartOption: EChartsOption, color: string) => {
   const modifiedChartOption = {
     ...chartOption,
-    series: chartOption.series.map((series) => ({
+    series: chartOption.series.map((series: any) => ({
       ...series,
       itemStyle: {
         ...series.itemStyle,

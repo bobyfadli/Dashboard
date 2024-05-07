@@ -1,8 +1,7 @@
-import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { graphic } from 'echarts';
-import ReactECharts from 'echarts-for-react';
-// import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useState } from 'react';
+import SingleStatistic from './SingleStatistic';
 
 const Statistics = () => {
   // const { between } = useBreakpoints();
@@ -32,6 +31,7 @@ const Statistics = () => {
         fontSize: 10,
       },
     },
+
     grid: {
       // left: '-20',
       left: '0',
@@ -39,6 +39,11 @@ const Statistics = () => {
       right: '1',
       top: '0',
       bottom: '12%',
+    },
+
+    textStyle: {
+      fontFamily: 'DM Sans',
+      fontWeight: 400,
     },
 
     xAxis: [
@@ -57,6 +62,7 @@ const Statistics = () => {
         axisLine: {
           show: false,
         },
+        axisLabel: { fontSize: 14 },
       },
     ],
 
@@ -104,6 +110,7 @@ const Statistics = () => {
       axisTick: {
         show: false,
       },
+
       boundaryGap: false,
       splitLine: {
         show: true,
@@ -134,8 +141,8 @@ const Statistics = () => {
     },
 
     grid: {
-      left: '-20',
-      right: '-20',
+      left: '5%',
+      right: '5%',
       top: '0',
       bottom: '12%',
     },
@@ -164,146 +171,25 @@ const Statistics = () => {
 
   return (
     <Grid container spacing={3.75}>
-      <Grid item xs={12} lg={6}>
-        <Paper
-          sx={(theme) => ({
-            // height: 332,
-            p: theme.spacing(2.75, 3),
-          })}
-        >
-          <Stack rowGap={3} sx={{ mb: 1.75 }}>
-            <Typography variant="h3">
-              Miles{' '}
-              <Box
-                component="span"
-                sx={(theme) => ({ fontWeight: theme.typography.fontWeightRegular })}
-              >
-                Statistics
-              </Box>
-            </Typography>
-
-            <Stack
-              sx={{
-                flexDirection: { sm: 'row' },
-                justifyContent: { sm: 'space-between' },
-                alignItems: { sm: 'center' },
-                rowGap: { xs: 'inherit' },
-              }}
-            >
-              <Stack direction="row" columnGap={1.25} alignItems={'center'}>
-                <Button
-                  variant={selectedButtonBar === 'Day' ? 'contained' : 'text'}
-                  size="small"
-                  onClick={() => handleClickBar('Day')}
-                >
-                  Day
-                </Button>
-                <Button
-                  variant={selectedButtonBar === 'Week' ? 'contained' : 'text'}
-                  size="small"
-                  onClick={() => handleClickBar('Week')}
-                >
-                  Week
-                </Button>
-                <Button
-                  variant={selectedButtonBar === 'Month' ? 'contained' : 'text'}
-                  size="small"
-                  onClick={() => handleClickBar('Month')}
-                >
-                  Month
-                </Button>
-              </Stack>
-
-              <Typography variant="subtitle2" sx={{ color: 'grey.700' }}>
-                256 Miles
-              </Typography>
-            </Stack>
-          </Stack>
-
-          <ReactECharts
-            option={barChartOption}
-            lazyUpdate={true}
-            style={{ width: '100%', height: 223 }}
-            opts={{ renderer: 'svg' }}
-          />
-        </Paper>
-      </Grid>
-
-      <Grid item xs={12} lg={6}>
-        <Paper
-          sx={(theme) => ({
-            // height: 332,
-            p: theme.spacing(2.75, 3),
-          })}
-        >
-          <Stack rowGap={3} sx={{ mb: 1.75 }}>
-            <Typography variant="h3">
-              Car{' '}
-              <Box
-                component="span"
-                sx={(theme) => ({ fontWeight: theme.typography.fontWeightRegular })}
-              >
-                Statistics
-              </Box>
-            </Typography>
-            <Stack
-              sx={{
-                flexDirection: { sm: 'row' },
-                justifyContent: { sm: 'space-between' },
-                alignItems: { sm: 'center' },
-                rowGap: { xs: 'inherit' },
-              }}
-            >
-              <Typography variant="subtitle2" component="p" sx={{ color: 'grey.700' }}>
-                20 February 2022
-              </Typography>
-              <Stack
-                direction="row"
-                alignItems="center"
-                // columnGap={{ sm: 1 }}
-                columnGap={1}
-                sx={(theme) => ({
-                  borderRadius: theme.shape.borderRadius * 6,
-                  backgroundColor: theme.palette.neutral.lighter,
-                  width: 'max-content',
-                })}
-              >
-                <Button
-                  variant={selectedButtonArea === 'Day' ? 'contained' : 'text'}
-                  size="small"
-                  color="warning"
-                  onClick={() => handleClickArea('Day')}
-                >
-                  Day
-                </Button>
-                <Button
-                  variant={selectedButtonArea === 'Week' ? 'contained' : 'text'}
-                  size="small"
-                  color="warning"
-                  onClick={() => handleClickArea('Week')}
-                >
-                  Week
-                </Button>
-                <Button
-                  variant={selectedButtonArea === 'Month' ? 'contained' : 'text'}
-                  size="small"
-                  color="warning"
-                  onClick={() => handleClickArea('Month')}
-                >
-                  Month
-                </Button>
-              </Stack>
-            </Stack>
-          </Stack>
-
-          <ReactECharts
-            option={areaChartOption}
-            lazyUpdate={true}
-            style={{ width: '100%', height: 223 }}
-            opts={{ renderer: 'svg' }}
-          />
-        </Paper>
-      </Grid>
+      <SingleStatistic
+        title="Miles"
+        subtitle="256 Miles"
+        flexDirection="row"
+        buttonTexts={['Day', 'Week', 'Month']}
+        buttonVariant={selectedButtonBar}
+        onHandleClickButton={handleClickBar}
+        chartOption={barChartOption}
+      />
+      <SingleStatistic
+        title="Car"
+        subtitle="20 February 2022"
+        flexDirection="row-reverse"
+        buttonTexts={['Day', 'Week', 'Month']}
+        buttonVariant={selectedButtonArea}
+        onHandleClickButton={handleClickArea}
+        chartOption={areaChartOption}
+        buttonColor="warning"
+      />
     </Grid>
   );
 };
