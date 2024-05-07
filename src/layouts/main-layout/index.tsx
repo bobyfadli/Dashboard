@@ -2,7 +2,7 @@ import { PropsWithChildren, useState } from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import VerticalNavbar from './Drawer/VerticalNavbar';
 import TopBar from './TopBar/TopBar';
-import { Box, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 
 const drawerWidth = 248;
 
@@ -36,19 +36,20 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         onHandleDrawerClose={handleDrawerClose}
       />
 
-      <Box
+      <Stack
         component="main"
-        sx={{
+        rowGap={3.75}
+        sx={(theme) => ({
           flexGrow: 1,
-          p: 3,
+          p: theme.spacing(0, 5.375, 3.75, 3.75),
           minHeight: '100vh',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           bgcolor: 'grey.100',
-        }}
+        })}
       >
         <Toolbar />
-        <Stack rowGap={3}>{children}</Stack>
-      </Box>
+        {children}
+      </Stack>
     </Stack>
   );
 };

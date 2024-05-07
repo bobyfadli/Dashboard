@@ -19,6 +19,7 @@ import ButtonBase from './components/ButtonBase';
 import IconButton from './components/IconButton';
 import TextField from './components/TextField';
 import DataGrid from './components/DataGrid';
+import CssBaseline from './components/CssBaseline';
 
 export const theme = createTheme({
   palette,
@@ -75,7 +76,7 @@ export const theme = createTheme({
     // MuiTableCell: TableCell,
     MuiDataGrid: DataGrid,
     // MuiTableSortLabel: TableSortLabel,
-    // MuiCssBaseline: CssBaseline,
+    MuiCssBaseline: CssBaseline,
   },
 });
 

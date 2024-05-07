@@ -1,40 +1,35 @@
+import { Typography, Stack, Pagination } from '@mui/material';
 import {
-  GridPagination,
+  gridPageSelector,
   gridPageCountSelector,
   useGridApiContext,
   useGridSelector,
+  gridPageSizeSelector,
 } from '@mui/x-data-grid';
-import MuiPagination from '@mui/material/Pagination';
-import { TablePaginationProps } from '@mui/material';
 
-function Pagination({
-  page,
-  onPageChange,
-  className,
-}: Pick<TablePaginationProps, 'page' | 'onPageChange' | 'className'>) {
+const CustomPagination = () => {
   const apiRef = useGridApiContext();
+  const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+  const pageSize = useGridSelector(apiRef, gridPageSizeSelector);
+  const rowsCount = apiRef.current.getRowsCount();
 
   return (
-    <>
-      {/* <Typography variant="body2" color="grey.700">
-        Showing displayCount of Total
-      </Typography> */}
-      <MuiPagination
+    <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ width: 1 }}>
+      <Typography variant="body2" color="grey.600">
+        Showing {`${page * pageSize + 1}-${page * pageSize + pageSize} of ${rowsCount}`}
+      </Typography>
+      <Pagination
         color="primary"
-        className={className}
         count={pageCount}
         page={page + 1}
-        onChange={(event, newPage) => {
-          onPageChange(event as any, newPage - 1);
+        onChange={(event, value) => {
+          event.preventDefault();
+          apiRef.current.setPage(value - 1);
         }}
       />
-    </>
+    </Stack>
   );
-}
-
-const CustomPagination = (props: any) => {
-  return <GridPagination ActionsComponent={Pagination} {...props} />;
 };
 
 export default CustomPagination;

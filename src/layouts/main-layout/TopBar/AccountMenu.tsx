@@ -28,7 +28,7 @@ const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMe
         aria-controls={open ? 'account-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        sx={{ ml: 3 }}
+        sx={{ ml: { sm: 2, md: 3 } }}
       >
         <Avatar sx={{ width: 48, height: 48 }} alt="avatar" src={avatar} />
       </IconButton>

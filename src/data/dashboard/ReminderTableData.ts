@@ -1,43 +1,41 @@
-import { Box, Button, Paper, Stack, Typography } from '@mui/material';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import CustomPagination from 'components/common/CustomPagination';
+import { GridColDef } from '@mui/x-data-grid';
 
-const columns: GridColDef<(typeof rows)[number]>[] = [
+export const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'description',
     headerName: 'Description',
-    // flex: 1.5,
-    width: 200,
+    flex: 1.5,
+    minWidth: 200,
   },
   {
     field: 'due',
     headerName: 'Due',
     // type: 'date',
-    // flex: 1,
-    width: 200,
+    flex: 1,
+    minWidth: 150,
   },
   {
     field: 'overdue',
     headerName: 'Overdue',
     // type: 'date',
-    // flex: 1,
-    width: 200,
+    flex: 1,
+    minWidth: 150,
   },
   {
     field: 'notify',
     headerName: 'Notify',
-    // flex: 1,
-    width: 200,
+    flex: 1,
+    minWidth: 150,
   },
   {
     field: 'status',
     headerName: 'Status',
-    // flex: 1,
-    width: 200,
+    // flex: 0.3,
+    // minWidth: 150,
   },
 ];
 
-const rows = [
+export const rows = [
   {
     id: 1,
     description: 'Urgent Safety Recall',
@@ -135,55 +133,3 @@ const rows = [
     status: 'In Progress',
   },
 ];
-
-const Reminder = () => {
-  return (
-    <Paper sx={{ width: 1 }}>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={(theme) => ({
-          p: theme.spacing(2, 2.5, 1.75, 2.5),
-        })}
-      >
-        <Typography variant="h4" color="common.black">
-          Reminder
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          sx={(theme) => ({
-            p: theme.spacing(0.75, 1.5),
-            borderRadius: 1.5,
-          })}
-        >
-          <Typography variant="body1" component="span">
-            +&nbsp;
-          </Typography>
-          Add New
-        </Button>
-      </Stack>
-
-      <Box sx={(theme) => ({ width: 1, px: theme.spacing(2.5) })}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pagination
-          slots={{
-            pagination: CustomPagination,
-          }}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 5,
-              },
-            },
-          }}
-        />
-      </Box>
-    </Paper>
-  );
-};
-
-export default Reminder;

@@ -18,10 +18,8 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
   return (
     <Paper
       sx={(theme) => ({
-        p: theme.spacing(1.875, 3.375),
+        p: { xs: theme.spacing(1.875, 3), md: theme.spacing(1.875, 3.375) },
         backgroundColor: { backgroundColor },
-        // height: 236,
-        // width: { lg: 318 },
       })}
     >
       <Stack rowGap={1.375}>
@@ -33,15 +31,21 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
         <Image src={src} alt="car-image" sx={{ height: 106, width: 1 }} />
 
         <Stack>
-          <Typography variant="h3">{title}</Typography>
+          <Typography variant="h3" component="h2">
+            {title}
+          </Typography>
           <Stack direction="row" justifyContent="space-between" mt={1} color="grey.600">
             <Stack direction="row" columnGap={2}>
               <Icon2 fontSize="small" />
-              <Typography variant="body2">{price}K</Typography>
+              <Typography variant="body2" component="span">
+                {price}K
+              </Typography>
               <Icon3 fontSize="small" />
               <Icon4 fontSize="small" />
             </Stack>
-            <Typography variant="body2">${speed}/h</Typography>
+            <Typography variant="body2" component="span">
+              ${speed}/h
+            </Typography>
           </Stack>
         </Stack>
       </Stack>

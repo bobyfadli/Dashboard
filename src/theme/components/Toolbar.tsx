@@ -5,7 +5,11 @@ const Toolbar: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      paddingLeft: theme.spacing(3),
+      padding: theme.spacing(0, 3),
+    }),
+
+    gutters: ({ theme }) => ({
+      padding: `${theme.spacing(0, 3.875)} !important`,
     }),
   },
 };

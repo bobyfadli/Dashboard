@@ -1,15 +1,19 @@
-import { IconButton, InputAdornment, TextField, useMediaQuery, useTheme } from '@mui/material';
+import { IconButton, InputAdornment, Stack, TextField } from '@mui/material';
 import Search from 'components/icons/Search';
+import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const SearchBox = () => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // 600 sm:660 md:900
+  const { down } = useBreakpoints();
+  const isSm = down('md'); // md:900
+
   return (
     <>
-      {isSmallScreen ? (
-        <IconButton color="inherit" aria-label="search-icon">
-          <Search fontSize="small" />
-        </IconButton>
+      {isSm ? (
+        <Stack justifyContent="center">
+          <IconButton color="inherit" aria-label="search-icon">
+            <Search fontSize="small" />
+          </IconButton>
+        </Stack>
       ) : (
         <TextField
           id="input-with-searchIcon-textfield"

@@ -22,7 +22,7 @@ const DrawerList = () => {
 
   return (
     <div>
-      <Toolbar>
+      <Toolbar disableGutters>
         <Stack
           component={Link}
           href={rootPaths.root}
@@ -35,12 +35,6 @@ const DrawerList = () => {
             Motiv.
           </Typography>
         </Stack>
-        {/* <Link href={rootPaths.root} sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
-          <Logo width={27} height={27} />
-          <Typography variant="h1" sx={(theme) => ({ color: theme.palette.neutral.darker })}>
-            Motiv.
-          </Typography>
-        </Link> */}
       </Toolbar>
 
       <Stack
@@ -48,6 +42,7 @@ const DrawerList = () => {
           height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
           p: theme.spacing(2, 3),
           justifyContent: 'space-between',
+          overflowY: 'auto',
         })}
       >
         <List

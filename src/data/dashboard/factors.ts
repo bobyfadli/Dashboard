@@ -10,7 +10,7 @@ export const factors: Factor[] = [
     icon: Lightning,
     title: 'Energy',
     iconBackground: '#A66FF0',
-    color: '#FFFFFF',
+    color: '#FFFFFF', // itemStyle color will be same
     chartOption: {
       series: [
         {
@@ -44,7 +44,7 @@ export const factors: Factor[] = [
             },
           },
           itemStyle: {
-            color: '#FFFFFF',
+            // color: '#FFFFFF', // modify this
           },
           axisTick: {
             show: false,
@@ -105,7 +105,7 @@ export const factors: Factor[] = [
             },
           },
           itemStyle: {
-            color: '#FF7E86',
+            // color: '#FF7E86',
           },
           axisTick: {
             show: false,
@@ -166,7 +166,7 @@ export const factors: Factor[] = [
             },
           },
           itemStyle: {
-            color: '#A162F7',
+            // color: '#A162F7',
           },
           axisTick: {
             show: false,
@@ -227,7 +227,7 @@ export const factors: Factor[] = [
             },
           },
           itemStyle: {
-            color: '#F6CC0D',
+            // color: '#F6CC0D',
           },
           axisTick: {
             show: false,

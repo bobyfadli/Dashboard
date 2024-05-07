@@ -36,7 +36,7 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
       }}
     >
       <Toolbar>
-        <Stack direction="row" flexGrow={1}>
+        <Stack direction="row" flexGrow={1} columnGap={{ sm: 1 }}>
           <Link href={rootPaths.root} sx={{ display: { md: 'none' } }}>
             <IconButton color="inherit">
               <Logo sx={{ fontSize: 27 }} />
@@ -50,11 +50,9 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
           >
             <IconifyIcon icon="mdi:hamburger-menu" />
           </IconButton>
-
           <SearchBox />
         </Stack>
-
-        <Stack direction="row" columnGap={3}>
+        <Stack direction="row" columnGap={{ sm: 2, md: 3 }}>
           <LanguagePopover />
           <IconButton aria-label="notifications" color="inherit">
             <OutlinedBadge badgeContent=" " color="error" variant="dot" overlap="circular">

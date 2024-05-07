@@ -1,18 +1,18 @@
 import { Paper, Typography, Stack, useTheme } from '@mui/material';
-
-// import ReactEchart from 'components/base/ReactEchart';
 import ReactECharts from 'echarts-for-react';
+import { getDoughnutChartOption } from 'helpers/getDoughnutChartOption';
 import { Factor } from 'types';
 
 const SingleFactor = ({ factor }: { factor: Factor }) => {
   const theme = useTheme();
   const { id, icon: Icon, iconBackground, color, title, chartOption } = factor;
+
   return (
     <Paper
       sx={[
         id === 1 && { bgcolor: theme.palette.secondary.main, color: 'grey.100' },
         { height: 266 },
-        // {  width: 232}
+        // { width: { lg: 'auto' } },
       ]}
     >
       <Stack
@@ -33,13 +33,16 @@ const SingleFactor = ({ factor }: { factor: Factor }) => {
           >
             <Icon htmlColor={color} />
           </Stack>
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="h1" component="h2">
+            {title}
+          </Typography>
         </Stack>
         <ReactECharts
-          option={chartOption}
-          // lazyUpdate={true}
+          option={getDoughnutChartOption(chartOption, color)}
+          // option={chartOption}
+          lazyUpdate={true}
+          opts={{ renderer: 'svg' }}
           style={{ height: 112, width: 112 }}
-          // opts={{ renderer: 'svg' }}
         />
       </Stack>
     </Paper>

@@ -41,7 +41,7 @@ export interface DoughnutChartOption {
       };
     };
     itemStyle: {
-      color: string;
+      color?: string;
     };
     axisTick: {
       show: boolean;

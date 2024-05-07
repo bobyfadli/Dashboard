@@ -1,18 +1,21 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
 import { graphic } from 'echarts';
 import ReactECharts from 'echarts-for-react';
+// import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useState } from 'react';
 
-const Statistcs = () => {
-  const [selectedButtonBar, setselectedButtonBar] = useState('Day');
-  const [selectedButtonArea, setselectedButtonArea] = useState('Day');
+const Statistics = () => {
+  // const { between } = useBreakpoints();
+
+  const [selectedButtonBar, setSelectedButtonBar] = useState('Day');
+  const [selectedButtonArea, setSelectedButtonArea] = useState('Day');
 
   const handleClickBar = (buttonName: string) => {
-    setselectedButtonBar(buttonName);
+    setSelectedButtonBar(buttonName);
   };
 
   const handleClickArea = (buttonName: string) => {
-    setselectedButtonArea(buttonName);
+    setSelectedButtonArea(buttonName);
   };
 
   const barChartOption = {
@@ -86,6 +89,15 @@ const Statistcs = () => {
   };
 
   const areaChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'line',
+        label: {
+          backgroundColor: '#6a7985',
+        },
+      },
+    },
     xAxis: {
       type: 'category',
       data: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm'],
@@ -152,8 +164,13 @@ const Statistcs = () => {
 
   return (
     <Grid container spacing={3.75}>
-      <Grid item xs={12} md={6}>
-        <Paper sx={(theme) => ({ height: 332, p: theme.spacing(2.75, 3) })}>
+      <Grid item xs={12} lg={6}>
+        <Paper
+          sx={(theme) => ({
+            // height: 332,
+            p: theme.spacing(2.75, 3),
+          })}
+        >
           <Stack rowGap={3} sx={{ mb: 1.75 }}>
             <Typography variant="h3">
               Miles{' '}
@@ -164,7 +181,15 @@ const Statistcs = () => {
                 Statistics
               </Box>
             </Typography>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
+
+            <Stack
+              sx={{
+                flexDirection: { sm: 'row' },
+                justifyContent: { sm: 'space-between' },
+                alignItems: { sm: 'center' },
+                rowGap: { xs: 'inherit' },
+              }}
+            >
               <Stack direction="row" columnGap={1.25} alignItems={'center'}>
                 <Button
                   variant={selectedButtonBar === 'Day' ? 'contained' : 'text'}
@@ -194,17 +219,23 @@ const Statistcs = () => {
               </Typography>
             </Stack>
           </Stack>
+
           <ReactECharts
             option={barChartOption}
-            // lazyUpdate={true}
+            lazyUpdate={true}
             style={{ width: '100%', height: 223 }}
-            // opts={{ renderer: 'svg' }}
+            opts={{ renderer: 'svg' }}
           />
         </Paper>
       </Grid>
 
-      <Grid item xs={12} md={6}>
-        <Paper sx={(theme) => ({ height: 332, p: theme.spacing(2.75, 3) })}>
+      <Grid item xs={12} lg={6}>
+        <Paper
+          sx={(theme) => ({
+            // height: 332,
+            p: theme.spacing(2.75, 3),
+          })}
+        >
           <Stack rowGap={3} sx={{ mb: 1.75 }}>
             <Typography variant="h3">
               Car{' '}
@@ -215,17 +246,26 @@ const Statistcs = () => {
                 Statistics
               </Box>
             </Typography>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
-              <Typography variant="subtitle2" sx={{ color: 'grey.700' }}>
+            <Stack
+              sx={{
+                flexDirection: { sm: 'row' },
+                justifyContent: { sm: 'space-between' },
+                alignItems: { sm: 'center' },
+                rowGap: { xs: 'inherit' },
+              }}
+            >
+              <Typography variant="subtitle2" component="p" sx={{ color: 'grey.700' }}>
                 20 February 2022
               </Typography>
               <Stack
                 direction="row"
                 alignItems="center"
+                // columnGap={{ sm: 1 }}
                 columnGap={1}
                 sx={(theme) => ({
                   borderRadius: theme.shape.borderRadius * 6,
                   backgroundColor: theme.palette.neutral.lighter,
+                  width: 'max-content',
                 })}
               >
                 <Button
@@ -255,11 +295,12 @@ const Statistcs = () => {
               </Stack>
             </Stack>
           </Stack>
+
           <ReactECharts
             option={areaChartOption}
-            // lazyUpdate={true}
+            lazyUpdate={true}
             style={{ width: '100%', height: 223 }}
-            // opts={{ renderer: 'svg' }}
+            opts={{ renderer: 'svg' }}
           />
         </Paper>
       </Grid>
@@ -267,4 +308,4 @@ const Statistcs = () => {
   );
 };
 
-export default Statistcs;
+export default Statistics;
