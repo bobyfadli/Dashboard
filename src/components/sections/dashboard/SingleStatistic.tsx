@@ -72,7 +72,7 @@ const SingleStatistic = ({
         <ReactECharts
           option={chartOption}
           lazyUpdate={true}
-          style={{ width: '100%', height: 223 }}
+          style={{ width: '100%' }}
           opts={{ renderer: 'svg' }}
         />
       </Paper>

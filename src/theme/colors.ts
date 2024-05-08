@@ -9,9 +9,12 @@ export const gray = {
   700: '#5F6165', // nav-title, statistics-subtitle
   800: '#242731', //! text ==> factors-text, statistics-text, car-recommended-title, sign in with google, email, password, table-item
   900: '#1F2128', // Motiv., car-title
+  A100: '#E6EBF8',
 };
 
 export const purple = {
+  300: '#B37EFC',
+  400: '#A66FF0',
   500: '#A162F7', // button-background
 };
 

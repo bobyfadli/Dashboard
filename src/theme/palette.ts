@@ -50,6 +50,8 @@ const palette: PaletteOptions = {
   },
 
   secondary: {
+    lighter: purple[300],
+    light: purple[400],
     main: purple[500],
   },
 
@@ -59,6 +61,7 @@ const palette: PaletteOptions = {
     600: gray[600], // nav-icon, car-icon, table-heading
     700: gray[700],
     900: '#000000', //  Reminder
+    A100: gray['A100'],
   },
   error: {
     lighter: red[50],
@@ -75,21 +78,6 @@ const palette: PaletteOptions = {
     darker: orange[900],
     contrastText: '#fff',
   },
-  // success: {
-  //   lighter: green[50],
-  //   light: green[400],
-  //   main: green[500],
-  //   dark: green[700],
-  //   darker: green[900],
-  // },
-  // info: {
-  //   lighter: cyan[50],
-  //   light: cyan[300],
-  //   main: cyan[500],
-  //   dark: cyan[700],
-  //   darker: cyan[900],
-  //   contrastText: '#fff',
-  // },
 };
 
 export default palette;

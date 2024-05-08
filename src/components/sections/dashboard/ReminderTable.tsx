@@ -15,6 +15,7 @@ const ReminderTable = () => {
         <Typography variant="h4" color="common.black">
           Reminder
         </Typography>
+        {/* <SearchBox /> */}
         <Button
           variant="contained"
           color="secondary"
@@ -22,21 +23,31 @@ const ReminderTable = () => {
             p: theme.spacing(0.75, 1.5),
             borderRadius: 1.5,
           })}
+          startIcon={
+            <Typography variant="body2" component="span">
+              +
+            </Typography>
+          }
         >
-          <Typography variant="body1" component="span">
-            +&nbsp;
-          </Typography>
           Add New
         </Button>
       </Stack>
 
-      <Box sx={{ height: 380, width: 1, mt: 1.75 }}>
+      <Box sx={{ height: 400, width: 1, mt: 1.75 }}>
         <DataGrid
           rows={rows}
           columns={columns}
           slots={{
             pagination: CustomPagination,
+            // toolbar: GridToolbar,
           }}
+          slotProps={
+            {
+              // toolbar: {
+              //   showQuickFilter: true,
+              // },
+            }
+          }
           initialState={{
             pagination: {
               paginationModel: {

@@ -9,8 +9,8 @@ export const factors: Factor[] = [
     id: 1,
     icon: Lightning,
     title: 'Energy',
-    iconBackground: '#A66FF0',
-    color: '#FFFFFF', // itemStyle color will be same
+    iconBackground: '#E3ECF1',
+    color: '#2884FF',
     chartOption: {
       series: [
         {
@@ -29,40 +29,18 @@ export const factors: Factor[] = [
             offsetCenter: [0, 0],
             fontSize: 24,
             fontFamily: 'DM Sans',
-            color: '#FFFFFF',
           },
-          progress: {
-            roundCap: true,
-            show: true,
-            width: 10,
-          },
+          progress: { roundCap: true, show: true, width: 10 },
           axisLine: {
             roundCap: true,
-            lineStyle: {
-              width: 10,
-              color: [[1, '#B37EFC']],
-            },
+            lineStyle: { width: 10 },
           },
-          itemStyle: {
-            // color: '#FFFFFF', // modify this
-          },
-          axisTick: {
-            show: false,
-          },
-          splitLine: {
-            show: false,
-          },
-          axisLabel: {
-            show: false,
-          },
-          pointer: {
-            show: false,
-          },
-          data: [
-            {
-              value: 45,
-            },
-          ],
+          itemStyle: {},
+          axisTick: { show: false },
+          splitLine: { show: false },
+          axisLabel: { show: false },
+          pointer: { show: false },
+          data: [{ value: 45 }],
         },
       ],
     },
@@ -91,7 +69,6 @@ export const factors: Factor[] = [
             offsetCenter: [0, 0],
             fontSize: 24,
             fontFamily: 'DM Sans',
-            color: '#242731',
           },
           progress: {
             roundCap: true,
@@ -102,6 +79,7 @@ export const factors: Factor[] = [
             roundCap: true,
             lineStyle: {
               width: 10,
+              // color: [[1, '#B37EFC']], // should be affected on hover
             },
           },
           itemStyle: {
@@ -165,9 +143,7 @@ export const factors: Factor[] = [
               width: 10,
             },
           },
-          itemStyle: {
-            // color: '#A162F7',
-          },
+          itemStyle: {},
           axisTick: {
             show: false,
           },
@@ -226,9 +202,7 @@ export const factors: Factor[] = [
               width: 10,
             },
           },
-          itemStyle: {
-            // color: '#F6CC0D',
-          },
+          itemStyle: {},
           axisTick: {
             show: false,
           },

@@ -4,8 +4,6 @@ import { useState } from 'react';
 import SingleStatistic from './SingleStatistic';
 
 const Statistics = () => {
-  // const { between } = useBreakpoints();
-
   const [selectedButtonBar, setSelectedButtonBar] = useState('Day');
   const [selectedButtonArea, setSelectedButtonArea] = useState('Day');
 
@@ -18,25 +16,28 @@ const Statistics = () => {
   };
 
   const barChartOption = {
-    color: ['#F4F5F9'],
+    color: ['#2884FF'],
     tooltip: {
-      trigger: 'item',
+      trigger: 'axis',
       axisPointer: {
-        type: 'none',
+        type: 'line',
       },
       backgroundColor: '#282B32',
-      borderRadius: 5,
       textStyle: {
         color: 'white',
         fontSize: 10,
       },
+      valueFormatter: (value: number) => {
+        if (value < 100) return `${value}`;
+        else return `${value}k`;
+      },
     },
 
     grid: {
-      // left: '-20',
-      left: '0',
-      // right: '-20',
-      right: '1',
+      left: '-4%',
+      // left: '0',
+      right: '-4%',
+      // right: '1',
       top: '0',
       bottom: '12%',
     },
@@ -81,14 +82,14 @@ const Statistics = () => {
     series: [
       {
         type: 'bar',
-        barWidth: '40%',
+        barWidth: '20%',
         data: [120, 80, 157, 60, 130, 40, 90],
         cursor: 'none',
         emphasis: {
           focus: 'series',
-          itemStyle: {
-            color: '#2884FF',
-          },
+          // itemStyle: {
+          //   color: '#2884FF',
+          // },
         },
       },
     ],
@@ -99,22 +100,36 @@ const Statistics = () => {
       trigger: 'axis',
       axisPointer: {
         type: 'line',
-        label: {
-          backgroundColor: '#6a7985',
-        },
+      },
+      backgroundColor: '#282B32',
+      textStyle: {
+        color: 'white',
+        fontSize: 10,
+      },
+      valueFormatter: (value: number) => {
+        return value;
       },
     },
+
     xAxis: {
       type: 'category',
-      data: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm'],
+      data: ['5 am', '7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm', '11pm'],
       axisTick: {
-        show: false,
+        // show: false
+        show: true,
+        inside: true,
+        alignWithLabel: true,
+        length: 300,
+        lineStyle: {
+          color: ['#F2F2F2'],
+        },
       },
 
       boundaryGap: false,
       splitLine: {
-        show: true,
-        lineStyle: { color: ['#F2F2F2'] },
+        // show: true,
+        // lineStyle: { color: ['#F2F2F2'] },
+        show: false,
       },
       splitArea: {
         show: false,
@@ -141,14 +156,15 @@ const Statistics = () => {
     },
 
     grid: {
-      left: '5%',
-      right: '5%',
+      left: '-5%',
+      // left: 0,
+      right: '-5%',
       top: '0',
       bottom: '12%',
     },
     series: [
       {
-        data: [620, 932, 801, 934, 1290, 1130, 1020, 1300],
+        data: [500, 620, 932, 801, 934, 1290, 1130, 1020, 1300, 1200],
         type: 'line',
         smooth: true,
         symbol: 'none',

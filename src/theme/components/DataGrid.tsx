@@ -3,7 +3,13 @@ import type {} from '@mui/x-data-grid/themeAugmentation';
 import { Components } from '@mui/material/styles/components';
 
 const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
-  defaultProps: { disableColumnMenu: true, disableRowSelectionOnClick: true },
+  defaultProps: {
+    disableColumnMenu: true,
+    disableRowSelectionOnClick: true,
+    disableColumnFilter: true,
+    disableColumnSelector: true,
+    disableDensitySelector: true,
+  },
   styleOverrides: {
     root: {
       borderLeft: 0,
@@ -31,6 +37,10 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     columnSeparator: {
       display: 'none',
     },
+
+    sortIcon: ({ theme }) => ({
+      color: theme.palette.primary.main,
+    }),
   },
 };
 
