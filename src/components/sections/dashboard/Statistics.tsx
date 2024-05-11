@@ -15,6 +15,18 @@ const Statistics = () => {
     setSelectedButtonArea(buttonName);
   };
 
+  const getBarChartData = (buttonName: string) => {
+    if (buttonName == 'Day') return [120, 80, 157, 60, 130, 40, 90];
+    else if (buttonName == 'Week') return [80, 90, 120, 70, 160, 60, 90];
+    else return [150, 80, 157, 80, 130, 70, 90];
+  };
+
+  const getAreaChartData = (buttonName: string) => {
+    if (buttonName == 'Day') return [500, 620, 932, 801, 934, 1290, 1130, 1020, 1300, 1200];
+    else if (buttonName == 'Week') return [80, 90, 120, 70, 160, 60, 90, 1000, 800, 900];
+    else return [70, 90, 900, 130, 70, 90, 900, 500, 220, 100];
+  };
+
   const barChartOption = {
     color: ['#2884FF'],
     tooltip: {
@@ -83,7 +95,7 @@ const Statistics = () => {
       {
         type: 'bar',
         barWidth: '20%',
-        data: [120, 80, 157, 60, 130, 40, 90],
+        data: getBarChartData(selectedButtonBar),
         cursor: 'none',
         emphasis: {
           focus: 'series',
@@ -164,7 +176,7 @@ const Statistics = () => {
     },
     series: [
       {
-        data: [500, 620, 932, 801, 934, 1290, 1130, 1020, 1300, 1200],
+        data: getAreaChartData(selectedButtonArea),
         type: 'line',
         smooth: true,
         symbol: 'none',
