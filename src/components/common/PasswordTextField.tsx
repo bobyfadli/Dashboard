@@ -1,11 +1,13 @@
 import { SyntheticEvent, forwardRef, useState } from 'react';
-import { TextField, InputAdornment, IconButton, TextFieldProps } from '@mui/material';
+import { TextField, InputAdornment, IconButton, TextFieldProps, useTheme } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PasswordTextField = forwardRef<HTMLDivElement, TextFieldProps>((props, ref) => {
+  const theme = useTheme();
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const handlePasswordVisibilty = (event: SyntheticEvent) => {
+  const handlePasswordVisibility = (event: SyntheticEvent) => {
     event.preventDefault();
     setIsPasswordVisible(!isPasswordVisible);
   };
@@ -16,11 +18,17 @@ const PasswordTextField = forwardRef<HTMLDivElement, TextFieldProps>((props, ref
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton onClick={handlePasswordVisibilty}>
+            <IconButton onClick={handlePasswordVisibility}>
               {isPasswordVisible ? (
-                <IconifyIcon icon="material-symbols-light:visibility-outline-rounded" />
+                <IconifyIcon
+                  icon="material-symbols-light:visibility-outline-rounded"
+                  color={theme.palette.grey[400]}
+                />
               ) : (
-                <IconifyIcon icon="material-symbols-light:visibility-off-outline-rounded" />
+                <IconifyIcon
+                  icon="material-symbols-light:visibility-off-outline-rounded"
+                  color={theme.palette.grey[400]}
+                />
               )}
             </IconButton>
           </InputAdornment>

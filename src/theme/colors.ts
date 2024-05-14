@@ -1,6 +1,6 @@
 export const gray = {
   50: '#F5F4F6', // search box background color
-  100: '#808191', //  Statistics time,  body color => #F5F5F5 grey[100]
+  100: '', //  body color => #F5F5F5 grey[100]
   200: '#F3F5F8', // navButton on hover
   300: '#B1B5C3', // checkbox-icon, remember me
   400: '#777E90', //* text => or, email placeholder
@@ -10,6 +10,7 @@ export const gray = {
   800: '#242731', //! text ==> factors-text, statistics-text, car-recommended-title, sign in with google, email, password, table-item
   900: '#1F2128', // Motiv., car-title
   A100: '#E6EBF8',
+  A200: '#808191',
 };
 
 export const purple = {

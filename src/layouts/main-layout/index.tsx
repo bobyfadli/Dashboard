@@ -41,9 +41,9 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         rowGap={3.75}
         sx={(theme) => ({
           flexGrow: 1,
-          p: theme.spacing(0, 5.375, 3.75, 3.75),
+          p: { xs: theme.spacing(0, 3, 3.75, 3), md: theme.spacing(0, 5.375, 3.75, 3.75) },
           minHeight: '100vh',
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { xs: 1, sm: `calc(100% - ${drawerWidth}px)` },
           bgcolor: 'grey.100',
         })}
       >

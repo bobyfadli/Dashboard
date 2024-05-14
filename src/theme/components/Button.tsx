@@ -7,40 +7,37 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   styleOverrides: {
     root: {
       textTransform: 'none',
-      padding: 0,
-      //   fontSize: '14px',
-      //   borderRadius: '8px',
-      //   padding: theme.spacing(1, 2),
-      //   lineHeight: 1.429,
+      // padding: 0, -> Changed
     },
-
-    // sizeLarge: {
-    //   fontSize: '16px',
-    //   padding: '10px 22px',
-    //   lineHeight: 1.375,
-    // },
-    sizeSmall: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 6,
-      fontSize: theme.typography.fontSize * 0.714,
-      fontWeight: theme.typography.fontWeightBold,
-      lineHeight: 1.302,
-      minWidth: 43,
-      height: 20,
-    }),
 
     text: ({ theme }) => ({
       color: theme.palette.grey[700],
       width: 54,
     }),
 
-    // outlinedSizeLarge: {
-    //   paddingTop: '9px',
-    //   paddingBottom: '9px',
-    // },
+    sizeSmall: ({ theme }) => ({
+      borderRadius: theme.shape.borderRadius * 6,
+      fontSize: theme.typography.fontSize / 1.4,
+      fontWeight: theme.typography.fontWeightBold,
+      lineHeight: 1.302,
+      minWidth: 43,
+      height: 20,
+    }),
+
+    sizeLarge: ({ theme }) => ({
+      borderRadius: theme.shape.borderRadius * 2,
+      // fontSize: '1rem',
+      // lineHeight: 1.301,
+      height: 60,
+    }),
+
+    outlinedSizeLarge: ({ theme }) => ({
+      padding: theme.spacing(2.25, 3.75),
+    }),
 
     // startIcon: {
     //   '& > *:first-of-type': {
-    //     fontSize: 14,
+    //     fontSize: 20,
     //   },
     // },
     // endIcon: {
@@ -48,11 +45,12 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     //     fontSize: 14,
     //   },
     // },
-    // iconSizeLarge: {
+
+    // iconSizeLarge: ({ theme }) => ({
     //   '& > *:first-of-type': {
-    //     fontSize: 16,
+    //     fontSize: theme.typography.fontSize + 6,
     //   },
-    // },
+    // }),
   },
 };
 

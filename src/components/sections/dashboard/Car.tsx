@@ -31,7 +31,7 @@ const Car = ({ src, percentage, title, price, speed, backgroundColor }: CarProps
         <Image
           src={src}
           alt="car-image"
-          sx={{ width: 1, height: { xs: 1, lg: 106 }, objectFit: 'contain' }}
+          sx={{ width: 1, height: { xs: 1, lg: 106 }, objectFit: 'fill' }}
         />
 
         <Stack>

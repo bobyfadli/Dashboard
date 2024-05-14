@@ -15,12 +15,19 @@ const CustomPagination = () => {
   const rowsCount = apiRef.current.getRowsCount();
 
   return (
-    <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ width: 1 }}>
+    <Stack
+      direction={{ xs: 'column', sm: 'row' }}
+      alignItems="center"
+      justifyContent="space-between"
+      gap={{ xs: 1 }}
+      sx={{ width: 1, overflow: 'auto', py: { xs: 1, sm: 0 } }}
+    >
       <Typography variant="body2" color="grey.600">
         Showing {`${page * pageSize + 1}-${page * pageSize + pageSize} of ${rowsCount}`}
       </Typography>
       <Pagination
-        color="primary"
+        color="secondary"
+        size="small"
         count={pageCount}
         page={page + 1}
         onChange={(event, value) => {

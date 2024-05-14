@@ -1,4 +1,18 @@
-import { Box, Link, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Checkbox,
+  Divider,
+  FormControlLabel,
+  Grid,
+  Link,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
+import IconifyIcon from 'components/base/IconifyIcon';
+import PasswordTextField from 'components/common/PasswordTextField';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import paths from 'routes/paths';
 
@@ -7,209 +21,136 @@ interface LoginFormValues {
   password: string;
 }
 
+const checkBoxLabel = { inputProps: { 'aria-label': 'Checkbox' } };
+
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFormValues>();
+  const { register, handleSubmit } = useForm<LoginFormValues>();
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data);
 
   return (
-    <Box>
-      <Typography variant="h1">Get's started.</Typography>
-      <Typography variant="h4" sx={(theme) => ({ color: theme.palette.neutral.main })}>
-        Don’t have an account?
+    <Box sx={{ width: { xs: 1, sm: 506 }, px: { xs: 2, sm: 0 } }}>
+      <Typography variant="h2">Get's started.</Typography>
+      <Typography
+        variant="subtitle1"
+        component="p"
+        sx={(theme) => ({
+          color: theme.palette.neutral.main,
+          mt: 2,
+          mb: 6.75,
+        })}
+      >
+        Don’t have an account?{' '}
+        <Link href={paths.signup}>
+          <Typography variant="button" color="secondary">
+            Sign up
+          </Typography>
+        </Link>
       </Typography>
-      <Link href={paths.signup}>
-        <Typography variant="button" color="secondary">
-          &nbsp;Sign up
-        </Typography>
-      </Link>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input defaultValue="test" {...register('email')} />
+      <Stack gap={1.75} mb={3} sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
+        <Button
+          variant="outlined"
+          size="large"
+          startIcon={<IconifyIcon icon="flat-color-icons:google" />}
+          sx={(theme) => ({ width: { sm: 246 }, color: theme.palette.neutral.dark })}
+        >
+          Sign in with Google
+        </Button>
 
-        <input {...register('password', { required: true })} />
+        <Button
+          variant="contained"
+          size="large"
+          startIcon={<IconifyIcon icon="teenyicons:facebook-solid" />}
+          sx={{ width: { sm: 246 } }}
+        >
+          Sign in with Facebook
+        </Button>
+      </Stack>
 
-        {errors.password && <span>This field is required</span>}
+      <Divider>or</Divider>
 
-        <input type="submit" />
-      </form>
+      <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+        <Paper
+          sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: theme.shadows[3] })}
+        >
+          <Grid container spacing={2.5}>
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={
+                  <TextField
+                    fullWidth
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    {...register('email')}
+                  />
+                }
+                label={
+                  <Typography variant="h6" component="p" mb={1.5}>
+                    Email
+                  </Typography>
+                }
+                labelPlacement="top"
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={
+                  <PasswordTextField
+                    fullWidth
+                    id="password"
+                    placeholder="Enter your password"
+                    {...register('password')}
+                  />
+                }
+                label={
+                  <Typography variant="h6" component="p" mb={1.5}>
+                    Password
+                  </Typography>
+                }
+                labelPlacement="top"
+              />
+            </Grid>
+          </Grid>
+        </Paper>
+
+        <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3.75}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                {...checkBoxLabel}
+                sx={(theme) => ({
+                  color: theme.palette.neutral.light,
+                })}
+                icon={<IconifyIcon icon="fluent:checkbox-unchecked-24-regular" />}
+                checkedIcon={<IconifyIcon icon="fluent:checkbox-checked-24-regular" />}
+              />
+            }
+            label={
+              <Typography
+                variant="h6"
+                component="p"
+                sx={(theme) => ({ color: theme.palette.neutral.light })}
+              >
+                Remember me
+              </Typography>
+            }
+          />
+
+          <Typography variant="h6" component="p" color="secondary">
+            Forgot your password?
+          </Typography>
+        </Stack>
+
+        <Button variant="contained" type="submit" size="large" fullWidth color="secondary">
+          <Typography variant="h5" component="span" sx={{ fontFamily: 'Inter' }}>
+            Sign in
+          </Typography>
+        </Button>
+      </Box>
     </Box>
   );
 };
 
 export default Login;
-
-// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-// const Login = () => {
-
-//   return (
-//     <Box sx={{ width: '31.625rem' }}>
-// <Typography variant="h1">Get's started.</Typography>
-// <Box display="flex" mb={'3.375rem'}>
-//   <Typography variant="h4" sx={(theme) => ({ color: theme.palette.neutral.main })}>
-//     Don’t have an account?
-//   </Typography>
-//   <Link href={paths.signup}>
-//     <Typography variant="button" color="secondary">
-//       &nbsp;Sign up
-//     </Typography>
-//   </Link>
-//       </Box>
-
-//       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-//         <Button
-//           variant="outlined"
-//           sx={(theme) => ({
-//             width: { xs: '100%', sm: '15.375rem' },
-
-//             height: '3.75rem',
-//             borderRadius: 2,
-//             fontWeight: 500,
-//             fontSize: '1rem',
-//             lineHeight: '1.302rem',
-//             color: theme.palette.grey[800],
-//             borderColor: theme.palette.grey[100],
-//           })}
-//           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
-//         >
-//           Sign in with Google
-//         </Button>
-//         <Button
-//           variant="contained"
-//           sx={{
-//             width: { xs: '100%', sm: '15.375rem' },
-//             height: '3.75rem',
-//             borderRadius: 2,
-//             fontWeight: 500,
-//             fontSize: '1rem',
-//             lineHeight: '1.302rem',
-//             color: 'white',
-//           }}
-//           startIcon={<IconifyIcon icon="teenyicons:facebook-solid" />}
-//         >
-//           Sign in with Facebook
-//         </Button>
-//       </Stack>
-
-//       <Divider
-//         sx={(theme) => ({
-//           mt: 3,
-//           '& .MuiDivider-wrapper': {
-//             fontFamily: 'Inter',
-//             fontWeight: 500,
-//             color: theme.palette.neutral.main,
-//           },
-//         })}
-//       >
-//         or
-//       </Divider>
-
-//       <Paper
-//         onSubmit={handleSubmit(onSubmit)}
-//         sx={{
-//           // bgcolor: 'white',
-//           borderRadius: '0.625rem',
-//           paddingX: '1.25rem',
-//           marginTop: 3,
-//           // boxShadow: '0px 10px 110px 1px #3B3B3B',
-//           // '& .MuiPaper-root': {
-//           //   filter: 'drop-shadow(0 10px 110px 1px #3B3B3B)',
-//           // },
-//         }}
-//         variant="outlined"
-//         elevation={0}
-//       >
-//         <Grid container>
-//           <Grid item xs={12} mb={3}>
-//             {/* <FormControlLabel
-//               control={
-//                 <TextField
-//                   fullWidth
-//                   id="email"
-//                   type="email"
-//                   placeholder="Enter your email address"
-//                   error={!!errors.email}
-//                   helperText={<>{errors.email?.message}</>}
-//                   {...register('email')}
-//                 />
-//               }
-//               label={
-//                 <Typography variant="body1" mt="1.25rem" mb="0.5rem" color="black">
-//                   Email
-//                 </Typography>
-//               }
-//               labelPlacement="top"
-//             /> */}
-
-//             <FormLabel>
-//               <Typography variant="body1" mt="1.25rem" mb="0.5rem" color="black">
-//                 Email
-//               </Typography>
-//             </FormLabel>
-//             <TextField
-//               fullWidth
-//               id="email"
-//               type="email"
-//               placeholder="Enter your email address"
-//               error={!!errors.email}
-//               helperText={<>{errors.email?.message}</>}
-//               {...register('email')}
-//             />
-//           </Grid>
-//           <Grid item xs={12} mb={2.5}>
-//             <FormLabel>
-//               <Typography variant="body1" mb="0.5rem" color="black">
-//                 Password
-//               </Typography>
-//             </FormLabel>
-//             <PasswordTextField
-//               fullWidth
-//               id="password"
-//               error={!!errors.password}
-//               placeholder="*********"
-//               helperText={<>{errors.password?.message}</>}
-//               {...register('password')}
-//             />
-//           </Grid>
-//         </Grid>
-//       </Paper>
-
-//       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', my: 3 }}>
-//         <FormGroup>
-//           <FormControlLabel
-//             control={<Checkbox {...label} size="small" />}
-//             label={
-//               <Typography variant="body1" sx={(theme) => ({ color: theme.palette.text.secondary })}>
-//                 Remember me
-//               </Typography>
-//             }
-//           />
-//         </FormGroup>
-//         <Typography variant="body1" color="secondary">
-//           Forgot your password?
-//         </Typography>
-//       </Box>
-
-//       <Button
-//         variant="contained"
-//         color="secondary"
-//         sx={{
-//           width: '100%',
-//           height: '3.75rem',
-//           fontFamily: 'Inter',
-//           fontWeight: 700,
-//           fontSize: '1.25rem',
-//           borderRadius: '0.5rem',
-//         }}
-//       >
-//         Sign in
-//       </Button>
-//     </Box>
-//   );
-// };
-
-// export default Login;

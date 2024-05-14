@@ -1,7 +1,7 @@
-import { Grid } from '@mui/material';
-import { graphic } from 'echarts';
+import { Stack } from '@mui/material';
 import { useState } from 'react';
 import SingleStatistic from './SingleStatistic';
+import { getChartOption } from 'helpers/getChartOption';
 
 const Statistics = () => {
   const [selectedButtonBar, setSelectedButtonBar] = useState('Day');
@@ -15,190 +15,13 @@ const Statistics = () => {
     setSelectedButtonArea(buttonName);
   };
 
-  const getBarChartData = (buttonName: string) => {
-    if (buttonName == 'Day') return [120, 80, 157, 60, 130, 40, 90];
-    else if (buttonName == 'Week') return [80, 90, 120, 70, 160, 60, 90];
-    else return [150, 80, 157, 80, 130, 70, 90];
-  };
-
-  const getAreaChartData = (buttonName: string) => {
-    if (buttonName == 'Day') return [500, 620, 932, 801, 934, 1290, 1130, 1020, 1300, 1200];
-    else if (buttonName == 'Week') return [80, 90, 120, 70, 160, 60, 90, 1000, 800, 900];
-    else return [70, 90, 900, 130, 70, 90, 900, 500, 220, 100];
-  };
-
-  const barChartOption = {
-    color: ['#2884FF'],
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'line',
-      },
-      backgroundColor: '#282B32',
-      textStyle: {
-        color: 'white',
-        fontSize: 10,
-      },
-      valueFormatter: (value: number) => {
-        if (value < 100) return `${value}`;
-        else return `${value}k`;
-      },
-    },
-
-    grid: {
-      left: '-4%',
-      // left: '0',
-      right: '-4%',
-      // right: '1',
-      top: '0',
-      bottom: '12%',
-    },
-
-    textStyle: {
-      fontFamily: 'DM Sans',
-      fontWeight: 400,
-    },
-
-    xAxis: [
-      {
-        type: 'category',
-        data: ['1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
-        axisTick: {
-          show: false,
-        },
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: '#F2F2F2',
-          },
-        },
-        axisLine: {
-          show: false,
-        },
-        axisLabel: { fontSize: 14 },
-      },
-    ],
-
-    yAxis: [
-      {
-        type: 'value',
-        splitLine: {
-          show: false,
-        },
-        axisLabel: {
-          show: false,
-        },
-      },
-    ],
-
-    series: [
-      {
-        type: 'bar',
-        barWidth: '20%',
-        data: getBarChartData(selectedButtonBar),
-        cursor: 'none',
-        emphasis: {
-          focus: 'series',
-          // itemStyle: {
-          //   color: '#2884FF',
-          // },
-        },
-      },
-    ],
-  };
-
-  const areaChartOption = {
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'line',
-      },
-      backgroundColor: '#282B32',
-      textStyle: {
-        color: 'white',
-        fontSize: 10,
-      },
-      valueFormatter: (value: number) => {
-        return value;
-      },
-    },
-
-    xAxis: {
-      type: 'category',
-      data: ['5 am', '7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm', '11pm'],
-      axisTick: {
-        // show: false
-        show: true,
-        inside: true,
-        alignWithLabel: true,
-        length: 300,
-        lineStyle: {
-          color: ['#F2F2F2'],
-        },
-      },
-
-      boundaryGap: false,
-      splitLine: {
-        // show: true,
-        // lineStyle: { color: ['#F2F2F2'] },
-        show: false,
-      },
-      splitArea: {
-        show: false,
-      },
-
-      axisLine: {
-        show: false,
-      },
-      axisLabel: {
-        color: '#808191',
-        fontFamily: 'DM Sans',
-        fontSize: 14,
-        fontWeight: 400,
-      },
-    },
-
-    yAxis: {
-      splitLine: {
-        show: false,
-      },
-      axisLabel: {
-        show: false,
-      },
-    },
-
-    grid: {
-      left: '-5%',
-      // left: 0,
-      right: '-5%',
-      top: '0',
-      bottom: '12%',
-    },
-    series: [
-      {
-        data: getAreaChartData(selectedButtonArea),
-        type: 'line',
-        smooth: true,
-        symbol: 'none',
-        lineStyle: { width: 1, color: '#FF764C' },
-        areaStyle: {
-          color: new graphic.LinearGradient(0, 0, 0, 1, [
-            {
-              offset: 0,
-              color: 'rgba(255, 118, 76, 0.24)',
-            },
-            {
-              offset: 1,
-              color: 'rgba(255, 126, 7, 0)',
-            },
-          ]),
-        },
-      },
-    ],
-  };
-
   return (
-    <Grid container spacing={3.75}>
+    <Stack
+      columnGap={{ lg: 3.75 }}
+      rowGap={{ xs: 3.75, lg: 0 }}
+      direction={{ xs: 'column', lg: 'row' }}
+      justifyContent={{ lg: 'space-between' }}
+    >
       <SingleStatistic
         title="Miles"
         subtitle="256 Miles"
@@ -206,7 +29,7 @@ const Statistics = () => {
         buttonTexts={['Day', 'Week', 'Month']}
         buttonVariant={selectedButtonBar}
         onHandleClickButton={handleClickBar}
-        chartOption={barChartOption}
+        chartOption={getChartOption('bar', selectedButtonBar)}
       />
       <SingleStatistic
         title="Car"
@@ -215,10 +38,10 @@ const Statistics = () => {
         buttonTexts={['Day', 'Week', 'Month']}
         buttonVariant={selectedButtonArea}
         onHandleClickButton={handleClickArea}
-        chartOption={areaChartOption}
+        chartOption={getChartOption('area', selectedButtonArea)}
         buttonColor="warning"
       />
-    </Grid>
+    </Stack>
   );
 };
 

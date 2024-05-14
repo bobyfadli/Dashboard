@@ -20,6 +20,10 @@ import IconButton from './components/IconButton';
 import TextField from './components/TextField';
 import DataGrid from './components/DataGrid';
 import CssBaseline from './components/CssBaseline';
+import FormControlLabel from './components/FormControlLabel';
+import Divider from './components/Divider';
+import OutlinedInput from './components/OutlinedInput';
+import Pagination from './components/Pagination';
 
 export const theme = createTheme({
   palette,
@@ -45,15 +49,17 @@ export const theme = createTheme({
     MuiFilledInput: FilledInput,
     MuiInputAdornment: InputAdornment,
     MuiTextField: TextField,
-    // MuiOutlinedInput: OutlinedInput,
+    MuiOutlinedInput: OutlinedInput,
     // MuiFormHelperText: FormHelperText,
-    // MuiFormControlLabel: FormControlLabel,
+    MuiFormControlLabel: FormControlLabel,
+
+    MuiDivider: Divider,
 
     // MuiSelect: Select,
     MuiStack: Stack,
     // MuiCheckbox: Checkbox,
     // MuiRadio: Radio,
-    // MuiPagination: Pagination,
+    MuiPagination: Pagination,
     // MuiPaginationItem: PaginationItem,
     // MuiTablePagination: TablePagination,
     // MuiChip: Chip,

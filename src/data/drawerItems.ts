@@ -42,8 +42,8 @@ export const drawerItems: DrawerItem[] = [
     href: '#!',
     collapsible: true,
     subList: [
-      { id: 21, icon: Login, title: 'Login', href: '#!' },
-      { id: 22, icon: Authentication, title: 'Sign Up', href: '#!' },
+      { id: 21, icon: Login, title: 'Login', href: '/authentication/login' },
+      { id: 22, icon: Authentication, title: 'Sign Up', href: '/authentication/sign-up' },
     ],
   },
 

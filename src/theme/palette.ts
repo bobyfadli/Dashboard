@@ -57,11 +57,13 @@ const palette: PaletteOptions = {
 
   grey: {
     // 200: gray[200],
+    400: gray[400],
     500: '#353945', // login-subtitle
     600: gray[600], // nav-icon, car-icon, table-heading
     700: gray[700],
     900: '#000000', //  Reminder
     A100: gray['A100'],
+    A200: gray['A200'],
   },
   error: {
     lighter: red[50],

@@ -1,5 +1,6 @@
 import { Box, Button, Paper, Stack, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
+import IconifyIcon from 'components/base/IconifyIcon';
 import CustomPagination from 'components/common/CustomPagination';
 import { columns, rows } from 'data/dashboard/ReminderTableData';
 
@@ -15,7 +16,9 @@ const ReminderTable = () => {
         <Typography variant="h4" color="common.black">
           Reminder
         </Typography>
+
         {/* <SearchBox /> */}
+
         <Button
           variant="contained"
           color="secondary"
@@ -23,31 +26,32 @@ const ReminderTable = () => {
             p: theme.spacing(0.75, 1.5),
             borderRadius: 1.5,
           })}
-          startIcon={
-            <Typography variant="body2" component="span">
-              +
-            </Typography>
-          }
+          startIcon={<IconifyIcon icon="heroicons-solid:plus" />}
         >
-          Add New
+          <Typography variant="body2">Add New</Typography>
         </Button>
       </Stack>
 
-      <Box sx={{ height: 400, width: 1, mt: 1.75 }}>
+      <Box
+        sx={{
+          height: 400,
+          width: 1,
+          mt: 1.75,
+        }}
+      >
         <DataGrid
+          pagination
           rows={rows}
           columns={columns}
           slots={{
             pagination: CustomPagination,
             // toolbar: GridToolbar,
           }}
-          slotProps={
-            {
-              // toolbar: {
-              //   showQuickFilter: true,
-              // },
-            }
-          }
+          // slotProps={{
+          //   toolbar: {
+          //     showQuickFilter: true,
+          //   },
+          // }}
           initialState={{
             pagination: {
               paginationModel: {
@@ -55,7 +59,6 @@ const ReminderTable = () => {
               },
             },
           }}
-          sx={{ width: 1 }}
         />
       </Box>
     </Paper>

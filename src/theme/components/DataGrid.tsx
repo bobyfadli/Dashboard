@@ -12,8 +12,8 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
   },
   styleOverrides: {
     root: {
-      borderLeft: 0,
-      borderRight: 0,
+      borderLeft: 1,
+      borderRight: 1,
     },
 
     columnHeader: {
@@ -28,7 +28,7 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     cell: ({ theme }) => ({
       paddingLeft: 0,
       paddingRight: 0,
-      fontSize: theme.typography.fontSize * 0.928,
+      fontSize: theme.typography.fontSize - 1,
       '&:focus': {
         outline: 'none',
       },
