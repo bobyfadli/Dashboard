@@ -1,19 +1,17 @@
 import { Theme } from '@mui/material';
-import type {} from '@mui/x-data-grid/themeAugmentation';
 import { Components } from '@mui/material/styles/components';
+import type {} from '@mui/x-data-grid/themeAugmentation';
 
 const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
   defaultProps: {
     disableColumnMenu: true,
     disableRowSelectionOnClick: true,
-    disableColumnFilter: true,
-    disableColumnSelector: true,
-    disableDensitySelector: true,
   },
   styleOverrides: {
     root: {
-      borderLeft: 1,
-      borderRight: 1,
+      borderRadius: 0,
+      borderLeft: 0,
+      borderRight: 0,
     },
 
     columnHeader: {

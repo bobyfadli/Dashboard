@@ -3,12 +3,11 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { MouseEvent, useState } from 'react';
 import AccountMenu from './AccountMenu';
 import LanguagePopover from './LanguagePopover';
-import Notification from 'components/icons/Notification';
-
+import Notification from 'components/icons/Appbar/Notification';
+import OutlinedBadge from 'components/styled/OutlinedBadge';
 import SearchBox from 'components/common/SearchBox';
 import { rootPaths } from 'routes/paths';
-import Logo from 'components/icons/Logo';
-import OutlinedBadge from 'components/styled/OutlinedBadge';
+import Logo from 'components/icons/Common/Logo';
 
 interface TopBarProps {
   drawerWidth: number;

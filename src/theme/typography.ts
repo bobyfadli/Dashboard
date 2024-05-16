@@ -1,19 +1,20 @@
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 const typography: TypographyOptions = {
-  fontFamily: ['DM Sans', 'Inter'].join(','),
+  // lineHeight:  line-height/font-size
+
+  fontFamily: ['DM Sans', 'Inter', 'sans-serif'].join(','),
 
   h1: {
     fontWeight: 700,
-    fontSize: '1.5rem', // 24px
-    lineHeight: 1.302, // 31.25px  line-height/font-size
-  },
-
-  // login, sign up
-  h2: {
-    fontWeight: 700,
     fontSize: '1.875rem', // 30px
     lineHeight: 1.302, // 39.06px
+  },
+
+  h2: {
+    fontWeight: 700,
+    fontSize: '1.5rem', // 24px
+    lineHeight: 1.302, // 31.25px
   },
 
   h3: {
@@ -70,18 +71,6 @@ const typography: TypographyOptions = {
     lineHeight: 1.302, // 23.44px
     textTransform: 'none',
   },
-
-  // caption: {
-  //   fontWeight: 400,
-  //   fontSize: '0.75rem', // 12px
-  //   lineHeight: 1.2,
-  // },
-  // overline: {
-  //   fontWeight: 400,
-  //   fontSize: '0.75rem', // 12px
-  //   lineHeight: 1.2,
-  //   textTransform: 'uppercase',
-  // },
 };
 
 export default typography;

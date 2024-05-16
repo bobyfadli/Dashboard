@@ -21,14 +21,11 @@ const LanguagePopover = () => {
   const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
 
-  const handleClickItem = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClickItem = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (
-    _event: MouseEvent<HTMLLIElement, globalThis.MouseEvent>,
-    id: number,
-  ) => {
+  const handleMenuItemClick = (id: number) => {
     setSelectedIndex(id);
     setAnchorEl(null);
   };
@@ -55,7 +52,7 @@ const LanguagePopover = () => {
           <MenuItem
             key={option.id}
             selected={option.id === selectedIndex}
-            onClick={(event) => handleMenuItemClick(event, option.id)}
+            onClick={() => handleMenuItemClick(option.id)}
           >
             <ListItemIcon>
               <IconifyIcon icon={option.icon} />

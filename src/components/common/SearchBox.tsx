@@ -1,10 +1,14 @@
-import { IconButton, InputAdornment, Stack, TextField } from '@mui/material';
-import Search from 'components/icons/Search';
+import { IconButton, InputAdornment, Stack, TextField, useTheme } from '@mui/material';
+import Search from 'components/icons/Common/Search';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const SearchBox = () => {
+  const theme = useTheme();
+
   const { down } = useBreakpoints();
-  const isSm = down('md'); // md:900
+  const isSm = down('md');
+  // const { between } = useBreakpoints();
+  // const isSm = between('xs', 950);
 
   return (
     <>
@@ -21,13 +25,14 @@ const SearchBox = () => {
             startAdornment: (
               <InputAdornment
                 position="start"
-                sx={(theme) => ({
+                sx={{
                   borderRight: theme.shape.borderRadius * 0.5,
-                  borderRightColor: theme.palette.warning.main,
-                  height: 22,
-                  pr: theme.spacing(2),
-                  mr: theme.spacing(0.5),
-                })}
+                  borderRightColor: theme.palette.warning.light,
+                  height: 20,
+                  pr: theme.spacing(1),
+                  mr: theme.spacing(1),
+                  color: theme.palette.neutral.main,
+                }}
               >
                 <Search fontSize="small" />
               </InputAdornment>

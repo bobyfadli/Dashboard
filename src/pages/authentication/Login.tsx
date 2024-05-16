@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
+import Facebook from 'components/icons/Authentication/Facebook';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import paths from 'routes/paths';
 
@@ -29,7 +30,7 @@ const Login = () => {
 
   return (
     <Box sx={{ width: { xs: 1, sm: 506 }, px: { xs: 2, sm: 0 } }}>
-      <Typography variant="h2">Get's started.</Typography>
+      <Typography variant="h1">Get's started.</Typography>
       <Typography
         variant="subtitle1"
         component="p"
@@ -52,7 +53,7 @@ const Login = () => {
           variant="outlined"
           size="large"
           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
-          sx={(theme) => ({ width: { sm: 246 }, color: theme.palette.neutral.dark })}
+          sx={{ width: { sm: 246 } }}
         >
           Sign in with Google
         </Button>
@@ -60,8 +61,8 @@ const Login = () => {
         <Button
           variant="contained"
           size="large"
-          startIcon={<IconifyIcon icon="teenyicons:facebook-solid" />}
-          sx={{ width: { sm: 246 } }}
+          startIcon={<Facebook />}
+          sx={(theme) => ({ width: { sm: 246 }, bgcolor: theme.palette.primary.dark })}
         >
           Sign in with Facebook
         </Button>
@@ -71,7 +72,7 @@ const Login = () => {
 
       <Box component="form" onSubmit={handleSubmit(onSubmit)}>
         <Paper
-          sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: theme.shadows[3] })}
+          sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: theme.shadows[1] })}
         >
           <Grid container spacing={2.5}>
             <Grid item xs={12}>
@@ -138,13 +139,17 @@ const Login = () => {
             }
           />
 
-          <Typography variant="h6" component="p" color="secondary">
+          <Typography variant="h6" component={Link} href="#!" color="secondary">
             Forgot your password?
           </Typography>
         </Stack>
 
         <Button variant="contained" type="submit" size="large" fullWidth color="secondary">
-          <Typography variant="h5" component="span" sx={{ fontFamily: 'Inter' }}>
+          <Typography
+            variant="h5"
+            component="span"
+            sx={(theme) => ({ fontFamily: theme.typography.fontFamily?.split(',')[1] })}
+          >
             Sign in
           </Typography>
         </Button>

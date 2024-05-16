@@ -1,8 +1,19 @@
-import { Box, Button, Paper, Stack, Typography } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import { Box, Button, Paper, Portal, Stack, Typography } from '@mui/material';
+import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomPagination from 'components/common/CustomPagination';
+
 import { columns, rows } from 'data/dashboard/ReminderTableData';
+
+function CustomSearchToolbar() {
+  return (
+    <>
+      <Portal container={() => document.getElementById('filter-panel')!}>
+        <GridToolbarQuickFilter />
+      </Portal>
+    </>
+  );
+}
 
 const ReminderTable = () => {
   return (
@@ -12,12 +23,27 @@ const ReminderTable = () => {
         width: 1,
       })}
     >
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        alignItems="center"
+        justifyContent="space-between"
+        spacing={2}
+      >
         <Typography variant="h4" color="common.black">
           Reminder
         </Typography>
 
-        {/* <SearchBox /> */}
+        <Box
+          id="filter-panel"
+          sx={(theme) => ({
+            '& .MuiDataGrid-toolbarQuickFilter': {
+              border: theme.shape.borderRadius - 2,
+              borderRadius: theme.shape.borderRadius * 2,
+              borderColor: theme.palette.neutral.light,
+              p: theme.spacing(0, 0, 0, 1),
+            },
+          })}
+        />
 
         <Button
           variant="contained"
@@ -44,13 +70,11 @@ const ReminderTable = () => {
           rows={rows}
           columns={columns}
           slots={{
+            toolbar: CustomSearchToolbar,
             pagination: CustomPagination,
-            // toolbar: GridToolbar,
           }}
           // slotProps={{
-          //   toolbar: {
-          //     showQuickFilter: true,
-          //   },
+          //   toolbar: {},
           // }}
           initialState={{
             pagination: {

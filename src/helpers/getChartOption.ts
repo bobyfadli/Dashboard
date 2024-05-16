@@ -37,10 +37,10 @@ export const getChartOption = (type: string, button: string) => {
     },
 
     grid: {
-      left: '-4%',
-      // left: '0',
-      right: '-4%',
-      // right: '1',
+      // left: '-4%',
+      left: '0',
+      // right: '-4%',
+      right: '1',
       top: '0',
       bottom: '12%',
     },

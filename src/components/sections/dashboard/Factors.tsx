@@ -4,7 +4,7 @@ import SingleFactor from './SingleFactor';
 
 const Factors = () => {
   return (
-    <Grid container spacing={3.75}>
+    <Grid container spacing={{ xs: 2, lg: 3.75 }}>
       {factors.map((factor) => (
         <Grid item xs={12} sm={6} lg key={factor?.id}>
           <SingleFactor factor={factor} />

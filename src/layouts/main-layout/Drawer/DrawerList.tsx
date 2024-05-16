@@ -1,19 +1,15 @@
 import { Link, List, Stack, Toolbar, Typography } from '@mui/material';
 import DrawerListItems from './DrawerListItems';
 import { drawerItems } from 'data/drawerItems';
-import { MouseEvent, useState } from 'react';
-import Logo from 'components/icons/Logo';
+import { useState } from 'react';
+import Logo from 'components/icons/Common/Logo';
 import { rootPaths } from 'routes/paths';
 
 const DrawerList = () => {
   const [selectedIndex, setSelectedIndex] = useState(1);
   const [open, setOpen] = useState(false);
 
-  const handleClick = (
-    _event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-    index: number,
-    collapsible: boolean,
-  ) => {
+  const handleClick = (index: number, collapsible: boolean) => {
     setSelectedIndex(index);
     if (collapsible) {
       setOpen(!open);
@@ -28,10 +24,14 @@ const DrawerList = () => {
           href={rootPaths.root}
           direction="row"
           alignItems="center"
-          columnGap={1.25}
+          columnGap={1.5}
         >
           <Logo sx={{ fontSize: 27 }} />
-          <Typography variant="h1" sx={(theme) => ({ color: theme.palette.neutral.darker })}>
+          <Typography
+            variant="h2"
+            component="h1"
+            sx={(theme) => ({ color: theme.palette.neutral.darker })}
+          >
             Motiv.
           </Typography>
         </Stack>

@@ -5,7 +5,7 @@ const InputAdornment: Components<Omit<Theme, 'components'>>['MuiInputAdornment']
   defaultProps: {},
   styleOverrides: {
     filled: {
-      marginTop: '0!important',
+      marginTop: '0 !important',
     },
   },
 };

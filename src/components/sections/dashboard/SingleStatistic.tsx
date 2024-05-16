@@ -9,7 +9,8 @@ interface SingleStatisticProps {
   buttonVariant: string;
   onHandleClickButton: (buttonName: string) => void;
   chartOption: EChartsOption;
-  buttonColor?: 'primary' | 'secondary' | 'warning' | 'error';
+  // buttonColor?: any;
+  buttonColor?: 'primary' | 'secondary' | 'warning';
 }
 
 const SingleStatistic = ({

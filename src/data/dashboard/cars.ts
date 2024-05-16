@@ -1,3 +1,5 @@
+import { theme } from 'theme/theme';
+
 interface Car {
   id: number;
   percentage: number;
@@ -14,7 +16,7 @@ export const cars: Car[] = [
     title: 'Mini Cooper',
     price: 132,
     speed: 32,
-    backgroundColor: '#E1DFA4',
+    backgroundColor: theme.palette.warning.lighter,
   },
   {
     id: 2,
@@ -22,7 +24,7 @@ export const cars: Car[] = [
     title: 'Porsche 911 Carrera',
     price: 130,
     speed: 28,
-    backgroundColor: '#E3ECF1',
+    backgroundColor: theme.palette.primary.lighter,
   },
   {
     id: 3,
@@ -30,6 +32,6 @@ export const cars: Car[] = [
     title: 'Porsche 911 Carrera',
     price: 130,
     speed: 28,
-    backgroundColor: '#F4E3E5',
+    backgroundColor: theme.palette.error.lighter,
   },
 ];

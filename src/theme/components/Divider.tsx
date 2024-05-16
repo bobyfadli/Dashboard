@@ -5,7 +5,7 @@ const Divider: Components<Omit<Theme, 'components'>>['MuiDivider'] = {
   defaultProps: {},
   styleOverrides: {
     wrapper: ({ theme }) => ({
-      fontFamily: 'Inter',
+      fontFamily: theme.typography.fontFamily?.split(',')[1],
       fontWeight: theme.typography.fontWeightMedium,
       fontSize: theme.typography.fontSize + 4,
       lineHeight: 1.5,

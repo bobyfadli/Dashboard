@@ -1,37 +1,24 @@
-import { SvgIconProps } from '@mui/material';
-import Authentication from 'components/icons/Authentication';
-import Calendar from 'components/icons/Calendar';
-import Car from 'components/icons/Car';
-import Comment from 'components/icons/Comment';
-import Doughnut from 'components/icons/Doughnut';
-import Fencing from 'components/icons/Fencing';
-import Grid from 'components/icons/Grid';
-import Login from 'components/icons/Login';
+import Authentication from 'components/icons/Drawer/Authentication';
+import Calendar from 'components/icons/Drawer/Calendar';
+import Car from 'components/icons/Drawer/Car';
+import Comment from 'components/icons/Drawer/Comment';
+import Doughnut from 'components/icons/Drawer/Doughnut';
+import Fencing from 'components/icons/Drawer/Fencing';
+import Grid from 'components/icons/Drawer/Grid';
 
-import Settings from 'components/icons/Settings';
-import ShoppingBag from 'components/icons/ShoppingBag';
-import ShoppingCart from 'components/icons/ShoppingCart';
-import SignOut from 'components/icons/SignOut';
-
-interface DrawerItem {
-  id: number;
-  icon: (props: SvgIconProps) => JSX.Element;
-  title: string;
-  href: string;
-  collapsible: boolean;
-  subList?: {
-    id: number;
-    icon: (props: SvgIconProps) => JSX.Element;
-    title: string;
-    href: string;
-  }[];
-}
+import Settings from 'components/icons/Drawer/Settings';
+import ShoppingBag from 'components/icons/Drawer/ShoppingBag';
+import ShoppingCart from 'components/icons/Drawer/ShoppingCart';
+import SignOut from 'components/icons/Drawer/SignOut';
+import paths from 'routes/paths';
+import { DrawerItem } from 'types/types';
 
 export const drawerItems: DrawerItem[] = [
   {
     id: 1,
     icon: Grid,
     title: 'Dashboard',
+    // href: rootPaths.root,
     href: '#!',
     collapsible: false,
   },
@@ -39,11 +26,10 @@ export const drawerItems: DrawerItem[] = [
     id: 9,
     icon: Authentication,
     title: 'Authentication',
-    href: '#!',
     collapsible: true,
     subList: [
-      { id: 21, icon: Login, title: 'Login', href: '/authentication/login' },
-      { id: 22, icon: Authentication, title: 'Sign Up', href: '/authentication/sign-up' },
+      { id: 21, title: 'Login', href: paths.login },
+      { id: 22, title: 'Sign Up', href: paths.signup },
     ],
   },
 
@@ -51,6 +37,7 @@ export const drawerItems: DrawerItem[] = [
     id: 2,
     icon: Doughnut,
     title: 'Assets',
+    // href: paths.assets,
     href: '#!',
     collapsible: false,
   },
@@ -58,6 +45,7 @@ export const drawerItems: DrawerItem[] = [
     id: 3,
     icon: Car,
     title: 'Booking',
+    // href: paths.booking,
     href: '#!',
     collapsible: false,
   },
@@ -65,6 +53,7 @@ export const drawerItems: DrawerItem[] = [
     id: 4,
     icon: ShoppingBag,
     title: 'Sell Cars',
+    // href: paths.sellCars,
     href: '#!',
     collapsible: false,
   },
@@ -72,6 +61,7 @@ export const drawerItems: DrawerItem[] = [
     id: 5,
     icon: ShoppingCart,
     title: 'Buy Cars',
+    // href: paths.buyCars,
     href: '#!',
     collapsible: false,
   },
@@ -79,6 +69,7 @@ export const drawerItems: DrawerItem[] = [
     id: 6,
     icon: Fencing,
     title: 'Services',
+    // href: paths.services,
     href: '#!',
     collapsible: false,
   },
@@ -86,6 +77,7 @@ export const drawerItems: DrawerItem[] = [
     id: 7,
     icon: Calendar,
     title: 'Calender',
+    // href: paths.calendar,
     href: '#!',
     collapsible: false,
   },
@@ -93,6 +85,7 @@ export const drawerItems: DrawerItem[] = [
     id: 8,
     icon: Comment,
     title: 'Messages',
+    // href: paths.messages,
     href: '#!',
     collapsible: false,
   },
@@ -100,6 +93,7 @@ export const drawerItems: DrawerItem[] = [
     id: 10,
     icon: Settings,
     title: 'Settings',
+    // href: paths.settings,
     href: '#!',
     collapsible: false,
   },
@@ -107,6 +101,7 @@ export const drawerItems: DrawerItem[] = [
     id: 11,
     icon: SignOut,
     title: 'Log out',
+    // href: paths.logout,
     href: '#!',
     collapsible: false,
   },

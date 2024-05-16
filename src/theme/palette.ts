@@ -1,5 +1,5 @@
 import { PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
-import { gray, blue, purple, red, orange } from './colors';
+import { grey, blue, purple, red, orange } from './colors';
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
@@ -19,65 +19,48 @@ declare module '@mui/material/styles' {
 }
 
 const palette: PaletteOptions = {
+  grey,
+
   text: {
-    primary: gray[800], //! factors-text, statistics-text, car-recommended-title, sign in with google, email, password
-    secondary: gray[400], //* text => or, email placeholder
-    // disabled: gray[400],
+    primary: grey[800],
+    secondary: grey[400],
   },
 
   action: {
-    active: gray[200],
-    hover: gray[200],
-    selected: gray[200],
-    // disabled: gray[400],
-    // disabledBackground: gray[200],
-    // focus: gray[200],
+    hover: grey[200],
+    selected: grey[200],
   },
 
   neutral: {
-    lighter: gray[50],
-    light: gray[300],
-    main: gray[500],
-    dark: gray[800],
-    darker: gray[900],
+    lighter: grey[50],
+    light: grey[300],
+    main: grey[500],
+    dark: grey[800],
+    darker: grey[900],
     contrastText: '#fff',
   },
 
   primary: {
-    light: blue[400],
+    lighter: blue[50],
     main: blue[500],
-    dark: blue[600],
+    dark: blue[800],
   },
 
   secondary: {
-    lighter: purple[300],
-    light: purple[400],
+    lighter: purple[50],
+    light: purple[300],
     main: purple[500],
   },
 
-  grey: {
-    // 200: gray[200],
-    400: gray[400],
-    500: '#353945', // login-subtitle
-    600: gray[600], // nav-icon, car-icon, table-heading
-    700: gray[700],
-    900: '#000000', //  Reminder
-    A100: gray['A100'],
-    A200: gray['A200'],
-  },
   error: {
     lighter: red[50],
-    light: red[300],
     main: red[500],
-    dark: red[600],
-    darker: red[900],
   },
+
   warning: {
     lighter: orange[50],
-    light: orange[400],
+    light: orange[300],
     main: orange[500],
-    dark: orange[700],
-    darker: orange[900],
     contrastText: '#fff',
   },
 };

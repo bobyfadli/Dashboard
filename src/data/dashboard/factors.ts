@@ -1,8 +1,8 @@
-import Blood from 'components/icons/Blood';
-import Lightning from 'components/icons/Lightning';
-import Range from 'components/icons/Range';
-import Tier from 'components/icons/Tier';
-import { Factor } from 'types';
+import Blood from 'components/icons/Factor/Blood';
+import Lightning from 'components/icons/Factor/Lightning';
+import Range from 'components/icons/Factor/Range';
+import Tier from 'components/icons/Factor/Tier';
+import { Factor } from 'types/types';
 
 export const factors: Factor[] = [
   {
@@ -109,7 +109,7 @@ export const factors: Factor[] = [
   {
     id: 3,
     icon: Blood,
-    title: 'Break fluid',
+    title: 'Break Fluid',
     iconBackground: '#A162F71A',
     color: '#A162F7',
     chartOption: {

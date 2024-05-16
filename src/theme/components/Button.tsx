@@ -7,7 +7,6 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   styleOverrides: {
     root: {
       textTransform: 'none',
-      // padding: 0, -> Changed
     },
 
     text: ({ theme }) => ({
@@ -33,6 +32,11 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
 
     outlinedSizeLarge: ({ theme }) => ({
       padding: theme.spacing(2.25, 3.75),
+    }),
+
+    outlinedPrimary: ({ theme }) => ({
+      color: theme.palette.neutral.dark,
+      borderColor: theme.palette.grey.A400,
     }),
 
     // startIcon: {
