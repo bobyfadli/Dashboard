@@ -1,15 +1,7 @@
 import { theme } from 'theme/theme';
+import { ICar } from 'types/types';
 
-interface Car {
-  id: number;
-  percentage: number;
-  title: string;
-  price: number;
-  speed: number;
-  backgroundColor: string;
-}
-
-export const cars: Car[] = [
+export const cars: ICar[] = [
   {
     id: 1,
     percentage: 64,

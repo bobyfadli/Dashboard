@@ -1,15 +1,8 @@
-import {
-  Collapse,
-  Link,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from '@mui/material';
+import { Link, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 import { DrawerItem } from 'types/types';
+import CollapsedItems from './CollapsedItems';
 
 interface DrawerItemProps {
   data: DrawerItem[];
@@ -37,9 +30,15 @@ const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerIte
             component={option.href ? Link : 'div'}
             href={option?.href}
           >
-            <ListItemIcon>
+            <ListItemIcon
+              sx={(theme) => ({
+                minWidth: theme.spacing(2.5),
+                marginRight: theme.spacing(1),
+              })}
+            >
               <Icon fontSize="small" />
             </ListItemIcon>
+
             <ListItemText primary={option.title} />
             {collapsible && open == false ? (
               <IconifyIcon icon="ep:arrow-down" />
@@ -47,23 +46,14 @@ const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerIte
               collapsible && open == true && <IconifyIcon icon="ep:arrow-up" />
             )}
           </ListItemButton>
+
           {collapsible && (
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {option.subList?.map((option) => (
-                  <ListItemButton
-                    key={option.id}
-                    sx={{ pl: 4, mt: 0.5 }}
-                    selected={selectedIndex === option.id}
-                    onClick={() => onHandleClick(option.id, false)}
-                    component={Link}
-                    href={option.href}
-                  >
-                    <ListItemText primary={option?.title} />
-                  </ListItemButton>
-                ))}
-              </List>
-            </Collapse>
+            <CollapsedItems
+              data={option.subList}
+              open={open}
+              selectedIndex={selectedIndex}
+              onHandleClick={onHandleClick}
+            />
           )}
         </ListItem>
       ))}

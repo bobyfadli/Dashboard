@@ -10,7 +10,7 @@ import Settings from 'components/icons/Drawer/Settings';
 import ShoppingBag from 'components/icons/Drawer/ShoppingBag';
 import ShoppingCart from 'components/icons/Drawer/ShoppingCart';
 import SignOut from 'components/icons/Drawer/SignOut';
-import paths from 'routes/paths';
+import paths, { rootPaths } from 'routes/paths';
 import { DrawerItem } from 'types/types';
 
 export const drawerItems: DrawerItem[] = [
@@ -18,8 +18,7 @@ export const drawerItems: DrawerItem[] = [
     id: 1,
     icon: Grid,
     title: 'Dashboard',
-    // href: rootPaths.root,
-    href: '#!',
+    href: rootPaths.root,
     collapsible: false,
   },
   {

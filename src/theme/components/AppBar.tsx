@@ -7,7 +7,6 @@ const AppBar: Components<Omit<Theme, 'components'>>['MuiAppBar'] = {
     colorPrimary: ({ theme }) => ({
       color: theme.palette.neutral.main,
       backgroundColor: theme.palette.background.default,
-      boxShadow: 'none',
       borderRadius: 0,
     }),
   },

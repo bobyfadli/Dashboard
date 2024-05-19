@@ -8,7 +8,6 @@ import Drawer from './components/Drawer';
 import Link from './components/Link';
 import ListItemButton from './components/ListItemButton';
 import ListItemText from './components/ListItemText';
-import ListItemIcon from './components/ListItemIcon';
 import Paper from './components/Paper';
 import Stack from './components/Stack';
 import Button from './components/Button';
@@ -22,6 +21,8 @@ import OutlinedInput from './components/OutlinedInput';
 import FormControlLabel from './components/FormControlLabel';
 import shadows from './shadows';
 import Input from './components/Input';
+import MenuItem from './components/MenuItem';
+import Menu from './components/Menu';
 
 export const theme = createTheme({
   palette,
@@ -51,8 +52,10 @@ export const theme = createTheme({
 
     MuiLink: Link,
     MuiListItemButton: ListItemButton,
-    MuiListItemIcon: ListItemIcon,
     MuiListItemText: ListItemText,
+
+    MuiMenu: Menu,
+    MuiMenuItem: MenuItem,
 
     MuiPagination: Pagination,
     MuiDataGrid: DataGrid,

@@ -2,9 +2,9 @@ import Blood from 'components/icons/Factor/Blood';
 import Lightning from 'components/icons/Factor/Lightning';
 import Range from 'components/icons/Factor/Range';
 import Tier from 'components/icons/Factor/Tier';
-import { Factor } from 'types/types';
+import { IFactor } from 'types/types';
 
-export const factors: Factor[] = [
+export const factors: IFactor[] = [
   {
     id: 1,
     icon: Lightning,
@@ -24,7 +24,7 @@ export const factors: Factor[] = [
           detail: {
             formatter: (value: number) => {
               if (value < 100) return `${value}%`;
-              else return `${value}k%`;
+              else return `${value}k`;
             },
             offsetCenter: [0, 0],
             fontSize: 24,
@@ -64,7 +64,7 @@ export const factors: Factor[] = [
           detail: {
             formatter: (value: number) => {
               if (value < 100) return `${value}%`;
-              else return `${value}k%`;
+              else return `${value}k`;
             },
             offsetCenter: [0, 0],
             fontSize: 24,
@@ -125,7 +125,7 @@ export const factors: Factor[] = [
           detail: {
             formatter: (value: number) => {
               if (value < 100) return `${value}%`;
-              else return `${value}k%`;
+              else return `${value}k`;
             },
             offsetCenter: [0, 0],
             fontSize: 24,
@@ -184,7 +184,7 @@ export const factors: Factor[] = [
           detail: {
             formatter: (value: number) => {
               if (value < 100) return `${value}%`;
-              else return `${value}k%`;
+              else return `${value}k`;
             },
             offsetCenter: [0, 0],
             fontSize: 24,

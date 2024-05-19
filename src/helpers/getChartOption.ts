@@ -34,6 +34,7 @@ export const getChartOption = (type: string, button: string) => {
         if (value < 100) return `${value}`;
         else return `${value}k`;
       },
+      // formatter: '{b0} <br/> {c0}',
     },
 
     grid: {
@@ -85,7 +86,9 @@ export const getChartOption = (type: string, button: string) => {
     series: [
       {
         type: 'bar',
-        barWidth: '20%',
+
+        barWidth: 28,
+
         data: getBarChartData(button),
         cursor: 'none',
         emphasis: {

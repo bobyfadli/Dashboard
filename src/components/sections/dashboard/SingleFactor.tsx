@@ -2,9 +2,9 @@ import { Paper, Typography, Stack } from '@mui/material';
 import ReactECharts from 'echarts-for-react';
 import { getDoughnutChartOption } from 'helpers/getDoughnutChartOption';
 import { useState } from 'react';
-import { Factor } from 'types/types';
+import { IFactor } from 'types/types';
 
-const SingleFactor = ({ factor }: { factor: Factor }) => {
+const SingleFactor = ({ factor }: { factor: IFactor }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const { icon: Icon, iconBackground, color, title, chartOption } = factor;

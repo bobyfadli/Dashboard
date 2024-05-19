@@ -7,8 +7,6 @@ const SearchBox = () => {
 
   const { down } = useBreakpoints();
   const isSm = down('md');
-  // const { between } = useBreakpoints();
-  // const isSm = between('xs', 950);
 
   return (
     <>
