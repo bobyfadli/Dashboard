@@ -1,4 +1,3 @@
-// updated
 export const grey = {
   50: '#F5F4F6',
   100: '#F5F5F5',
@@ -17,6 +16,7 @@ export const grey = {
 
 export const blue = {
   50: '#E3ECF1',
+  300: '#2196f3',
   500: '#2884FF',
   800: '#4776D0',
 };

@@ -7,6 +7,7 @@ import Toolbar from './components/Toolbar';
 import Drawer from './components/Drawer';
 import Link from './components/Link';
 import ListItemButton from './components/ListItemButton';
+import ListItemIcon from './components/ListItemIcon';
 import ListItemText from './components/ListItemText';
 import Paper from './components/Paper';
 import Stack from './components/Stack';
@@ -52,6 +53,7 @@ export const theme = createTheme({
 
     MuiLink: Link,
     MuiListItemButton: ListItemButton,
+    MuiListItemIcon: ListItemIcon,
     MuiListItemText: ListItemText,
 
     MuiMenu: Menu,

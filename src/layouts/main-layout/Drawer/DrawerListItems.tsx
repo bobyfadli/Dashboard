@@ -32,7 +32,6 @@ const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerIte
           >
             <ListItemIcon
               sx={(theme) => ({
-                minWidth: theme.spacing(2.5),
                 marginRight: theme.spacing(1),
               })}
             >

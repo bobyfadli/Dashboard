@@ -25,16 +25,29 @@ export const getChartOption = (type: string, button: string) => {
       axisPointer: {
         type: 'line',
       },
-      backgroundColor: theme.palette.neutral.dark, // #282B32
+      backgroundColor: theme.palette.neutral.dark,
       textStyle: {
         color: theme.palette.common.white,
-        fontSize: theme.typography.fontSize / 1.4, //10
+        fontSize: theme.typography.fontSize / 1.4,
       },
-      valueFormatter: (value: number) => {
-        if (value < 100) return `${value}`;
-        else return `${value}k`;
+      // CallbackDataParams
+      formatter: (params: any) => {
+        const axisValueLabel = params[0]?.axisValueLabel;
+        const color = params[0].color;
+        const value = params[0].value;
+        // const marker = params[0].marker;
+        const marker = `<span style="display: inline-block; border-radius: 50%; height: 0.5rem; width: 0.5rem; background:${color}"></span>`;
+
+        return `<div style="width: 3rem; height: 1.875rem;">
+                  <strong>${axisValueLabel}</strong> <br/> 
+                  ${marker} ${value < 100 ? value : `${value}k`}
+               </div>`;
       },
-      // formatter: '{b0} <br/> {c0}',
+      padding: [2, 9, 2, 8],
+      position: function (pos: Array<number>) {
+        return [pos[0], '30%'];
+      },
+      extraCssText: 'border-radius: 0.3125rem;',
     },
 
     grid: {
@@ -86,16 +99,14 @@ export const getChartOption = (type: string, button: string) => {
     series: [
       {
         type: 'bar',
-
         barWidth: 28,
-
         data: getBarChartData(button),
         cursor: 'none',
         emphasis: {
           focus: 'series',
-          // itemStyle: {
-          //   color: '#2884FF',
-          // },
+          itemStyle: {
+            color: theme.palette.primary.light,
+          },
         },
       },
     ],
@@ -107,27 +118,24 @@ export const getChartOption = (type: string, button: string) => {
       axisPointer: {
         type: 'line',
       },
-      backgroundColor: theme.palette.neutral.dark, // #282B32
+      backgroundColor: theme.palette.neutral.dark,
       textStyle: {
         color: theme.palette.common.white,
-        fontSize: theme.typography.fontSize / 1.4, //10
-      },
-      valueFormatter: (value: number) => {
-        return value;
+        fontSize: theme.typography.fontSize / 1.4,
       },
     },
 
     xAxis: {
       type: 'category',
       data: ['5 am', '7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm', '11pm'],
+      // data: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm'],
       axisTick: {
-        // show: false
         show: true,
         inside: true,
         alignWithLabel: true,
         length: 300,
         lineStyle: {
-          color: theme.palette.neutral.lighter, // #F2F2F2
+          color: theme.palette.neutral.lighter,
         },
       },
 
@@ -146,7 +154,7 @@ export const getChartOption = (type: string, button: string) => {
       },
       axisLabel: {
         color: theme.palette.grey.A200, // #808191
-        fontFamily: 'DM Sans',
+        fontFamily: theme.typography.fontFamily?.split(',')[0],
         fontSize: theme.typography.fontSize,
         fontWeight: theme.typography.fontWeightRegular,
       },
@@ -162,8 +170,9 @@ export const getChartOption = (type: string, button: string) => {
     },
 
     grid: {
+      // left: '3%',
+      // right: '3%',
       left: '-5%',
-      // left: 0,
       right: '-5%',
       top: '0',
       bottom: '12%',

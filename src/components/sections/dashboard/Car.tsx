@@ -31,8 +31,8 @@ const Car = ({ car }: { car: ICar }) => {
           alt="car-image"
           sx={{
             width: 1,
-            height: { xs: 1, lg: 106 },
-            objectFit: { xs: 'cover', lg: 'contain' },
+            height: { xs: 106 },
+            objectFit: { xs: 'contain' },
           }}
         />
 

@@ -11,22 +11,18 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
 
     text: ({ theme }) => ({
       color: theme.palette.grey[700],
-      width: 54,
     }),
 
     sizeSmall: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 6,
       fontSize: theme.typography.fontSize / 1.4,
       fontWeight: theme.typography.fontWeightBold,
-      lineHeight: 1.302,
-      minWidth: 43,
-      height: 20,
+      padding: theme.spacing(0.406, 1.5),
+      minWidth: 'auto',
     }),
 
     sizeLarge: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 2,
-      // fontSize: '1rem',
-      // lineHeight: 1.301,
       height: 60,
     }),
 

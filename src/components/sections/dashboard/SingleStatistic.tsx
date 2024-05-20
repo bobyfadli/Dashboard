@@ -1,4 +1,4 @@
-import { Box, Button, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Paper, Stack, Typography, useTheme } from '@mui/material';
 import ReactECharts, { EChartsOption } from 'echarts-for-react';
 
 interface SingleStatisticProps {
@@ -23,21 +23,20 @@ const SingleStatistic = ({
   chartOption,
   buttonColor,
 }: SingleStatisticProps) => {
+  const theme = useTheme();
+
   return (
     <Paper
-      sx={(theme) => ({
+      sx={{
         // height: 332,
         p: theme.spacing(2.75, 3),
         width: { xs: 1, lg: '50%' },
-      })}
+      }}
     >
       <Stack rowGap={3} sx={{ mb: 1.75 }}>
         <Typography variant="h3">
           {title}{' '}
-          <Box
-            component="span"
-            sx={(theme) => ({ fontWeight: theme.typography.fontWeightRegular })}
-          >
+          <Box component="span" sx={{ fontWeight: theme.typography.fontWeightRegular }}>
             Statistics
           </Box>
         </Typography>
@@ -50,7 +49,18 @@ const SingleStatistic = ({
             rowGap: { xs: 'inherit' },
           }}
         >
-          <Stack direction="row" columnGap={1.25} alignItems={'center'}>
+          <Stack
+            direction="row"
+            columnGap={1.25}
+            alignItems={'center'}
+            sx={[
+              title === 'Car' && {
+                bgcolor: theme.palette.neutral.lighter,
+                borderRadius: theme.shape.borderRadius * 6,
+                width: 'max-content',
+              },
+            ]}
+          >
             {buttonTexts.map((text, index) => (
               <Button
                 key={index}

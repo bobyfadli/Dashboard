@@ -5,7 +5,7 @@ const MenuItem: Components<Omit<Theme, 'components'>>['MuiMenuItem'] = {
   defaultProps: {},
   styleOverrides: {
     root: {
-      minHeight: 30,
+      minHeight: 'auto',
     },
     gutters: ({ theme }) => ({ margin: theme.spacing(1, 0) }),
   },
