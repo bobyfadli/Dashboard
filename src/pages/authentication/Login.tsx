@@ -29,7 +29,7 @@ const Login = () => {
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data);
 
   return (
-    <Box sx={{ width: { xs: 1, sm: 506 }, px: { xs: 2, sm: 0 } }}>
+    <Box sx={{ width: { xs: 1, sm: 506 }, px: { xs: 2, sm: 0 }, my: 5 }}>
       <Typography variant="h1">Get's started.</Typography>
       <Typography
         variant="subtitle1"
@@ -83,6 +83,7 @@ const Login = () => {
                     id="email"
                     type="email"
                     placeholder="Enter your email"
+                    autoComplete="email"
                     {...register('email')}
                   />
                 }
@@ -102,6 +103,7 @@ const Login = () => {
                     fullWidth
                     id="password"
                     placeholder="Enter your password"
+                    autoComplete="current-password"
                     {...register('password')}
                   />
                 }

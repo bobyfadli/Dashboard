@@ -12,11 +12,11 @@ export const grey = {
   A100: '#E6EBF8',
   A200: '#808191',
   A400: '#E6E8EC',
+  A700: '#F3F3F3',
 };
 
 export const blue = {
   50: '#E3ECF1',
-  300: '#2196f3',
   500: '#2884FF',
   800: '#4776D0',
 };
@@ -29,6 +29,7 @@ export const purple = {
 
 export const red = {
   50: '#F4E3E5',
+  300: '#FF7E86',
   500: '#FF5E6F',
 };
 
@@ -36,4 +37,6 @@ export const orange = {
   50: '#E1DFA4',
   300: '#EF9011',
   500: '#FF764C',
+  800: '#ef6c00',
+  900: '#F6CC0D',
 };

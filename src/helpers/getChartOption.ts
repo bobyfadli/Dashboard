@@ -22,6 +22,7 @@ export const getChartOption = (type: string, button: string) => {
     color: theme.palette.primary.main,
     tooltip: {
       trigger: 'axis',
+      confine: true,
       axisPointer: {
         type: 'line',
       },
@@ -31,7 +32,7 @@ export const getChartOption = (type: string, button: string) => {
         fontSize: theme.typography.fontSize / 1.4,
       },
       // CallbackDataParams
-      formatter: (params: any) => {
+      formatter: (params: Array<any>) => {
         const axisValueLabel = params[0]?.axisValueLabel;
         const color = params[0].color;
         const value = params[0].value;
@@ -115,6 +116,7 @@ export const getChartOption = (type: string, button: string) => {
   const areaChartOption: EChartsOption = {
     tooltip: {
       trigger: 'axis',
+      confine: true,
       axisPointer: {
         type: 'line',
       },
@@ -123,6 +125,18 @@ export const getChartOption = (type: string, button: string) => {
         color: theme.palette.common.white,
         fontSize: theme.typography.fontSize / 1.4,
       },
+      formatter: (params: Array<any>) => {
+        const axisValueLabel = params[0]?.axisValueLabel;
+        const value = params[0].value;
+        const marker = `<span style="display: inline-block; border-radius: 50%; height: 0.5rem; width: 0.5rem; background:${theme.palette.warning.main}"></span>`;
+
+        return `<div style="width: 3rem; height: 1.875rem;">
+                  <strong>${axisValueLabel}</strong> <br/> 
+                  ${marker} ${value}
+               </div>`;
+      },
+      padding: [2, 9, 2, 8],
+      extraCssText: 'border-radius: 0.3125rem;',
     },
 
     xAxis: {

@@ -1,7 +1,7 @@
 import { Avatar, IconButton, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
 
 import { MouseEvent } from 'react';
-import avatar from 'assets/avatar.png';
+import avatar from 'assets/avatar.webp';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 interface AccountMenuProps {

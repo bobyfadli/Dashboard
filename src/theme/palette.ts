@@ -42,7 +42,6 @@ const palette: PaletteOptions = {
 
   primary: {
     lighter: blue[50],
-    light: blue[300],
     main: blue[500],
     dark: blue[800],
   },
@@ -55,6 +54,7 @@ const palette: PaletteOptions = {
 
   error: {
     lighter: red[50],
+    light: red[300],
     main: red[500],
   },
 
@@ -62,6 +62,8 @@ const palette: PaletteOptions = {
     lighter: orange[50],
     light: orange[300],
     main: orange[500],
+    dark: orange[800],
+    darker: orange[900],
     contrastText: '#fff',
   },
 };

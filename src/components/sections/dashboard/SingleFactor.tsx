@@ -1,4 +1,4 @@
-import { Paper, Typography, Stack } from '@mui/material';
+import { Paper, Typography, Stack, alpha } from '@mui/material';
 import ReactECharts from 'echarts-for-react';
 import { getDoughnutChartOption } from 'helpers/getDoughnutChartOption';
 import { useState } from 'react';
@@ -7,7 +7,7 @@ import { IFactor } from 'types/types';
 const SingleFactor = ({ factor }: { factor: IFactor }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  const { icon: Icon, iconBackground, color, title, chartOption } = factor;
+  const { icon: Icon, color, title, chartOption } = factor;
 
   return (
     <Paper
@@ -41,7 +41,7 @@ const SingleFactor = ({ factor }: { factor: IFactor }) => {
             sx={{
               height: 38,
               width: 38,
-              backgroundColor: iconBackground,
+              backgroundColor: alpha(color, 0.1),
               borderRadius: '50%',
             }}
           >

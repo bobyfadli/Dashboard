@@ -63,7 +63,7 @@ const ReminderTable = () => {
           variant="contained"
           color="secondary"
           sx={(theme) => ({
-            p: theme.spacing(0.75, 1.5),
+            p: theme.spacing(0.625, 1.5),
             borderRadius: 1.5,
           })}
           startIcon={<IconifyIcon icon="heroicons-solid:plus" />}

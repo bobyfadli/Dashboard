@@ -125,6 +125,7 @@ const Signup = () => {
                     id="email"
                     type="email"
                     placeholder="Enter your email"
+                    autoComplete="email"
                     {...register('email')}
                   />
                 }
@@ -144,6 +145,7 @@ const Signup = () => {
                     fullWidth
                     id="password"
                     placeholder="Enter your password"
+                    autoComplete="new-password"
                     {...register('password')}
                   />
                 }

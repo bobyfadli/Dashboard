@@ -19,6 +19,10 @@ const Car = ({ car }: { car: ICar }) => {
         p: { xs: theme.spacing(1.875, 3), md: theme.spacing(1.875, 3.375) },
         backgroundColor: backgroundColor,
       }}
+      // sx={(theme) => ({
+      //   p: { xs: theme.spacing(1.875, 3), md: theme.spacing(1.875, 3.375) },
+      //   backgroundColor: `${theme.palette[backgroundColor]}.lighter`,
+      // })}
     >
       <Stack rowGap={1.375}>
         <Stack direction="row" alignItems="center" columnGap={1.25}>

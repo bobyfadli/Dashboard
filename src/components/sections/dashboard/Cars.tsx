@@ -1,8 +1,10 @@
 import { Grid } from '@mui/material';
-import { cars } from 'data/dashboard/cars';
+import getCarsData from 'data/dashboard/cars';
 import Car from './Car';
 
 const Cars = () => {
+  const cars = getCarsData();
+
   return (
     <Grid container spacing={3.75}>
       {cars.map((car) => (

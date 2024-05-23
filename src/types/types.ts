@@ -23,7 +23,6 @@ export interface IFactor {
   id: number;
   icon: (props: SvgIconProps) => JSX.Element;
   title: string;
-  iconBackground: string;
   color: string;
   chartOption: EChartsOption;
 }

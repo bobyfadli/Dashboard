@@ -8,11 +8,13 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     disableRowSelectionOnClick: true,
   },
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       borderRadius: 0,
       borderLeft: 0,
       borderRight: 0,
-    },
+      '--DataGrid-rowBorderColor': theme.palette.grey.A700,
+      borderColor: theme.palette.grey.A700,
+    }),
 
     columnHeader: {
       paddingLeft: 0,
@@ -39,6 +41,8 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     sortIcon: ({ theme }) => ({
       color: theme.palette.primary.main,
     }),
+
+    withBorderColor: ({ theme }) => ({ borderColor: theme.palette.grey.A700 }),
   },
 };
 
