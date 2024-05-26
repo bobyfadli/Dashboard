@@ -167,7 +167,7 @@ export const getChartOption = (type: string, button: string) => {
         show: false,
       },
       axisLabel: {
-        color: theme.palette.grey.A200, // #808191
+        color: theme.palette.grey.A200,
         fontFamily: theme.typography.fontFamily?.split(',')[0],
         fontSize: theme.typography.fontSize,
         fontWeight: theme.typography.fontWeightRegular,
