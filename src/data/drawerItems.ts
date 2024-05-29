@@ -1,15 +1,15 @@
-import Authentication from 'components/icons/Drawer/Authentication';
-import Calendar from 'components/icons/Drawer/Calendar';
-import Car from 'components/icons/Drawer/Car';
-import Comment from 'components/icons/Drawer/Comment';
-import Doughnut from 'components/icons/Drawer/Doughnut';
-import Fencing from 'components/icons/Drawer/Fencing';
-import Grid from 'components/icons/Drawer/Grid';
+import Authentication from 'components/icons/drawer/Authentication';
+import Calendar from 'components/icons/drawer/Calendar';
+import Car from 'components/icons/drawer/Car';
+import Comment from 'components/icons/drawer/Comment';
+import Doughnut from 'components/icons/drawer/Doughnut';
+import Fencing from 'components/icons/drawer/Fencing';
+import Grid from 'components/icons/drawer/Grid';
 
-import Settings from 'components/icons/Drawer/Settings';
-import ShoppingBag from 'components/icons/Drawer/ShoppingBag';
-import ShoppingCart from 'components/icons/Drawer/ShoppingCart';
-import SignOut from 'components/icons/Drawer/SignOut';
+import Settings from 'components/icons/drawer/Settings';
+import ShoppingBag from 'components/icons/drawer/ShoppingBag';
+import ShoppingCart from 'components/icons/drawer/ShoppingCart';
+import SignOut from 'components/icons/drawer/SignOut';
 import paths, { rootPaths } from 'routes/paths';
 import { DrawerItem } from 'types/types';
 

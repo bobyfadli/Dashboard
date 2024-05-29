@@ -3,13 +3,13 @@ import { EChartsOption } from 'echarts-for-react';
 import { graphic } from 'echarts';
 import { useTheme } from '@mui/material';
 
-const getBarChartData = (button: string) => {
-  if (button == 'Day') return barChartData.day;
-  else if (button == 'Week') return barChartData.week;
+export const getBarChartData = (button: string) => {
+  if (button == 'day') return barChartData.day;
+  else if (button == 'week') return barChartData.week;
   else return barChartData.month;
 };
 
-const getAreaChartData = (button: string) => {
+export const getAreaChartData = (button: string) => {
   if (button == 'Day') return areaChartData.day;
   else if (button == 'Week') return areaChartData.week;
   else return areaChartData.month;

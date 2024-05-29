@@ -1,47 +1,17 @@
-import { Stack } from '@mui/material';
-import { useState } from 'react';
-import SingleStatistic from './SingleStatistic';
-import { getChartOption } from 'helpers/getChartOption';
+import { Grid } from '@mui/material';
+import MilesStatistics from './MilesStatistics';
+import CarStatistics from './CarStatistics';
 
 const Statistics = () => {
-  const [selectedButtonBar, setSelectedButtonBar] = useState('Day');
-  const [selectedButtonArea, setSelectedButtonArea] = useState('Day');
-
-  const handleClickBar = (buttonName: string) => {
-    setSelectedButtonBar(buttonName);
-  };
-
-  const handleClickArea = (buttonName: string) => {
-    setSelectedButtonArea(buttonName);
-  };
-
   return (
-    <Stack
-      columnGap={{ lg: 3.75 }}
-      rowGap={{ xs: 3.75, lg: 0 }}
-      direction={{ xs: 'column', lg: 'row' }}
-      justifyContent={{ lg: 'space-between' }}
-    >
-      <SingleStatistic
-        title="Miles"
-        subtitle="256 Miles"
-        flexDirection="row"
-        buttonTexts={['Day', 'Week', 'Month']}
-        buttonVariant={selectedButtonBar}
-        onHandleClickButton={handleClickBar}
-        chartOption={getChartOption('bar', selectedButtonBar)}
-      />
-      <SingleStatistic
-        title="Car"
-        subtitle="20 February 2022"
-        flexDirection="row-reverse"
-        buttonTexts={['Day', 'Week', 'Month']}
-        buttonVariant={selectedButtonArea}
-        onHandleClickButton={handleClickArea}
-        chartOption={getChartOption('area', selectedButtonArea)}
-        buttonColor="warning"
-      />
-    </Stack>
+    <Grid container spacing={3.75}>
+      <Grid item xs={12} lg={6}>
+        <MilesStatistics />
+      </Grid>
+      <Grid item xs={12} lg={6}>
+        <CarStatistics />
+      </Grid>
+    </Grid>
   );
 };
 

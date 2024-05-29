@@ -1,12 +1,11 @@
-import { Box, Button, Paper, Portal, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Button, Paper, Portal, Stack, Typography } from '@mui/material';
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomPagination from 'components/common/CustomPagination';
-import Search from 'components/icons/Common/Search';
-
+import Search from 'components/icons/common/Search';
 import { columns, rows } from 'data/dashboard/ReminderTableData';
 
-function CustomSearchToolbar() {
+const CustomSearchToolbar = () => {
   return (
     <>
       <Portal container={() => document.getElementById('filter-panel')!}>
@@ -14,13 +13,11 @@ function CustomSearchToolbar() {
       </Portal>
     </>
   );
-}
+};
 
-function CustomSearchIcon() {
-  const theme = useTheme();
-
-  return <Search fontSize="inherit" htmlColor={theme.palette.neutral.main} />;
-}
+const CustomSearchIcon = () => {
+  return <Search fontSize="inherit" sx={{ color: 'neutral.main' }} />;
+};
 
 const ReminderTable = () => {
   return (
@@ -44,16 +41,16 @@ const ReminderTable = () => {
           id="filter-panel"
           sx={(theme) => ({
             '& .MuiDataGrid-toolbarQuickFilter': {
-              border: theme.shape.borderRadius - 3,
+              border: theme.shape.borderRadius / 4,
               borderRadius: 2,
-              borderColor: theme.palette.neutral.light,
-              backgroundColor: theme.palette.neutral.lighter,
+              borderColor: 'neutral.light',
+              bgcolor: 'neutral.lighter',
               p: theme.spacing(0, 0, 0, 1),
               '& ::placeholder': {
-                color: theme.palette.neutral.darker,
+                color: 'neutral.darker',
               },
               '& input': {
-                ml: theme.spacing(1),
+                ml: 1,
               },
             },
           })}

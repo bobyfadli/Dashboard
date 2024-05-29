@@ -2,7 +2,7 @@ import { Link, List, Stack, Toolbar, Typography } from '@mui/material';
 import DrawerListItems from './DrawerListItems';
 import { drawerItems } from 'data/drawerItems';
 import { useState } from 'react';
-import Logo from 'components/icons/Common/Logo';
+import Logo from 'components/icons/common/Logo';
 import { rootPaths } from 'routes/paths';
 
 const DrawerList = () => {
@@ -27,11 +27,7 @@ const DrawerList = () => {
           columnGap={1.5}
         >
           <Logo sx={{ fontSize: 27 }} />
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={(theme) => ({ color: theme.palette.neutral.darker })}
-          >
+          <Typography variant="h2" component="h1" sx={{ color: 'neutral.darker' }}>
             Motiv.
           </Typography>
         </Stack>
@@ -45,26 +41,22 @@ const DrawerList = () => {
           overflowY: 'auto',
         })}
       >
-        <List
-          sx={(theme) => ({
-            pt: theme.spacing(0),
-          })}
-        >
+        <List sx={{ pt: 0 }}>
           <DrawerListItems
-            data={drawerItems.slice(0, -2)}
+            drawerItems={drawerItems.slice(0, -2)}
             selectedIndex={selectedIndex}
             onHandleClick={handleClick}
             open={open}
-          ></DrawerListItems>
+          />
         </List>
 
         <List>
           <DrawerListItems
-            data={drawerItems.slice(-2)}
+            drawerItems={drawerItems.slice(-2)}
             selectedIndex={selectedIndex}
             onHandleClick={handleClick}
             open={open}
-          ></DrawerListItems>
+          />
         </List>
       </Stack>
     </div>

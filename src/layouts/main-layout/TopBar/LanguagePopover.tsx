@@ -3,17 +3,27 @@ import IconButton from '@mui/material/IconButton';
 import { MouseEvent, useState } from 'react';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { ListItemIcon, Menu, Typography } from '@mui/material';
+import { LanguageItem } from 'types/types';
 
-const languages = [
+const languageItems: LanguageItem[] = [
   {
     id: 0,
     value: 'ban',
     label: 'Bengali',
     icon: 'twemoji:flag-bangladesh',
   },
-  { id: 1, value: 'en', label: 'English', icon: 'twemoji:flag-england' },
-
-  { id: 2, value: 'fr', label: 'French', icon: 'twemoji:flag-france' },
+  {
+    id: 1,
+    value: 'en',
+    label: 'English',
+    icon: 'twemoji:flag-england',
+  },
+  {
+    id: 2,
+    value: 'fr',
+    label: 'French',
+    icon: 'twemoji:flag-france',
+  },
 ];
 
 const LanguagePopover = () => {
@@ -36,8 +46,15 @@ const LanguagePopover = () => {
 
   return (
     <>
-      <IconButton aria-label="language" color="inherit" onClick={handleClickItem}>
-        <IconifyIcon icon={languages[selectedIndex].icon} />
+      <IconButton
+        onClick={handleClickItem}
+        color="inherit"
+        aria-label="language"
+        aria-controls={open ? 'language-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+      >
+        <IconifyIcon icon={languageItems[selectedIndex].icon} />
       </IconButton>
 
       <Menu
@@ -48,16 +65,16 @@ const LanguagePopover = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        {languages.map((option) => (
+        {languageItems.map((languageItem) => (
           <MenuItem
-            key={option.id}
-            selected={option.id === selectedIndex}
-            onClick={() => handleMenuItemClick(option.id)}
+            key={languageItem.id}
+            selected={languageItem.id === selectedIndex}
+            onClick={() => handleMenuItemClick(languageItem.id)}
           >
             <ListItemIcon>
-              <IconifyIcon icon={option.icon} />
+              <IconifyIcon icon={languageItem.icon} />
             </ListItemIcon>
-            <Typography variant="body2">{option.label}</Typography>
+            <Typography variant="body2">{languageItem.label}</Typography>
           </MenuItem>
         ))}
       </Menu>

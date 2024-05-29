@@ -1,58 +1,69 @@
 import { Avatar, IconButton, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
-
-import { MouseEvent } from 'react';
 import avatar from 'assets/avatar.webp';
 import IconifyIcon from 'components/base/IconifyIcon';
+import { MouseEvent, useState } from 'react';
+import { MenuItem as SingleMenuItem } from 'types/types';
 
-interface AccountMenuProps {
-  open: boolean;
-  anchorEl: HTMLElement | null;
-  onHandleClick: (event: MouseEvent<HTMLElement>) => void;
-  onHandleClose: () => void;
-}
+const menuItems: SingleMenuItem[] = [
+  {
+    id: 0,
+    label: 'Profile',
+    icon: 'material-symbols:person',
+  },
+  {
+    id: 1,
+    label: 'My Account',
+    icon: 'material-symbols:account-box-sharp',
+  },
+  {
+    id: 2,
+    label: 'Logout',
+    icon: 'uiw:logout',
+  },
+];
 
-const AccountMenu = ({ open, anchorEl, onHandleClick, onHandleClose }: AccountMenuProps) => {
+const AccountMenu = () => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
       <IconButton
-        onClick={onHandleClick}
+        onClick={handleClick}
         color="inherit"
+        aria-label="account"
         aria-controls={open ? 'account-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        sx={(theme) => ({ ml: { xs: 1, sm: 2, md: theme.spacing(2.875) } })}
       >
         <Avatar sx={{ width: 40, height: 40 }} alt="avatar" src={avatar} />
       </IconButton>
 
       <Menu
-        anchorEl={anchorEl}
         id="account-menu"
+        anchorEl={anchorEl}
         open={open}
-        onClose={onHandleClose}
-        onClick={onHandleClose}
+        onClose={handleClose}
+        onClick={handleClose}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={onHandleClose}>
-          <ListItemIcon>
-            <IconifyIcon icon="material-symbols:person" />
-          </ListItemIcon>
-          <Typography variant="body2">Profile</Typography>
-        </MenuItem>
-        <MenuItem onClick={onHandleClose}>
-          <ListItemIcon>
-            <IconifyIcon icon="material-symbols:account-box-sharp" />
-          </ListItemIcon>
-          <Typography variant="body2">My account</Typography>
-        </MenuItem>
-
-        <MenuItem onClick={onHandleClose}>
-          <ListItemIcon>
-            <IconifyIcon icon="uiw:logout" color="error.main" />
-          </ListItemIcon>
-          <Typography variant="body2">Logout</Typography>
-        </MenuItem>
+        {menuItems.map((menuItem) => (
+          <MenuItem key={menuItem.id} onClick={handleClose}>
+            <ListItemIcon>
+              <IconifyIcon icon={menuItem.icon} />
+            </ListItemIcon>
+            <Typography variant="body2">{menuItem.label}</Typography>
+          </MenuItem>
+        ))}
       </Menu>
     </>
   );

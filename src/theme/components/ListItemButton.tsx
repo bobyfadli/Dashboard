@@ -1,7 +1,6 @@
 import { Components, Theme } from '@mui/material';
 
 const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton'] = {
-  defaultProps: {},
   styleOverrides: {
     gutters: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 1.5,

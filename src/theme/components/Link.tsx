@@ -12,7 +12,6 @@ const Link: Components<Omit<Theme, 'components'>>['MuiLink'] = {
     component: LinkBehavior,
     underline: 'none',
   },
-  styleOverrides: {},
 };
 
 export default Link;

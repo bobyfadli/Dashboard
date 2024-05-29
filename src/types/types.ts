@@ -1,5 +1,4 @@
 import { SvgIconProps } from '@mui/material';
-import { EChartsOption } from 'echarts-for-react';
 
 interface Item {
   id: number;
@@ -19,19 +18,34 @@ export interface DrawerItem extends Item {
   subList?: SubItem[];
 }
 
+export interface LanguageItem {
+  id: number;
+  value: string;
+  label: string;
+  icon: string;
+}
+
+export interface MenuItem {
+  id: number;
+  label: string;
+  icon: string;
+}
+
 export interface IFactor {
   id: number;
   icon: (props: SvgIconProps) => JSX.Element;
   title: string;
   color: string;
-  chartOption: EChartsOption;
+  value: number;
+  max?: number;
 }
 
 export interface ICar {
   id: number;
-  percentage: number;
-  title: string;
-  price: number;
-  speed: number;
+  recommendation: number;
+  imageUrl: string;
+  modelName: string;
+  mileage: number;
+  costPerHour: number;
   backgroundColor: string;
 }

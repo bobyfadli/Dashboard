@@ -2,7 +2,6 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const AppBar: Components<Omit<Theme, 'components'>>['MuiAppBar'] = {
-  defaultProps: {},
   styleOverrides: {
     colorPrimary: ({ theme }) => ({
       color: theme.palette.neutral.main,

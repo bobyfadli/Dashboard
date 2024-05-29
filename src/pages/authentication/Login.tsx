@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
-import Facebook from 'components/icons/Authentication/Facebook';
+import Facebook from 'components/icons/authentication/Facebook';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import paths from 'routes/paths';
 

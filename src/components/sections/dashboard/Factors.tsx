@@ -1,15 +1,13 @@
 import { Grid } from '@mui/material';
-import { getFactorsData } from 'data/dashboard/factors';
-import SingleFactor from './SingleFactor';
+import Factor from './Factor';
+import { factors } from 'data/dashboard/factors';
 
 const Factors = () => {
-  const factors = getFactorsData();
-
   return (
     <Grid container spacing={3.75}>
       {factors.map((factor) => (
         <Grid item xs={12} sm={6} lg key={factor?.id}>
-          <SingleFactor factor={factor} />
+          <Factor factor={factor} />
         </Grid>
       ))}
     </Grid>

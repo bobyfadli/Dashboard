@@ -5,40 +5,40 @@ import { DrawerItem } from 'types/types';
 import CollapsedItems from './CollapsedItems';
 
 interface DrawerItemProps {
-  data: DrawerItem[];
+  drawerItems: DrawerItem[];
   open: boolean;
   selectedIndex: number;
   onHandleClick: (index: number, collapsible: boolean) => void;
 }
 
-const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerItemProps) => {
+const DrawerListItems = ({ drawerItems, selectedIndex, onHandleClick, open }: DrawerItemProps) => {
   return (
     <>
-      {data.map(({ icon: Icon, collapsible, ...option }) => (
+      {drawerItems.map(({ icon: Icon, collapsible, ...drawerItem }) => (
         <ListItem
-          key={option.title}
+          key={drawerItem.title}
           disablePadding
-          sx={(theme) => ({
+          sx={{
             flexDirection: 'column',
             alignItems: 'stretch',
-            mb: theme.spacing(1.25),
-          })}
+            mb: 1.25,
+          }}
         >
           <ListItemButton
-            selected={selectedIndex === option.id}
-            onClick={() => onHandleClick(option.id, collapsible)}
-            component={option.href ? Link : 'div'}
-            href={option?.href}
+            selected={selectedIndex === drawerItem.id}
+            onClick={() => onHandleClick(drawerItem.id, collapsible)}
+            component={drawerItem.href ? Link : 'div'}
+            href={drawerItem?.href}
           >
             <ListItemIcon
-              sx={(theme) => ({
-                marginRight: theme.spacing(1),
-              })}
+              sx={{
+                mr: 1,
+              }}
             >
               <Icon fontSize="small" />
             </ListItemIcon>
 
-            <ListItemText primary={option.title} />
+            <ListItemText primary={drawerItem.title} />
             {collapsible && open == false ? (
               <IconifyIcon icon="ep:arrow-down" />
             ) : (
@@ -48,7 +48,7 @@ const DrawerListItems = ({ data, selectedIndex, onHandleClick, open }: DrawerIte
 
           {collapsible && (
             <CollapsedItems
-              data={option.subList}
+              subItems={drawerItem.subList}
               open={open}
               selectedIndex={selectedIndex}
               onHandleClick={onHandleClick}

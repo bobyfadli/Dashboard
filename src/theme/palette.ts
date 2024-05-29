@@ -56,6 +56,7 @@ const palette: PaletteOptions = {
     lighter: red[50],
     light: red[300],
     main: red[500],
+    dark: red[800],
   },
 
   warning: {

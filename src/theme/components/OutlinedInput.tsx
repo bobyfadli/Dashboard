@@ -2,7 +2,6 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] = {
-  defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 2.5,
