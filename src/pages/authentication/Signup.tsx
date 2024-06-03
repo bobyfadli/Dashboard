@@ -5,6 +5,7 @@ import {
   Divider,
   FormControlLabel,
   Grid,
+  InputLabel,
   Link,
   Paper,
   Stack,
@@ -36,11 +37,11 @@ const Signup = () => {
       <Typography
         variant="subtitle1"
         component="p"
-        sx={(theme) => ({
-          color: theme.palette.neutral.main,
+        sx={{
+          color: 'neutral.main',
           mt: 2,
           mb: 6.75,
-        })}
+        }}
       >
         Do you have an account?{' '}
         <Link href={paths.login}>
@@ -55,7 +56,7 @@ const Signup = () => {
           variant="outlined"
           size="large"
           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
-          sx={(theme) => ({ width: { sm: 246 }, color: theme.palette.neutral.dark })}
+          sx={{ width: { sm: 246 }, color: 'neutral.dark' }}
         >
           Sign in with Google
         </Button>
@@ -64,7 +65,7 @@ const Signup = () => {
           variant="contained"
           size="large"
           startIcon={<Facebook />}
-          sx={(theme) => ({ width: { sm: 246 }, bgcolor: theme.palette.primary.dark })}
+          sx={{ width: { sm: 246 }, bgcolor: 'primary.dark' }}
         >
           Sign in with Facebook
         </Button>
@@ -73,88 +74,52 @@ const Signup = () => {
       <Divider>or</Divider>
 
       <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-        <Paper
-          sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: theme.shadows[1] })}
-        >
+        <Paper sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: 1 })}>
           <Grid container spacing={2.5}>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <TextField
-                    fullWidth
-                    id="firstName"
-                    type="text"
-                    placeholder="Enter your first name"
-                    {...register('firstName')}
-                  />
-                }
-                label={
-                  <Typography variant="h6" component="p" mb={1.5}>
-                    First Name
-                  </Typography>
-                }
-                labelPlacement="top"
+              <InputLabel htmlFor="firstName">First Name</InputLabel>
+              <TextField
+                fullWidth
+                id="firstName"
+                type="text"
+                placeholder="Enter your first name"
+                autoComplete="given-name"
+                {...register('firstName')}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <TextField
-                    fullWidth
-                    id="lastName"
-                    type="text"
-                    placeholder="Enter your last name"
-                    {...register('lastName')}
-                  />
-                }
-                label={
-                  <Typography variant="h6" component="p" mb={1.5}>
-                    Last Name
-                  </Typography>
-                }
-                labelPlacement="top"
+              <InputLabel htmlFor="lastName">Last Name</InputLabel>
+              <TextField
+                fullWidth
+                id="lastName"
+                type="text"
+                placeholder="Enter your last name"
+                autoComplete="family-name"
+                {...register('lastName')}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <TextField
-                    fullWidth
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    autoComplete="email"
-                    {...register('email')}
-                  />
-                }
-                label={
-                  <Typography variant="h6" component="p" mb={1.5}>
-                    Email
-                  </Typography>
-                }
-                labelPlacement="top"
+              <InputLabel htmlFor="email">Email</InputLabel>
+              <TextField
+                fullWidth
+                id="email"
+                type="text"
+                placeholder="Enter your email"
+                autoComplete="email"
+                {...register('email')}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <PasswordTextField
-                    fullWidth
-                    id="password"
-                    placeholder="Enter your password"
-                    autoComplete="new-password"
-                    {...register('password')}
-                  />
-                }
-                label={
-                  <Typography variant="h6" component="p" mb={1.5}>
-                    Password
-                  </Typography>
-                }
-                labelPlacement="top"
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <PasswordTextField
+                fullWidth
+                id="password"
+                placeholder="Enter your password"
+                autoComplete="new-password"
+                {...register('password')}
               />
             </Grid>
           </Grid>
@@ -165,19 +130,15 @@ const Signup = () => {
             control={
               <Checkbox
                 {...checkBoxLabel}
-                sx={(theme) => ({
-                  color: theme.palette.neutral.light,
-                })}
+                sx={{
+                  color: 'neutral.light',
+                }}
                 icon={<IconifyIcon icon="fluent:checkbox-unchecked-24-regular" />}
                 checkedIcon={<IconifyIcon icon="fluent:checkbox-checked-24-regular" />}
               />
             }
             label={
-              <Typography
-                variant="h6"
-                component="p"
-                sx={(theme) => ({ color: theme.palette.neutral.light })}
-              >
+              <Typography variant="h6" component="p" sx={{ color: 'neutral.light' }}>
                 Remember me
               </Typography>
             }

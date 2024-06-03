@@ -24,6 +24,7 @@ import shadows from './shadows';
 import Input from './components/Input';
 import MenuItem from './components/MenuItem';
 import Menu from './components/Menu';
+import InputLabel from './components/InputLabel';
 
 export const theme = createTheme({
   palette,
@@ -43,6 +44,7 @@ export const theme = createTheme({
 
     MuiInputBase: InputBase,
     MuiInput: Input,
+    MuiInputLabel: InputLabel,
     MuiFilledInput: FilledInput,
     MuiInputAdornment: InputAdornment,
     MuiOutlinedInput: OutlinedInput,

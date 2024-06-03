@@ -56,10 +56,10 @@ const Car = ({ car }: { car: ICar }) => {
                 {mileage}K
               </Typography>
               <IconButton aria-label="settings-icon" sx={{ p: 1 }}>
-                <SettingsIcon sx={(theme) => ({ fontSize: theme.typography.htmlFontSize })} />
+                <SettingsIcon sx={{ fontSize: 'fontSize' }} />
               </IconButton>
               <IconButton aria-label="thunder-icon" sx={{ p: 1 }}>
-                <ThunderIcon sx={(theme) => ({ fontSize: theme.typography.htmlFontSize })} />
+                <ThunderIcon sx={{ fontSize: 'fontSize' }} />
               </IconButton>
             </Stack>
 

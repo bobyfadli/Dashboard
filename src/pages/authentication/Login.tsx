@@ -5,6 +5,7 @@ import {
   Divider,
   FormControlLabel,
   Grid,
+  InputLabel,
   Link,
   Paper,
   Stack,
@@ -34,11 +35,11 @@ const Login = () => {
       <Typography
         variant="subtitle1"
         component="p"
-        sx={(theme) => ({
-          color: theme.palette.neutral.main,
+        sx={{
+          color: 'neutral.main',
           mt: 2,
           mb: 6.75,
-        })}
+        }}
       >
         Don’t have an account?{' '}
         <Link href={paths.signup}>
@@ -62,7 +63,7 @@ const Login = () => {
           variant="contained"
           size="large"
           startIcon={<Facebook />}
-          sx={(theme) => ({ width: { sm: 246 }, bgcolor: theme.palette.primary.dark })}
+          sx={{ width: { sm: 246 }, bgcolor: 'primary.dark' }}
         >
           Sign in with Facebook
         </Button>
@@ -71,48 +72,28 @@ const Login = () => {
       <Divider>or</Divider>
 
       <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-        <Paper
-          sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: theme.shadows[1] })}
-        >
+        <Paper sx={(theme) => ({ padding: theme.spacing(2.5), my: 3, boxShadow: 1 })}>
           <Grid container spacing={2.5}>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <TextField
-                    fullWidth
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    autoComplete="email"
-                    {...register('email')}
-                  />
-                }
-                label={
-                  <Typography variant="h6" component="p" mb={1.5}>
-                    Email
-                  </Typography>
-                }
-                labelPlacement="top"
+              <InputLabel htmlFor="email">Email</InputLabel>
+              <TextField
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                autoComplete="email"
+                fullWidth
+                {...register('email')}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <PasswordTextField
-                    fullWidth
-                    id="password"
-                    placeholder="Enter your password"
-                    autoComplete="current-password"
-                    {...register('password')}
-                  />
-                }
-                label={
-                  <Typography variant="h6" component="p" mb={1.5}>
-                    Password
-                  </Typography>
-                }
-                labelPlacement="top"
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <PasswordTextField
+                fullWidth
+                id="password"
+                placeholder="Enter your password"
+                autoComplete="current-password"
+                {...register('password')}
               />
             </Grid>
           </Grid>
@@ -123,19 +104,15 @@ const Login = () => {
             control={
               <Checkbox
                 {...checkBoxLabel}
-                sx={(theme) => ({
-                  color: theme.palette.neutral.light,
-                })}
+                sx={{
+                  color: 'neutral.light',
+                }}
                 icon={<IconifyIcon icon="fluent:checkbox-unchecked-24-regular" />}
                 checkedIcon={<IconifyIcon icon="fluent:checkbox-checked-24-regular" />}
               />
             }
             label={
-              <Typography
-                variant="h6"
-                component="p"
-                sx={(theme) => ({ color: theme.palette.neutral.light })}
-              >
+              <Typography variant="h6" component="p" sx={{ color: 'neutral.light' }}>
                 Remember me
               </Typography>
             }

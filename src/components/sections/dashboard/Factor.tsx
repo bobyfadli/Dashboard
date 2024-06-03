@@ -1,9 +1,7 @@
 import { Paper, Typography, Stack, alpha, useTheme } from '@mui/material';
-import ReactEchart from 'components/base/ReactEchart';
-import * as echarts from 'echarts/core';
-import { getDoughnutChartOptionHelper } from 'helpers/getDoughnutChartOptionHelper';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { IFactor } from 'types/types';
+import FactorChart from './FactorChart';
 
 const Factor = ({ factor }: { factor: IFactor }) => {
   const theme = useTheme();
@@ -16,40 +14,9 @@ const Factor = ({ factor }: { factor: IFactor }) => {
     keyof typeof theme.palette,
     keyof (typeof theme.palette)[keyof typeof theme.palette],
   ];
-  const factorColor = theme.palette[paletteOption][simplePaletteColorOption];
 
-  const getDoughnutChartOption = useCallback(
-    (color: string, value: number, max: number, isHovered: boolean) => {
-      const chartOption = {
-        tooltip: { show: false },
-        series: [
-          {
-            type: 'gauge',
-            min: 0,
-            max,
-            startAngle: 220,
-            endAngle: -35,
-            radius: '100%',
-            detail: {
-              formatter: (value: number) => (value < 100 ? `${value}%` : `${value}k`),
-              offsetCenter: [0, 0],
-              fontSize: theme.typography.fontSize + 10,
-              fontFamily: theme.typography.fontFamily?.split(',')[0],
-            },
-            progress: { roundCap: true, show: true, width: 10 },
-            axisLine: { roundCap: true, lineStyle: { width: 10 } },
-            axisTick: { show: false },
-            splitLine: { show: false },
-            axisLabel: { show: false },
-            pointer: { show: false },
-            data: [{ value }],
-          },
-        ],
-      };
-      return getDoughnutChartOptionHelper(chartOption, color, isHovered);
-    },
-    [],
-  );
+  const factorColor = theme.palette[paletteOption][simplePaletteColorOption];
+  const doughnutChartData = { color: factorColor, value, max };
 
   return (
     <Paper
@@ -80,13 +47,14 @@ const Factor = ({ factor }: { factor: IFactor }) => {
               borderRadius: '50%',
             }}
           >
-            <Icon htmlColor={isHovered ? 'grey.100' : factorColor} />
+            <Icon sx={[isHovered ? { color: 'grey.100' } : { color: factorColor }]} />
           </Stack>
           <Typography variant="h2">{title}</Typography>
         </Stack>
-        <ReactEchart
-          echarts={echarts}
-          option={getDoughnutChartOption(factorColor, value, max, isHovered)}
+
+        <FactorChart
+          data={doughnutChartData}
+          isHovered={isHovered}
           style={{ height: 112, width: 112 }}
         />
       </Stack>
