@@ -84,6 +84,21 @@ const Login = () => {
                 fullWidth
                 {...register('email')}
               />
+
+              {/* <FormControlLabel
+                control={
+                  <TextField
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    autoComplete="email"
+                    fullWidth
+                    {...register('email')}
+                  />
+                }
+                label="Email"
+                labelPlacement="top"
+              /> */}
             </Grid>
 
             <Grid item xs={12}>

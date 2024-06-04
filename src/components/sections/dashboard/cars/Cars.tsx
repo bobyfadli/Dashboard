@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
-import { cars } from 'data/dashboard/cars';
 import Car from './Car';
+import { ICar } from 'types/types';
 
-const Cars = () => {
+const Cars = ({ cars }: { cars: ICar[] }) => {
   return (
-    <Grid container spacing={3.75} mb={3.75}>
+    <Grid container spacing={3.75}>
       {cars.map((car) => (
         <Grid item key={car.id} xs={12} sm={6} lg>
           <Car car={car} />

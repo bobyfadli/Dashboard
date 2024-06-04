@@ -1,25 +1,13 @@
-import { Box, Button, Paper, Portal, Stack, Typography } from '@mui/material';
-import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
+import { Box, Button, Paper, Stack, Typography } from '@mui/material';
+import { DataGrid, useGridApiRef } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
+import SearchFilter from 'components/common/SearchFilter';
 import CustomPagination from 'components/common/CustomPagination';
-import Search from 'components/icons/common/Search';
-import { columns, rows } from 'data/dashboard/ReminderTableData';
-
-const CustomSearchToolbar = () => {
-  return (
-    <>
-      <Portal container={() => document.getElementById('filter-panel')!}>
-        <GridToolbarQuickFilter placeholder="Search here" />
-      </Portal>
-    </>
-  );
-};
-
-const CustomSearchIcon = () => {
-  return <Search fontSize="inherit" sx={{ color: 'neutral.main' }} />;
-};
+import { columns, rows } from 'data/dashboard/reminderTableData';
 
 const ReminderTable = () => {
+  const apiRef = useGridApiRef();
+
   return (
     <Paper
       sx={(theme) => ({
@@ -37,24 +25,7 @@ const ReminderTable = () => {
           Reminder
         </Typography>
 
-        <Box
-          id="filter-panel"
-          sx={(theme) => ({
-            '& .MuiDataGrid-toolbarQuickFilter': {
-              border: theme.shape.borderRadius / 4,
-              borderRadius: 2,
-              borderColor: 'neutral.light',
-              bgcolor: 'neutral.lighter',
-              p: theme.spacing(0, 0, 0, 1),
-              '& ::placeholder': {
-                color: 'neutral.darker',
-              },
-              '& input': {
-                ml: 1,
-              },
-            },
-          })}
-        />
+        <SearchFilter apiRef={apiRef} />
 
         <Button
           variant="contained"
@@ -71,23 +42,15 @@ const ReminderTable = () => {
 
       <Box
         sx={{
-          height: 400,
+          height: 330,
           width: 1,
           mt: 1.75,
         }}
       >
         <DataGrid
-          pagination
-          rows={rows}
+          apiRef={apiRef}
           columns={columns}
-          slots={{
-            toolbar: CustomSearchToolbar,
-            pagination: CustomPagination,
-            quickFilterIcon: CustomSearchIcon,
-          }}
-          // slotProps={{
-          //   toolbar: {},
-          // }}
+          rows={rows}
           initialState={{
             pagination: {
               paginationModel: {
@@ -97,6 +60,7 @@ const ReminderTable = () => {
           }}
         />
       </Box>
+      <CustomPagination apiRef={apiRef} />
     </Paper>
   );
 };

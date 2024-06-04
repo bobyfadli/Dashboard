@@ -6,14 +6,16 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
   defaultProps: {
     disableColumnMenu: true,
     disableRowSelectionOnClick: true,
+    hideFooter: true,
   },
   styleOverrides: {
     root: ({ theme }) => ({
       borderRadius: 0,
       borderLeft: 0,
       borderRight: 0,
-      '--DataGrid-rowBorderColor': theme.palette.grey.A700,
+      borderBottom: 0,
       borderColor: theme.palette.grey.A700,
+      '--DataGrid-rowBorderColor': theme.palette.grey.A700,
     }),
 
     columnHeader: {

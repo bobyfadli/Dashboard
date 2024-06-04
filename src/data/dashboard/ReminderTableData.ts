@@ -10,16 +10,16 @@ export const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'due',
     headerName: 'Due',
-    // type: 'date',
     flex: 1,
     minWidth: 150,
+    sortable: false,
   },
   {
     field: 'overdue',
     headerName: 'Overdue',
-    // type: 'date',
     flex: 1,
     minWidth: 150,
+    sortable: false,
   },
   {
     field: 'notify',
@@ -30,8 +30,6 @@ export const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'status',
     headerName: 'Status',
-    // flex: 0.3,
-    // minWidth: 150,
   },
 ];
 

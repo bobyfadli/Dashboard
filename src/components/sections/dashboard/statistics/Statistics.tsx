@@ -4,7 +4,7 @@ import CarStatistics from './CarStatistics';
 
 const Statistics = () => {
   return (
-    <Grid container spacing={3.75} mb={3.75}>
+    <Grid container spacing={3.75}>
       <Grid item xs={12} lg={6}>
         <MilesStatistics />
       </Grid>

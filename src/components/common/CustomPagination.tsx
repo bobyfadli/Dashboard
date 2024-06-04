@@ -2,13 +2,13 @@ import { Typography, Stack, Pagination } from '@mui/material';
 import {
   gridPageSelector,
   gridPageCountSelector,
-  useGridApiContext,
   useGridSelector,
   gridPageSizeSelector,
 } from '@mui/x-data-grid';
+import { GridApiCommunity } from '@mui/x-data-grid/internals';
+import { MutableRefObject } from 'react';
 
-const CustomPagination = () => {
-  const apiRef = useGridApiContext();
+const CustomPagination = ({ apiRef }: { apiRef: MutableRefObject<GridApiCommunity> }) => {
   const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
   const pageSize = useGridSelector(apiRef, gridPageSizeSelector);

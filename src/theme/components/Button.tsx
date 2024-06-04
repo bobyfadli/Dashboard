@@ -5,24 +5,29 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     disableElevation: true,
   },
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       textTransform: 'none',
-    },
+      borderRadius: theme.shape.borderRadius * 2,
+      fontSize: theme.typography.fontSize,
+      padding: theme.spacing(1, 2),
+      lineHeight: 1.302,
+    }),
 
     text: ({ theme }) => ({
       color: theme.palette.grey[700],
     }),
 
     sizeSmall: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 6,
-      fontSize: theme.typography.fontSize / 1.4,
+      borderRadius: theme.shape.borderRadius * 6, // 24px
+      fontSize: theme.typography.fontSize / 1.4, // 10px
+      padding: theme.spacing(0.5, 1.5), // 4px, 12px
       fontWeight: theme.typography.fontWeightBold,
-      padding: theme.spacing(0.406, 1.5),
       minWidth: 'auto',
     }),
 
     sizeLarge: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 2,
+      // fontSize: theme.typography.htmlFontSize, // 16px
+      padding: theme.spacing(1.5, 3.75), // 12px, 30px
       height: 60,
     }),
 
