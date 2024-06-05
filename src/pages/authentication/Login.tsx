@@ -54,7 +54,7 @@ const Login = () => {
           variant="outlined"
           size="large"
           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
-          sx={{ width: { sm: 246 } }}
+          sx={{ width: { sm: 1 / 2 } }}
         >
           Sign in with Google
         </Button>
@@ -63,7 +63,7 @@ const Login = () => {
           variant="contained"
           size="large"
           startIcon={<Facebook />}
-          sx={{ width: { sm: 246 }, bgcolor: 'primary.dark' }}
+          sx={{ width: { sm: 1 / 2 }, bgcolor: 'primary.dark' }}
         >
           Sign in with Facebook
         </Button>
@@ -139,11 +139,7 @@ const Login = () => {
         </Stack>
 
         <Button variant="contained" type="submit" size="large" fullWidth color="secondary">
-          <Typography
-            variant="h5"
-            component="span"
-            sx={(theme) => ({ fontFamily: theme.typography.fontFamily?.split(',')[1] })}
-          >
+          <Typography variant="h4" component="span">
             Sign in
           </Typography>
         </Button>

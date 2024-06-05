@@ -6,14 +6,12 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 2,
-      paddingLeft: theme.spacing(1.75),
     }),
 
     input: ({ theme }) => ({
       fontWeight: theme.typography.fontWeightMedium,
       // lineHeight: 1.3,
-      paddingTop: theme.spacing(1.5),
-      paddingBottom: theme.spacing(1.5),
+      padding: theme.spacing(1.5, 1.75),
       color: theme.palette.neutral.main,
 
       '&::placeholder': {

@@ -12,19 +12,16 @@ import ListItemText from './components/ListItemText';
 import Paper from './components/Paper';
 import Stack from './components/Stack';
 import Button from './components/Button';
-import InputBase from './components/InputBase';
+import InputLabel from './components/InputLabel';
 import InputAdornment from './components/InputAdornment';
 import FilledInput from './components/FilledInput';
+import OutlinedInput from './components/OutlinedInput';
 import DataGrid from './components/DataGrid';
 import Pagination from './components/Pagination';
 import Divider from './components/Divider';
-import OutlinedInput from './components/OutlinedInput';
-import FormControlLabel from './components/FormControlLabel';
 import shadows from './shadows';
-import Input from './components/Input';
 import MenuItem from './components/MenuItem';
 import Menu from './components/Menu';
-import InputLabel from './components/InputLabel';
 
 export const theme = createTheme({
   palette,
@@ -42,13 +39,10 @@ export const theme = createTheme({
 
     MuiButton: Button,
 
-    MuiInputBase: InputBase,
-    MuiInput: Input,
     MuiInputLabel: InputLabel,
     MuiFilledInput: FilledInput,
-    MuiInputAdornment: InputAdornment,
     MuiOutlinedInput: OutlinedInput,
-    MuiFormControlLabel: FormControlLabel,
+    MuiInputAdornment: InputAdornment,
 
     MuiDivider: Divider,
     MuiStack: Stack,

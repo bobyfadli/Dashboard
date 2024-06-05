@@ -8,7 +8,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     root: ({ theme }) => ({
       textTransform: 'none',
       borderRadius: theme.shape.borderRadius * 2,
-      fontSize: theme.typography.fontSize,
+      fontSize: theme.typography.fontSize, // 14px
       padding: theme.spacing(1, 2),
       lineHeight: 1.302,
     }),
@@ -22,40 +22,35 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       fontSize: theme.typography.fontSize / 1.4, // 10px
       padding: theme.spacing(0.5, 1.5), // 4px, 12px
       fontWeight: theme.typography.fontWeightBold,
-      minWidth: 'auto',
+      // minWidth: 'auto',
     }),
 
     sizeLarge: ({ theme }) => ({
-      // fontSize: theme.typography.htmlFontSize, // 16px
-      padding: theme.spacing(1.5, 3.75), // 12px, 30px
-      height: 60,
+      fontSize: theme.typography.htmlFontSize, // 16px
+      padding: theme.spacing(2.25, 2.5), // 20px, 20px
+      // height: 60,
     }),
 
-    outlinedSizeLarge: ({ theme }) => ({
-      padding: theme.spacing(2.25, 3.75),
-    }),
+    // outlinedSizeLarge: ({ theme }) => ({
+    //   padding: theme.spacing(2.25, 3.75), // 20px, 30px
+    // }),
 
     outlinedPrimary: ({ theme }) => ({
       color: theme.palette.neutral.dark,
       borderColor: theme.palette.grey.A400,
     }),
 
-    // startIcon: {
-    //   '& > *:first-of-type': {
-    //     fontSize: 20,
-    //   },
-    // },
-    // endIcon: {
-    //   '& > *:first-of-type': {
-    //     fontSize: 14,
-    //   },
-    // },
+    startIcon: {
+      '& > *:first-of-type': {
+        fontSize: 20,
+      },
+    },
 
-    // iconSizeLarge: ({ theme }) => ({
-    //   '& > *:first-of-type': {
-    //     fontSize: theme.typography.fontSize + 6,
-    //   },
-    // }),
+    endIcon: {
+      '& > *:first-of-type': {
+        fontSize: 14,
+      },
+    },
   },
 };
 

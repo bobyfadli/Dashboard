@@ -56,7 +56,7 @@ const Signup = () => {
           variant="outlined"
           size="large"
           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
-          sx={{ width: { sm: 246 }, color: 'neutral.dark' }}
+          sx={{ width: { sm: 1 / 2 }, color: 'neutral.dark' }}
         >
           Sign in with Google
         </Button>
@@ -65,7 +65,7 @@ const Signup = () => {
           variant="contained"
           size="large"
           startIcon={<Facebook />}
-          sx={{ width: { sm: 246 }, bgcolor: 'primary.dark' }}
+          sx={{ width: { sm: 1 / 2 }, bgcolor: 'primary.dark' }}
         >
           Sign in with Facebook
         </Button>
@@ -150,11 +150,7 @@ const Signup = () => {
         </Stack>
 
         <Button variant="contained" type="submit" size="large" fullWidth color="secondary">
-          <Typography
-            variant="h5"
-            component="span"
-            sx={(theme) => ({ fontFamily: theme.typography.fontFamily?.split(',')[1] })}
-          >
+          <Typography variant="h4" component="span">
             Sign up
           </Typography>
         </Button>

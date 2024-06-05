@@ -15,6 +15,7 @@ const ChartLegend = ({ active, label, color, onHandleClick }: ChartLegendProps) 
       size="small"
       onClick={() => onHandleClick(label.toLowerCase() as ChartLegendValue)}
       color={color}
+      sx={{ minWidth: 'auto' }}
     >
       {label}
     </Button>

@@ -6,13 +6,9 @@ import Factors from 'components/sections/dashboard/factors/Factors';
 import Cars from 'components/sections/dashboard/cars/Cars';
 import { cars } from 'data/dashboard/cars';
 
-// import ButtonSizes from 'pages/ButtonSizes';
-
 const Dashboard = () => {
   return (
     <Grid container rowGap={3.75}>
-      {/* <ButtonSizes /> */}
-
       <Grid item xs={12}>
         <Factors factors={factors} />
       </Grid>

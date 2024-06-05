@@ -21,7 +21,7 @@ const ReminderTable = () => {
         justifyContent="space-between"
         spacing={2}
       >
-        <Typography variant="h4" color="common.black">
+        <Typography variant="h5" color="common.black">
           Reminder
         </Typography>
 

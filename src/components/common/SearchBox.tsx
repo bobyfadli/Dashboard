@@ -8,6 +8,9 @@ const SearchBox = () => {
       sx={{
         display: { xs: 'none', md: 'block' },
         maxWidth: 348,
+        '& .MuiFilledInput-input': {
+          pl: 0,
+        },
       }}
       fullWidth
       InputProps={{
