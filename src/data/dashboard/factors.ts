@@ -1,7 +1,7 @@
-import Blood from 'components/icons/factor/Blood';
-import Lightning from 'components/icons/factor/Lightning';
-import Range from 'components/icons/factor/Range';
-import Tier from 'components/icons/factor/Tier';
+import Blood from 'components/icons/temp-factor/Blood';
+import Lightning from 'components/icons/temp-factor/Lightning';
+import Range from 'components/icons/temp-factor/Range';
+import Tier from 'components/icons/temp-factor/Tier';
 import { IFactor } from 'types/types';
 
 export const factors: IFactor[] = [

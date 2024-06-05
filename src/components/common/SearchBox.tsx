@@ -1,5 +1,5 @@
 import { InputAdornment, TextField } from '@mui/material';
-import Search from 'components/icons/common/Search';
+import Search from 'components/icons/temp-common/Search';
 
 const SearchBox = () => {
   return (

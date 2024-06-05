@@ -2,13 +2,14 @@ import { AppBar, IconButton, Link, Stack, Toolbar } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import AccountMenu from './AccountMenu';
 import LanguagePopover from './LanguagePopover';
-import Notification from 'components/icons/appbar/Notification';
+
 import OutlinedBadge from 'components/styled/OutlinedBadge';
 import SearchBox from 'components/common/SearchBox';
 import { rootPaths } from 'routes/paths';
-import Logo from 'components/icons/common/Logo';
+import Logo from 'components/icons/temp-common/Logo';
 import ElevationScroll from './ElevationScroll';
-import Search from 'components/icons/common/Search';
+import Search from 'components/icons/temp-common/Search';
+import Notification from 'components/icons/temp-appbar/Notification';
 
 interface TopBarProps {
   drawerWidth: number;

@@ -1,9 +1,9 @@
 import { Box, IconButton, Link, Paper, Stack, Typography } from '@mui/material';
 import Image from 'components/base/Image';
-import CirculationIcon from 'components/icons/car/Icon1';
-import LoopIcon from 'components/icons/car/Icon2';
-import SettingsIcon from 'components/icons/car/Icon3';
-import ThunderIcon from 'components/icons/car/Icon4';
+import CirculationIcon from 'components/icons/temp-car/Icon1';
+import LoopIcon from 'components/icons/temp-car/Icon2';
+import SettingsIcon from 'components/icons/temp-car/Icon3';
+import ThunderIcon from 'components/icons/temp-car/Icon4';
 import { ICar } from 'types/types';
 
 const Car = ({ car }: { car: ICar }) => {
