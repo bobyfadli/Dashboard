@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import { GridApiCommunity } from '@mui/x-data-grid/internals';
-import Search from 'components/icons/temp-common/Search';
+import Search from 'components/icons/common/Search';
 import { ChangeEvent, MutableRefObject } from 'react';
 
 const SearchFilter = ({ apiRef }: { apiRef: MutableRefObject<GridApiCommunity> }) => {

@@ -2,7 +2,7 @@ import { Link, List, Stack, Toolbar, Typography } from '@mui/material';
 import DrawerListItems from './DrawerListItems';
 import { drawerItems } from 'data/drawerItems';
 import { useState } from 'react';
-import Logo from 'components/icons/temp-common/Logo';
+import Logo from 'components/icons/common/Logo';
 import { rootPaths } from 'routes/paths';
 
 const DrawerList = () => {
