@@ -1,5 +1,14 @@
 import { GridColDef } from '@mui/x-data-grid';
 
+interface IReminderData {
+  id: number;
+  description: string;
+  due: string;
+  overdue: string;
+  notify: string;
+  status: string;
+}
+
 export const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'description',
@@ -33,7 +42,7 @@ export const columns: GridColDef<(typeof rows)[number]>[] = [
   },
 ];
 
-export const rows = [
+export const rows: IReminderData[] = [
   {
     id: 1,
     description: 'Urgent Safety Recall',

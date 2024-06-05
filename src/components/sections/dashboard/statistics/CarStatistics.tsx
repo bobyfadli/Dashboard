@@ -31,7 +31,8 @@ const CarStatistics = () => {
   return (
     <Paper
       sx={(theme) => ({
-        p: theme.spacing(2.75, 3),
+        // p: theme.spacing(2.75, 3),
+        p: theme.spacing(1.875, 3, 1.25, 3),
       })}
     >
       <Stack rowGap={3} sx={{ mb: 1.75 }}>
@@ -84,7 +85,11 @@ const CarStatistics = () => {
         </Stack>
       </Stack>
 
-      <CarStatisticsChart areaChartRef={areaChartRef} data={areaChartdata} />
+      <CarStatisticsChart
+        areaChartRef={areaChartRef}
+        data={areaChartdata}
+        style={{ height: 223 }}
+      />
     </Paper>
   );
 };

@@ -16,9 +16,13 @@ echarts.use([TooltipComponent, GridComponent, LineChart, CanvasRenderer, Univers
 interface ChartProps {
   areaChartRef: MutableRefObject<EChartsReactCore | null>;
   data: number[] | null;
+  style?: {
+    height?: number;
+    width?: number;
+  };
 }
 
-const CarStatisticsChart = ({ areaChartRef, data }: ChartProps) => {
+const CarStatisticsChart = ({ areaChartRef, data, style }: ChartProps) => {
   const theme = useTheme();
 
   const getAreaChartOption = useMemo(() => {
@@ -51,7 +55,6 @@ const CarStatisticsChart = ({ areaChartRef, data }: ChartProps) => {
       xAxis: {
         type: 'category',
         data: ['5 am', '7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm', '11 pm'],
-        // data: ['7 am', '9 am', '11 am', '1 pm', '3 pm', '5 pm', '7 pm', '9 pm'],
         axisTick: {
           show: true,
           inside: true,
@@ -76,7 +79,7 @@ const CarStatisticsChart = ({ areaChartRef, data }: ChartProps) => {
         axisLabel: {
           color: theme.palette.grey.A200,
           align: 'center',
-          fontFamily: theme.typography.fontFamily?.split(',')[0],
+          fontFamily: theme.typography.caption.fontFamily,
           fontSize: theme.typography.fontSize,
           fontWeight: theme.typography.fontWeightRegular,
         },
@@ -122,9 +125,11 @@ const CarStatisticsChart = ({ areaChartRef, data }: ChartProps) => {
       ],
     };
     return areaChartOption;
-  }, [data]);
+  }, [theme, data]);
 
-  return <ReactEchart echarts={echarts} option={getAreaChartOption} ref={areaChartRef} />;
+  return (
+    <ReactEchart echarts={echarts} option={getAreaChartOption} ref={areaChartRef} style={style} />
+  );
 };
 
 export default CarStatisticsChart;

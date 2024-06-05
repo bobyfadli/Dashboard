@@ -44,11 +44,9 @@ const Signup = () => {
         }}
       >
         Do you have an account?{' '}
-        <Link href={paths.login}>
-          <Typography variant="button" color="secondary">
-            Sign in
-          </Typography>
-        </Link>
+        <Typography variant="button" component={Link} href={paths.login} color="secondary">
+          Sign in
+        </Typography>
       </Typography>
 
       <Stack gap={1.75} mb={3} sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>

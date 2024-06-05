@@ -1,9 +1,9 @@
 import { Grid } from '@mui/material';
-import { factors } from 'data/dashboard/factors';
 import ReminderTable from 'components/sections/dashboard/ReminderTable';
 import Statistics from 'components/sections/dashboard/statistics/Statistics';
 import Factors from 'components/sections/dashboard/factors/Factors';
 import Cars from 'components/sections/dashboard/cars/Cars';
+import { factors } from 'data/dashboard/factors';
 import { cars } from 'data/dashboard/cars';
 
 const Dashboard = () => {

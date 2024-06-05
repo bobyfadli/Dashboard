@@ -42,11 +42,9 @@ const Login = () => {
         }}
       >
         Don’t have an account?{' '}
-        <Link href={paths.signup}>
-          <Typography variant="button" color="secondary">
-            Sign up
-          </Typography>
-        </Link>
+        <Typography variant="button" component={Link} href={paths.signup} color="secondary">
+          Sign up
+        </Typography>
       </Typography>
 
       <Stack gap={1.75} mb={3} sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
@@ -84,30 +82,15 @@ const Login = () => {
                 fullWidth
                 {...register('email')}
               />
-
-              {/* <FormControlLabel
-                control={
-                  <TextField
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    autoComplete="email"
-                    fullWidth
-                    {...register('email')}
-                  />
-                }
-                label="Email"
-                labelPlacement="top"
-              /> */}
             </Grid>
 
             <Grid item xs={12}>
               <InputLabel htmlFor="password">Password</InputLabel>
               <PasswordTextField
-                fullWidth
                 id="password"
                 placeholder="Enter your password"
                 autoComplete="current-password"
+                fullWidth
                 {...register('password')}
               />
             </Grid>

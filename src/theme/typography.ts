@@ -71,6 +71,10 @@ const typography: TypographyOptions = {
     lineHeight: 1.302, // 23.44px
     textTransform: 'none',
   },
+
+  caption: {
+    fontFamily: "'DM Sans',sans-serif",
+  },
 };
 
 export default typography;

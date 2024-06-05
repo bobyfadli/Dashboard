@@ -14,9 +14,13 @@ echarts.use([TooltipComponent, GridComponent, BarChart, CanvasRenderer]);
 interface ChartProps {
   barChartRef: MutableRefObject<EChartsReactCore | null>;
   data: number[] | null;
+  style?: {
+    height?: number;
+    width?: number;
+  };
 }
 
-const MilesStatisticsChart = ({ barChartRef, data }: ChartProps) => {
+const MilesStatisticsChart = ({ barChartRef, data, style }: ChartProps) => {
   const theme = useTheme();
 
   const getBarChartOption = useMemo(() => {
@@ -108,7 +112,9 @@ const MilesStatisticsChart = ({ barChartRef, data }: ChartProps) => {
     return barChartOption;
   }, [data]);
 
-  return <ReactEchart echarts={echarts} option={getBarChartOption} ref={barChartRef} />;
+  return (
+    <ReactEchart echarts={echarts} option={getBarChartOption} ref={barChartRef} style={style} />
+  );
 };
 
 export default MilesStatisticsChart;
