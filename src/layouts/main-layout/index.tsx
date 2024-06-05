@@ -1,7 +1,7 @@
 import { PropsWithChildren, useState } from 'react';
 import { Box, Toolbar, Stack } from '@mui/material';
-import VerticalNavbar from './drawer/VerticalNavbar';
-import TopBar from './topbar/TopBar';
+import VerticalNavbar from './temp/VerticalNavbar';
+import TopBar from './temp-topbar/TopBar';
 
 const drawerWidth = 248;
 
