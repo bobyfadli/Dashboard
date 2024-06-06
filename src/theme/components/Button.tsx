@@ -22,18 +22,12 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       fontSize: theme.typography.fontSize / 1.4, // 10px
       padding: theme.spacing(0.5, 1.5), // 4px, 12px
       fontWeight: theme.typography.fontWeightBold,
-      // minWidth: 'auto',
     }),
 
     sizeLarge: ({ theme }) => ({
       fontSize: theme.typography.htmlFontSize, // 16px
-      padding: theme.spacing(2.25, 2.5), // 20px, 20px
-      // height: 60,
+      padding: theme.spacing(1.5, 2.5), // 12px, 20px
     }),
-
-    // outlinedSizeLarge: ({ theme }) => ({
-    //   padding: theme.spacing(2.25, 3.75), // 20px, 30px
-    // }),
 
     outlinedPrimary: ({ theme }) => ({
       color: theme.palette.neutral.dark,

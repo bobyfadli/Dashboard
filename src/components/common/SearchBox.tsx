@@ -5,11 +5,6 @@ const SearchBox = () => {
   return (
     <TextField
       id="input-with-searchIcon-textfield"
-      sx={{
-        display: { xs: 'none', md: 'block' },
-        maxWidth: 348,
-      }}
-      fullWidth
       InputProps={{
         startAdornment: (
           <InputAdornment
@@ -30,6 +25,12 @@ const SearchBox = () => {
       type="text"
       variant="filled"
       placeholder="Search or type"
+      fullWidth
+      hiddenLabel
+      sx={{
+        display: { xs: 'none', md: 'block' },
+        maxWidth: 348,
+      }}
     />
   );
 };

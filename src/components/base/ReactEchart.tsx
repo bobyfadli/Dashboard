@@ -22,8 +22,6 @@ const ReactEchart = forwardRef<null | EChartsReactCore, ReactEchartProps>(
             confine: true,
           },
         }}
-        // lazyUpdate={true}
-        // opts={{ renderer: 'svg' }}
         {...rest}
       />
     );

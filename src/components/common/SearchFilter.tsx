@@ -15,15 +15,11 @@ const SearchFilter = ({ apiRef }: { apiRef: MutableRefObject<GridApiCommunity> }
       InputProps={{
         startAdornment: <Search fontSize="small" sx={{ mr: 1, color: 'neutral.main' }} />,
       }}
-      type="text"
+      type="search"
       variant="filled"
       placeholder="Search..."
       onChange={handleFilter}
-      sx={{
-        '& .MuiFilledInput-input': {
-          py: 0.5,
-        },
-      }}
+      size="small"
     />
   );
 };

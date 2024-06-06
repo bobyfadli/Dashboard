@@ -6,11 +6,11 @@ import Logo from 'components/icons/common/Logo';
 import { rootPaths } from 'routes/paths';
 
 const DrawerList = () => {
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedItemId, setSelectedItemId] = useState(1);
   const [open, setOpen] = useState(false);
 
-  const handleClick = (index: number, collapsible: boolean) => {
-    setSelectedIndex(index);
+  const handleListItem = (id: number, collapsible: boolean) => {
+    setSelectedItemId(id);
     if (collapsible) {
       setOpen(!open);
     }
@@ -44,8 +44,8 @@ const DrawerList = () => {
         <List sx={{ pt: 0 }}>
           <DrawerListItems
             drawerItems={drawerItems.slice(0, -2)}
-            selectedIndex={selectedIndex}
-            onHandleClick={handleClick}
+            selectedItemId={selectedItemId}
+            onHandleListItem={handleListItem}
             open={open}
           />
         </List>
@@ -53,8 +53,8 @@ const DrawerList = () => {
         <List>
           <DrawerListItems
             drawerItems={drawerItems.slice(-2)}
-            selectedIndex={selectedIndex}
-            onHandleClick={handleClick}
+            selectedItemId={selectedItemId}
+            onHandleListItem={handleListItem}
             open={open}
           />
         </List>

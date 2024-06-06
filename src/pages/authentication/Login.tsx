@@ -30,7 +30,7 @@ const Login = () => {
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data);
 
   return (
-    <Box sx={{ width: { xs: 1, sm: 506 }, px: { xs: 2, sm: 0 }, my: 5 }}>
+    <Box sx={{ width: { xs: 1, sm: 506 }, px: { xs: 2, sm: 0 }, py: 10 }}>
       <Typography variant="h1">Get's started.</Typography>
       <Typography
         variant="subtitle1"
@@ -52,7 +52,7 @@ const Login = () => {
           variant="outlined"
           size="large"
           startIcon={<IconifyIcon icon="flat-color-icons:google" />}
-          sx={{ width: { sm: 1 / 2 } }}
+          sx={{ width: { sm: 1 / 2 }, py: 2.375, px: 4.375 }}
         >
           Sign in with Google
         </Button>
@@ -61,7 +61,7 @@ const Login = () => {
           variant="contained"
           size="large"
           startIcon={<Facebook />}
-          sx={{ width: { sm: 1 / 2 }, bgcolor: 'primary.dark' }}
+          sx={{ width: { sm: 1 / 2 }, py: 2.25, px: 2.875, bgcolor: 'primary.dark' }}
         >
           Sign in with Facebook
         </Button>
@@ -121,7 +121,7 @@ const Login = () => {
           </Typography>
         </Stack>
 
-        <Button variant="contained" type="submit" size="large" fullWidth color="secondary">
+        <Button variant="contained" type="submit" fullWidth color="secondary" sx={{ py: 2.25 }}>
           <Typography variant="h4" component="span">
             Sign in
           </Typography>

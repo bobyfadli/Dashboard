@@ -7,14 +7,19 @@ import CollapsedItems from './CollapsedItems';
 interface DrawerItemProps {
   drawerItems: DrawerItem[];
   open: boolean;
-  selectedIndex: number;
-  onHandleClick: (index: number, collapsible: boolean) => void;
+  selectedItemId: number;
+  onHandleListItem: (id: number, collapsible: boolean) => void;
 }
 
-const DrawerListItems = ({ drawerItems, selectedIndex, onHandleClick, open }: DrawerItemProps) => {
+const DrawerListItems = ({
+  drawerItems,
+  selectedItemId,
+  onHandleListItem,
+  open,
+}: DrawerItemProps) => {
   return (
     <>
-      {drawerItems.map(({ icon: Icon, collapsible, ...drawerItem }) => (
+      {drawerItems.map(({ icon: Icon, collapsible, active, ...drawerItem }) => (
         <ListItem
           key={drawerItem.title}
           disablePadding
@@ -22,11 +27,12 @@ const DrawerListItems = ({ drawerItems, selectedIndex, onHandleClick, open }: Dr
             flexDirection: 'column',
             alignItems: 'stretch',
             mb: 1.25,
+            opacity: active ? 1 : 0.7,
           }}
         >
           <ListItemButton
-            selected={selectedIndex === drawerItem.id}
-            onClick={() => onHandleClick(drawerItem.id, collapsible)}
+            selected={selectedItemId === drawerItem.id}
+            onClick={() => onHandleListItem(drawerItem.id, collapsible)}
             component={drawerItem.href ? Link : 'div'}
             href={drawerItem?.href}
           >
@@ -39,19 +45,15 @@ const DrawerListItems = ({ drawerItems, selectedIndex, onHandleClick, open }: Dr
             </ListItemIcon>
 
             <ListItemText primary={drawerItem.title} />
-            {collapsible && open == false ? (
-              <IconifyIcon icon="ep:arrow-down" />
-            ) : (
-              collapsible && open == true && <IconifyIcon icon="ep:arrow-up" />
-            )}
+            {collapsible && <IconifyIcon icon={open ? 'ep:arrow-up' : 'ep:arrow-down'} />}
           </ListItemButton>
 
           {collapsible && (
             <CollapsedItems
               subItems={drawerItem.subList}
               open={open}
-              selectedIndex={selectedIndex}
-              onHandleClick={onHandleClick}
+              selectedItemId={selectedItemId}
+              onHandleListItem={onHandleListItem}
             />
           )}
         </ListItem>

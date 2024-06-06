@@ -25,7 +25,7 @@ interface ChartProps {
 const CarStatisticsChart = ({ areaChartRef, data, style }: ChartProps) => {
   const theme = useTheme();
 
-  const getAreaChartOption = useMemo(() => {
+  const chartOption = useMemo(() => {
     const areaChartOption: EChartsOption = {
       tooltip: {
         trigger: 'axis',
@@ -95,8 +95,6 @@ const CarStatisticsChart = ({ areaChartRef, data, style }: ChartProps) => {
       },
 
       grid: {
-        // left: '3%',
-        // right: '3%',
         left: '-6%',
         right: '-5%',
         top: '0',
@@ -125,11 +123,9 @@ const CarStatisticsChart = ({ areaChartRef, data, style }: ChartProps) => {
       ],
     };
     return areaChartOption;
-  }, [theme, data]);
+  }, [data, theme]);
 
-  return (
-    <ReactEchart echarts={echarts} option={getAreaChartOption} ref={areaChartRef} style={style} />
-  );
+  return <ReactEchart echarts={echarts} option={chartOption} ref={areaChartRef} style={style} />;
 };
 
 export default CarStatisticsChart;

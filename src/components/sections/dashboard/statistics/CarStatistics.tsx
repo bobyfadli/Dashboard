@@ -11,17 +11,17 @@ const CarStatistics = () => {
   const areaChartRef = useRef<null | EChartsReactCore>(null);
   const [selectedOption, setSelectedOption] = useState('day');
 
-  let areaChartdata: number[] | null = null;
-  const handleClick = (value: ChartDataKey) => {
+  let areaChartData: number[] | null = null;
+  const handleChartLegend = (value: ChartDataKey) => {
     setSelectedOption(value);
-    areaChartdata = areaChart[value];
+    areaChartData = areaChart[value];
 
     if (areaChartRef.current) {
       const chartInstance = areaChartRef.current.getEchartsInstance();
       chartInstance.setOption({
         series: [
           {
-            data: areaChartdata,
+            data: areaChartData,
           },
         ],
       });
@@ -31,7 +31,6 @@ const CarStatistics = () => {
   return (
     <Paper
       sx={(theme) => ({
-        // p: theme.spacing(2.75, 3),
         p: theme.spacing(1.875, 3, 1.25, 3),
       })}
     >
@@ -67,19 +66,19 @@ const CarStatistics = () => {
               active={selectedOption === 'day'}
               label="Day"
               color="warning"
-              onHandleClick={handleClick}
+              onHandleClick={handleChartLegend}
             />
             <ChartLegend
               active={selectedOption === 'week'}
               label="Week"
               color="warning"
-              onHandleClick={handleClick}
+              onHandleClick={handleChartLegend}
             />
             <ChartLegend
               active={selectedOption === 'month'}
               label="Month"
               color="warning"
-              onHandleClick={handleClick}
+              onHandleClick={handleChartLegend}
             />
           </Stack>
         </Stack>
@@ -87,7 +86,7 @@ const CarStatistics = () => {
 
       <CarStatisticsChart
         areaChartRef={areaChartRef}
-        data={areaChartdata}
+        data={areaChartData}
         style={{ height: 223 }}
       />
     </Paper>

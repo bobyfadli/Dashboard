@@ -22,6 +22,7 @@ import Divider from './components/Divider';
 import shadows from './shadows';
 import MenuItem from './components/MenuItem';
 import Menu from './components/Menu';
+import InputBase from './components/InputBase';
 
 export const theme = createTheme({
   palette,
@@ -39,6 +40,7 @@ export const theme = createTheme({
 
     MuiButton: Button,
 
+    MuiInputBase: InputBase,
     MuiInputLabel: InputLabel,
     MuiFilledInput: FilledInput,
     MuiOutlinedInput: OutlinedInput,

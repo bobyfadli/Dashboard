@@ -12,7 +12,7 @@ const MilesStatistics = () => {
   const [selectedOption, setSelectedOption] = useState('day');
 
   let barChartData: number[] | null = null;
-  const handleClick = (value: ChartDataKey) => {
+  const handleChartLegend = (value: ChartDataKey) => {
     setSelectedOption(value);
     barChartData = barChart[value];
 
@@ -54,17 +54,17 @@ const MilesStatistics = () => {
             <ChartLegend
               active={selectedOption === 'day'}
               label="Day"
-              onHandleClick={handleClick}
+              onHandleClick={handleChartLegend}
             />
             <ChartLegend
               active={selectedOption === 'week'}
               label="Week"
-              onHandleClick={handleClick}
+              onHandleClick={handleChartLegend}
             />
             <ChartLegend
               active={selectedOption === 'month'}
               label="Month"
-              onHandleClick={handleClick}
+              onHandleClick={handleChartLegend}
             />
           </Stack>
 

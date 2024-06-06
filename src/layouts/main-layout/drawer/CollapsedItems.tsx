@@ -4,20 +4,25 @@ import { SubItem } from 'types/types';
 interface CollapsedItemProps {
   subItems: SubItem[] | undefined;
   open: boolean;
-  selectedIndex: number;
-  onHandleClick: (index: number, collapsible: boolean) => void;
+  selectedItemId: number;
+  onHandleListItem: (id: number, collapsible: boolean) => void;
 }
 
-const CollapsedItems = ({ subItems, open, selectedIndex, onHandleClick }: CollapsedItemProps) => {
+const CollapsedItems = ({
+  subItems,
+  open,
+  selectedItemId,
+  onHandleListItem,
+}: CollapsedItemProps) => {
   return (
     <Collapse in={open} timeout="auto" unmountOnExit>
       <List component="div" disablePadding>
         {subItems?.map((subItem) => (
           <ListItemButton
             key={subItem.id}
-            sx={{ pl: 4, mt: 0.5 }}
-            selected={selectedIndex === subItem.id}
-            onClick={() => onHandleClick(subItem.id, false)}
+            sx={[subItem.active ? { opacity: 1 } : { opacity: 0.7 }, { pl: 4, mt: 0.5 }]}
+            selected={selectedItemId === subItem.id}
+            onClick={() => onHandleListItem(subItem.id, false)}
             component={Link}
             href={subItem.href}
           >

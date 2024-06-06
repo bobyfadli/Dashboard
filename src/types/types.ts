@@ -5,12 +5,14 @@ interface Item {
   icon: (props: SvgIconProps) => JSX.Element;
   title: string;
   href?: string;
+  active?: boolean;
 }
 
 export interface SubItem {
   id: number;
   title: string;
   href: string;
+  active?: boolean;
 }
 
 export interface DrawerItem extends Item {
