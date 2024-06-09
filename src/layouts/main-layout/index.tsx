@@ -2,6 +2,7 @@ import { PropsWithChildren, useState } from 'react';
 import { Box, Toolbar, Stack } from '@mui/material';
 import VerticalNavbar from './drawer/VerticalNavbar';
 import TopBar from './topbar/TopBar';
+import Footer from './footer/Footer';
 
 const drawerWidth = 248;
 
@@ -27,14 +28,12 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <Stack direction="row">
       <TopBar drawerWidth={drawerWidth} onHandleDrawerToggle={handleDrawerToggle} />
-
       <VerticalNavbar
         drawerWidth={drawerWidth}
         mobileOpen={mobileOpen}
         onTransitionEnd={handleDrawerTransitionEnd}
         onHandleDrawerClose={handleDrawerClose}
       />
-
       <Box
         component="main"
         sx={(theme) => ({
@@ -47,6 +46,8 @@ const MainLayout = ({ children }: PropsWithChildren) => {
       >
         <Toolbar />
         {children}
+
+        <Footer />
       </Box>
     </Stack>
   );
