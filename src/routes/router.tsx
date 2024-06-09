@@ -58,6 +58,6 @@ export const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes, { basename: '/car-dashboard-ui-design' });
+const router = createBrowserRouter(routes, { basename: '/motiv' });
 
 export default router;
