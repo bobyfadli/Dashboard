@@ -46,7 +46,6 @@ const MainLayout = ({ children }: PropsWithChildren) => {
       >
         <Toolbar />
         {children}
-
         <Footer />
       </Box>
     </Stack>

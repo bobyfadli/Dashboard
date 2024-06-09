@@ -10,6 +10,9 @@ const Footer = () => {
       by{' '}
       <Link
         href="https://themewagon.com/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Explore ThemeWagon Website"
         sx={{ color: 'neutral.dark', '&:hover': { color: 'secondary.main' } }}
       >
         ThemeWagon
