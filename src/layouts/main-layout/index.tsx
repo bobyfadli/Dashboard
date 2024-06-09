@@ -25,7 +25,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <Stack flexDirection="row">
+    <Stack direction="row">
       <TopBar drawerWidth={drawerWidth} onHandleDrawerToggle={handleDrawerToggle} />
 
       <VerticalNavbar

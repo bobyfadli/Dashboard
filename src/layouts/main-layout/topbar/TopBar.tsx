@@ -34,7 +34,7 @@ const TopBar = ({ drawerWidth, onHandleDrawerToggle }: TopBarProps) => {
             sx={{ display: { md: 'none' } }}
           >
             <Link href={rootPaths.root}>
-              <IconButton color="inherit">
+              <IconButton color="inherit" aria-label="logo">
                 <Logo sx={{ fontSize: 27 }} />
               </IconButton>
             </Link>
