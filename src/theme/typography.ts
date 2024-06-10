@@ -1,6 +1,5 @@
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
-// lineHeight:  line-height/font-size
 const typography: TypographyOptions = {
   fontFamily: ['DM Sans', 'Inter', 'sans-serif'].join(','),
 

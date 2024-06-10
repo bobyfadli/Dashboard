@@ -47,7 +47,7 @@ const Login = () => {
         </Typography>
       </Typography>
 
-      <Stack gap={1.75} mb={3} sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
+      <Stack gap={1.75} mb={3} direction={{ xs: 'column', sm: 'row' }}>
         <Button
           variant="outlined"
           size="large"

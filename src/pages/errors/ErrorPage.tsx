@@ -1,10 +1,12 @@
-import { Button, Link, Stack, Typography } from '@mui/material';
+import { Button, Link, Stack } from '@mui/material';
+import Image from 'components/base/Image';
+import errorImg from '../../assets/404.svg';
 
 const ErrorPage = () => {
   return (
     <Stack alignItems="center" justifyContent="center" spacing={3} sx={{ height: '100vh' }}>
-      <Typography variant="h1">404 Page</Typography>
-      <Button variant="outlined" component={Link} href="/">
+      <Image src={errorImg} sx={{ width: 1 / 2, height: 1 / 2 }} />
+      <Button variant="contained" component={Link} href="/">
         Go To Dashboard
       </Button>
     </Stack>
