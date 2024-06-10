@@ -88,6 +88,7 @@ export const drawerItems: DrawerItem[] = [
     icon: Settings,
     title: 'Settings',
     path: '#!',
+    active: true,
     collapsible: false,
   },
   {
@@ -95,6 +96,7 @@ export const drawerItems: DrawerItem[] = [
     icon: SignOut,
     title: 'Log out',
     path: '#!',
+    active: true,
     collapsible: false,
   },
 ];

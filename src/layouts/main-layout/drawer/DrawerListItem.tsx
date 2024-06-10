@@ -22,7 +22,8 @@ const DrawerListItem = ({ item }: { item: DrawerItem }) => {
         flexDirection: 'column',
         alignItems: 'stretch',
         mb: 1.25,
-        opacity: active ? 1 : 0.7,
+        opacity: active ? 1 : 0.5,
+        width: 174,
       }}
     >
       <ListItemButton
@@ -32,7 +33,7 @@ const DrawerListItem = ({ item }: { item: DrawerItem }) => {
         href={path}
       >
         <ListItemIcon sx={{ mr: 1 }}>
-          <Icon fontSize="small" />
+          <Icon fontSize="small" sx={{ color: 'grey.600' }} />
         </ListItemIcon>
         <ListItemText primary={title} />
         {collapsible && <IconifyIcon icon={open ? 'ep:arrow-up' : 'ep:arrow-down'} />}

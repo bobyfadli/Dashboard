@@ -19,9 +19,9 @@ const CollapsedItems = ({ subItems, open }: CollapsedItemProps) => {
             selected={location.pathname === subItem.path}
             component={subItem.path ? Link : 'div'}
             href={subItem.path}
-            sx={[subItem.active ? { opacity: 1 } : { opacity: 0.7 }, { pl: 4, mt: 0.5 }]}
+            sx={{ opacity: subItem.active ? 1 : 0.5, pl: 4, mt: 0.5 }}
           >
-            <ListItemText primary={subItem?.title} />
+            <ListItemText primary={subItem.title} />
           </ListItemButton>
         ))}
       </List>

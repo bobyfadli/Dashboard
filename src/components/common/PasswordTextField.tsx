@@ -18,7 +18,7 @@ const PasswordTextField = forwardRef<HTMLDivElement, TextFieldProps>((props, ref
         endAdornment: (
           <InputAdornment position="end">
             <IconButton onClick={handlePasswordVisibility}>
-              {isPasswordVisible ? <View /> : <EyeClosed />}
+              {isPasswordVisible ? <EyeClosed /> : <View />}
             </IconButton>
           </InputAdornment>
         ),
