@@ -1,4 +1,4 @@
-# Motiv. Car Dashboard
+# Motiv.
 
 ### Quick Start
 
