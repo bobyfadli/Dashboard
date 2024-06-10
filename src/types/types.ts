@@ -4,14 +4,14 @@ interface Item {
   id: number;
   icon: (props: SvgIconProps) => JSX.Element;
   title: string;
-  href?: string;
+  path?: string;
   active?: boolean;
 }
 
 export interface SubItem {
   id: number;
   title: string;
-  href: string;
+  path?: string;
   active?: boolean;
 }
 

@@ -1,21 +1,10 @@
 import { Link, List, Stack, Toolbar, Typography } from '@mui/material';
-import DrawerListItems from './DrawerListItems';
 import { drawerItems } from 'data/drawerItems';
-import { useState } from 'react';
 import Logo from 'components/icons/common/Logo';
 import { rootPaths } from 'routes/paths';
+import DrawerListItem from './DrawerListItem';
 
 const DrawerList = () => {
-  const [selectedItemId, setSelectedItemId] = useState(1);
-  const [open, setOpen] = useState(false);
-
-  const handleListItem = (id: number, collapsible: boolean) => {
-    setSelectedItemId(id);
-    if (collapsible) {
-      setOpen(!open);
-    }
-  };
-
   return (
     <div>
       <Toolbar disableGutters>
@@ -42,21 +31,15 @@ const DrawerList = () => {
         })}
       >
         <List sx={{ pt: 0 }}>
-          <DrawerListItems
-            drawerItems={drawerItems.slice(0, -2)}
-            selectedItemId={selectedItemId}
-            onHandleListItem={handleListItem}
-            open={open}
-          />
+          {drawerItems.slice(0, -2).map((drawerItem) => (
+            <DrawerListItem key={drawerItem.id} item={drawerItem} />
+          ))}
         </List>
 
         <List>
-          <DrawerListItems
-            drawerItems={drawerItems.slice(-2)}
-            selectedItemId={selectedItemId}
-            onHandleListItem={handleListItem}
-            open={open}
-          />
+          {drawerItems.slice(-2).map((drawerItem) => (
+            <DrawerListItem key={drawerItem.id} item={drawerItem} />
+          ))}
         </List>
       </Stack>
     </div>
